@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الفيزياء | الأستاذ خالد مقدادي</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #f5c542;
+      --neon-gold: #ffdf00;
+      --electric-purple: #9d4edd;
+      --bg-dark: #05020a;
+      --card-bg: rgba(15, 5, 25, 0.7);
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: "Cairo", sans-serif;
+      background: var(--bg-dark);
+      color: #fff;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* تأثير الشبكة الكهرومغناطيسية المتحركة (3D Grid) */
+    .cyber-grid {
+      position: fixed;
+      top: 50%; left: 50%;
+      width: 200vw; height: 200vh;
+      transform: translate(-50%, -50%) perspective(600px) rotateX(60deg);
+      background-image: 
+        linear-gradient(rgba(157, 78, 221, 0.3) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(157, 78, 221, 0.3) 2px, transparent 2px);
+      background-size: 50px 50px;
+      animation: gridMove 5s linear infinite;
+      z-index: -2;
+      mask-image: radial-gradient(circle at center, white 10%, transparent 70%);
+      -webkit-mask-image: radial-gradient(circle at center, white 10%, transparent 70%);
+    }
+    
+    @keyframes gridMove {
+      0% { transform: translate(-50%, -50%) perspective(600px) rotateX(60deg) translateY(0); }
+      100% { transform: translate(-50%, -50%) perspective(600px) rotateX(60deg) translateY(50px); }
+    }
+
+    /* إضاءة محيطية (Ambient Light) */
+    .ambient-light {
+      position: fixed; top: 0; left: 50%; transform: translateX(-50%);
+      width: 80vw; height: 50vh;
+      background: radial-gradient(ellipse at top, rgba(245, 197, 66, 0.15), transparent 70%);
+      z-index: -1; pointer-events: none;
+    }
+
+    /* الهيدر */
+    header {
+      padding: 15px 5%;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(5, 2, 10, 0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(245, 197, 66, 0.3);
+      position: sticky; top: 0; z-index: 1000;
+      box-shadow: 0 5px 20px rgba(157, 78, 221, 0.2);
+    }
+    .brand { font-weight: 900; font-size: clamp(18px, 4vw, 24px); color: var(--gold); text-shadow: 0 0 15px var(--gold); letter-spacing: 1px;}
+    .back-btn {
+      padding: 8px 16px; border-radius: 4px; font-weight: 700; font-size: clamp(12px, 3vw, 14px);
+      background: transparent; color: var(--gold); text-decoration: none;
+      border: 1px solid var(--gold);
+      box-shadow: 0 0 10px rgba(245, 197, 66, 0.2), inset 0 0 10px rgba(245, 197, 66, 0.1);
+      transition: 0.3s; text-transform: uppercase;
+    }
+    .back-btn:hover { background: var(--gold); color: #000; box-shadow: 0 0 20px var(--gold); }
+
+    /* عنوان الصفحة بتأثير النيون */
+    .page-header { text-align: center; padding: 50px 20px 30px; position: relative; }
+    .page-header h1 { 
+      font-size: clamp(30px, 8vw, 45px); 
+      color: #fff; 
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px var(--electric-purple), 0 0 20px var(--electric-purple), 0 0 40px var(--electric-purple);
+      font-weight: 900;
+    }
+    .page-header p { color: #d1b3ff; font-size: clamp(15px, 4vw, 18px); max-width: 600px; margin: 0 auto; line-height: 1.6;}
+
+    /* شبكة الأزرار (البطاقات) */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 20px 5% 50px;
+      max-width: 1200px;
+      margin: 0 auto;
+      flex: 1;
+    }
+
+    /* تصميم البطاقة السايبربانك */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid rgba(157, 78, 221, 0.4);
+      padding: 30px 20px;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border-radius: 12px;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%); /* قص الزاوية */
+    }
+    
+    /* تأثير الخط المتحرك حول البطاقة */
+    .card::before {
+      content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--neon-gold));
+      transition: 0.5s;
+    }
+    .card:hover::before { left: 100%; }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.02);
+      border-color: var(--neon-gold);
+      box-shadow: 0 10px 30px rgba(245, 197, 66, 0.2), inset 0 0 20px rgba(157, 78, 221, 0.3);
+      background: rgba(20, 5, 35, 0.9);
+    }
+    
+    .card .icon { 
+      font-size: 50px; margin-bottom: 15px; display: inline-block; transition: 0.4s; 
+      filter: drop-shadow(0 0 10px var(--gold));
+    }
+    .card:hover .icon { transform: scale(1.2) rotateY(180deg); filter: drop-shadow(0 0 20px var(--neon-gold)); }
+    
+    .card h3 { font-size: 22px; margin-bottom: 10px; font-weight: 800; color: var(--gold); }
+    .card p { font-size: 14px; color: #b39ddb; line-height: 1.5; }
+
+    /* تخصيص ألوان بعض البطاقات */
+    .card.buy { border-top: 3px solid var(--neon-gold); }
+    .card.whatsapp { border-top: 3px solid #25D366; }
+    .card.whatsapp h3 { color: #25D366; filter: drop-shadow(0 0 5px #25D366);}
+    
+    /* بطاقة الامتحانات المغلقة */
+    .card.locked { opacity: 0.5; border-style: dashed; border-color: #555; clip-path: none; border-radius: 12px; }
+    .card.locked:hover { transform: none; box-shadow: none; cursor: not-allowed; background: var(--card-bg); }
+    .card.locked h3 { color: #888; }
+    .card.locked .icon { filter: grayscale(1); }
+
+    /* نافذة الفيديو (Modal) - بأسلوب شاشة تحكم */
+    .modal {
+      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.95); z-index: 2000; justify-content: center; align-items: center;
+      opacity: 0; transition: opacity 0.4s;
+    }
+    .modal.active { display: flex; opacity: 1; }
+    .modal-content {
+      position: relative; width: 90%; max-width: 800px;
+      background: #000; padding: 5px;
+      border: 2px solid var(--electric-purple);
+      box-shadow: 0 0 30px var(--electric-purple), inset 0 0 20px var(--electric-purple);
+      clip-path: polygon(0 15px, 15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
+    }
+    .modal-content iframe { width: 100%; height: 450px; display: block; border: none; }
+    .close-modal {
+      position: absolute; top: -40px; right: 0;
+      color: var(--neon-gold); font-size: 35px; cursor: pointer;
+      background: none; border: none; font-weight: bold; text-shadow: 0 0 10px var(--neon-gold);
+    }
+    .close-modal:hover { color: #fff; transform: scale(1.1); }
+
+    footer { text-align: center; padding: 20px; color: rgba(255,255,255,0.3); font-size: 14px; margin-top: auto; border-top: 1px solid rgba(157, 78, 221, 0.2); }
+
+    @media (max-width: 768px) {
+      .modal-content iframe { height: 250px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- تأثيرات الخلفية -->
+  <div class="cyber-grid"></div>
+  <div class="ambient-light"></div>
+
+  <header>
+    <div class="brand">الفيزياء ⚡</div>
+    <a href="index.html" class="back-btn">رجوع ↩</a>
+  </header>
+
+  <div class="page-header">
+    <h1>مادة <span>الفيزياء</span></h1>
+    <p>أهلًا وسهلًا فيك يارب أشوفك أجدع مهندس طريقنا للفل مارك بلّش .</p>
+  </div>
+
+  <div class="grid-container">
+    
+    <!-- زر شراء البطاقة -->
+    <a href="https://wa.me/962792004566" target="_blank" class="card buy">
+      <div class="icon">💳</div>
+      <h3>شراء البطاقة</h3>
+      <p>اطلب بطاقتك الآن لتفعيل دورتك الشاملة واستلام الكود الخاص بك.</p>
+    </a>
+
+    <!-- زر خطة المادة (يفتح نافذة الفيديو) -->
+    <div class="card" onclick="openModal()">
+      <div class="icon">🎯</div>
+      <h3>خطة المادة والمواعيد</h3>
+      <p>شاهد الاستراتيجية التي سنتبعها ومواعيد نزول الحصص الأسبوعية.</p>
+    </div>
+
+    <!-- زر التأسيس -->
+    <a href="https://www.youtube.com/watch?v=gX_L4WW9euc&list=PL6ogumG5qc9vcTdaWPieMqk7_gGj6nSzQ&pp=sAgC" target="_blank" class="card">
+      <div class="icon">🧱</div>
+      <h3>حصص التأسيس</h3>
+      <p>حجر الأساس. ابدأ من هنا لتبني قاعدة قوية في مفاهيم الفيزياء قبل المنهج.</p>
+    </a>
+
+    <!-- زر الحصص المجانية -->
+    <a href="https://www.youtube.com/watch?v=PTQ90ilAbTw&list=PLcME8YDKW44Y&pp=sAgC" target="_blank" class="card">
+      <div class="icon">🔓</div>
+      <h3>حصص مجانية</h3>
+      <p>شاهد أسلوب الشرح واستفد من الحصص المفتوحة المتاحة للجميع.</p>
+    </a>
+
+    <!-- زر جروب الواتساب -->
+    <a href="https://chat.whatsapp.com/DP8LsCG4S3IF7XsnyKPsLn" target="_blank" class="card whatsapp">
+      <div class="icon">💬</div>
+      <h3>جروب الواتساب</h3>
+      <p>انضم لزملائك لمناقشة الأسئلة ومتابعة كل جديد يخص المادة.</p>
+    </a>
+
+    <!-- زر الملفات (مفتوح لأنك ستضيفين عليه) -->
+    <!-- يمكنك لاحقاً ربطه بصفحة physics-files.html كما فعلنا في علوم الأرض -->
+    <a href="physics-files.html" class="card">
+      <div class="icon">📂</div>
+      <h3>بنك الملفات</h3>
+      <p>الملفات الورقية و أوراق العمل</p>
+    </a>
+
+    <!-- زر الامتحانات (مغلق حالياً) -->
+    <div class="card locked">
+      <div class="icon">📝</div>
+      <h3>الامتحانات المحوسبة</h3>
+      <p>سيتم تفعيل منصة الاختبارات قريباً</p>
+    </div>
+
+  </div>
+
+  <!-- نافذة عرض فيديو الخطة -->
+  <div class="modal" id="videoModal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeModal()">✖</button>
+      <iframe id="ytVideo" width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <footer>
+    © <span id="year"></span> جميع الحقوق محفوظة — الأستاذ خالد مقدادي
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // برمجة النافذة المنبثقة للفيديو
+    const modal = document.getElementById('videoModal');
+    const ytVideo = document.getElementById('ytVideo');
+    const videoSrc = "https://www.youtube.com/embed/PTQ90ilAbTw?si=LJ7cNq8B4_v63MON";
+
+    function openModal() {
+      modal.classList.add('active');
+      ytVideo.src = videoSrc; 
+    }
+
+    function closeModal() {
+      modal.classList.remove('active');
+      ytVideo.src = ""; 
+    }
+
+    // إغلاق النافذة عند الضغط خارجها
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        closeModal();
+      }
+    }
+  </script>
+</body>
+</html>

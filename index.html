@@ -1,0 +1,1153 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="الحقيبة الإلكترونية لتوجيهي 2009 في علوم الأرض والفيزياء مع الأستاذ خالد مقدادي.">
+  <meta name="theme-color" content="#050813">
+  <title>الأستاذ خالد مقدادي | توجيهي 2009</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #050813;
+      --surface: rgba(9, 15, 34, 0.72);
+      --text: #f8fafc;
+      --muted: #abb5c8;
+      --gold: #ffd45a;
+      --gold-2: #ffad2f;
+      --pink: #ff4fa3;
+      --earth: #2ce5c6;
+      --earth-2: #009ed8;
+      --physics: #78b7ff;
+      --physics-2: #795cff;
+      --whatsapp: #25d366;
+      --line: rgba(255, 255, 255, 0.11);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-family: "Cairo", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 14% 18%, rgba(121, 92, 255, 0.2), transparent 30%),
+        radial-gradient(circle at 86% 25%, rgba(44, 229, 198, 0.14), transparent 28%),
+        radial-gradient(circle at 50% 92%, rgba(255, 79, 163, 0.1), transparent 34%),
+        linear-gradient(145deg, #03050d, #081027 48%, #040711);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.38;
+      background-image:
+        radial-gradient(circle, #fff 0.8px, transparent 1.2px),
+        radial-gradient(circle, rgba(44, 229, 198, 0.9) 0.8px, transparent 1.3px),
+        radial-gradient(circle, rgba(255, 212, 90, 0.8) 0.7px, transparent 1.2px);
+      background-size: 125px 125px, 205px 205px, 285px 285px;
+      background-position: 0 0, 55px 80px, 130px 35px;
+      animation: star-drift 28s linear infinite;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button,
+    a {
+      font: inherit;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 9px;
+      right: 9px;
+      z-index: 9999;
+      padding: 9px 14px;
+      border-radius: 10px;
+      color: #111;
+      background: var(--gold);
+      transform: translateY(-160%);
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.075);
+      background: rgba(4, 7, 17, 0.7);
+      backdrop-filter: blur(16px);
+    }
+
+    .header-inner {
+      width: min(1200px, calc(100% - 32px));
+      min-height: 68px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 1.05rem;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .social {
+      display: flex;
+      gap: 9px;
+    }
+
+    .social a {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: #f4f7ff;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.055);
+      transition: 0.24s ease;
+    }
+
+    .social a:hover {
+      color: #111;
+      border-color: transparent;
+      background: var(--gold);
+      transform: translateY(-3px) scale(1.06);
+      box-shadow: 0 10px 26px rgba(255, 212, 90, 0.24);
+    }
+
+    .social svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    main {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero {
+      width: min(1000px, calc(100% - 30px));
+      min-height: calc(100vh - 112px);
+      margin: auto;
+      padding: 48px 0 46px;
+      display: grid;
+      align-items: center;
+    }
+
+    .portal-layout {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-areas:
+        "center center"
+        "physics earth";
+      align-items: center;
+      gap: 24px;
+      direction: ltr;
+      perspective: 1400px;
+    }
+
+    .portal,
+    .center-panel {
+      direction: rtl;
+    }
+
+    .earth-portal { grid-area: earth; }
+    .center-panel { grid-area: center; }
+    .physics-portal { grid-area: physics; }
+
+    .portal {
+      position: relative;
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      text-decoration: none;
+      background:
+        radial-gradient(circle at 50% 38%, rgba(var(--glow-rgb), 0.19), transparent 42%),
+        linear-gradient(150deg, rgba(14, 23, 48, 0.82), rgba(5, 9, 22, 0.82));
+      box-shadow: 0 28px 75px rgba(0, 0, 0, 0.42);
+      transform-style: preserve-3d;
+      transition: border-color 0.28s ease, box-shadow 0.28s ease, transform 0.18s ease-out;
+      isolation: isolate;
+    }
+
+    .earth-portal {
+      --accent: var(--earth);
+      --accent-2: var(--earth-2);
+      --glow-rgb: 44, 229, 198;
+    }
+
+    .physics-portal {
+      --accent: var(--physics);
+      --accent-2: var(--physics-2);
+      --glow-rgb: 121, 92, 255;
+    }
+
+    .portal::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      z-index: -1;
+      border-radius: inherit;
+      opacity: 0;
+      background: linear-gradient(135deg, transparent, rgba(var(--glow-rgb), 0.55), transparent);
+      transition: opacity 0.28s ease;
+    }
+
+    .portal:hover {
+      border-color: rgba(var(--glow-rgb), 0.54);
+      box-shadow: 0 34px 90px rgba(0, 0, 0, 0.55), 0 0 48px rgba(var(--glow-rgb), 0.13);
+    }
+
+    .portal:hover::before {
+      opacity: 1;
+    }
+
+    .portal-visual {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1.08 / 1;
+      min-height: 245px;
+      overflow: hidden;
+    }
+
+    .portal canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      display: block;
+      pointer-events: none;
+    }
+
+    .static-symbol {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      font-size: clamp(5rem, 9vw, 8rem);
+      filter: drop-shadow(0 0 28px rgba(var(--glow-rgb), 0.4));
+      transition: opacity 0.25s ease;
+    }
+
+    .portal.webgl-ready .static-symbol {
+      opacity: 0;
+    }
+
+    .orbit-line {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 3;
+      width: 74%;
+      aspect-ratio: 1;
+      border: 1px dashed rgba(var(--glow-rgb), 0.34);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%) rotateX(66deg);
+      animation: orbit-spin 11s linear infinite;
+    }
+
+    .portal-copy {
+      position: relative;
+      z-index: 5;
+      margin: -18px 16px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      padding: 17px 18px;
+      text-align: center;
+      background: rgba(6, 11, 27, 0.8);
+      box-shadow: 0 15px 38px rgba(0, 0, 0, 0.32);
+      backdrop-filter: blur(16px);
+      transform: translateZ(34px);
+    }
+
+    .portal-kicker {
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      direction: ltr;
+    }
+
+    .portal h2 {
+      margin-top: 4px;
+      font-size: clamp(1.35rem, 2.4vw, 2rem);
+      line-height: 1.3;
+    }
+
+    .center-panel {
+      position: relative;
+      z-index: 5;
+      width: min(720px, 100%);
+      min-width: 0;
+      margin: 0 auto 14px;
+      padding: 14px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .teacher-frame {
+      position: relative;
+      width: 176px;
+      height: 176px;
+      margin-bottom: 22px;
+      display: grid;
+      place-items: center;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .teacher-frame::before,
+    .teacher-frame::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .teacher-frame::before {
+      inset: -10px;
+      border: 1px dashed rgba(44, 229, 198, 0.48);
+      animation: spin 15s linear infinite;
+    }
+
+    .teacher-frame::after {
+      inset: -23px;
+      border-top: 2px solid var(--gold);
+      border-right: 2px solid transparent;
+      border-bottom: 2px solid var(--pink);
+      border-left: 2px solid transparent;
+      filter: drop-shadow(0 0 9px rgba(255, 212, 90, 0.35));
+      animation: spin-reverse 10s linear infinite;
+    }
+
+    .teacher-photo {
+      position: relative;
+      z-index: 2;
+      width: 160px;
+      height: 160px;
+      overflow: hidden;
+      border: 4px solid var(--gold);
+      border-radius: 50%;
+      background: radial-gradient(circle at top, #26355d, #0b1228 72%);
+      box-shadow: 0 22px 56px rgba(0, 0, 0, 0.48), 0 0 30px rgba(255, 212, 90, 0.2);
+    }
+
+    .teacher-photo img {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .teacher-photo.missing img {
+      display: none;
+    }
+
+    .teacher-fallback {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      font-size: 1.35rem;
+      font-weight: 900;
+      direction: ltr;
+    }
+
+    .batch-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      padding: 7px 13px;
+      border: 1px solid rgba(255, 212, 90, 0.3);
+      border-radius: 999px;
+      color: #ffe58a;
+      background: rgba(255, 212, 90, 0.07);
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+
+    .batch-badge::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 12px var(--gold);
+    }
+
+    .center-panel h1 {
+      max-width: 680px;
+      color: var(--gold);
+      font-size: clamp(1.85rem, 4vw, 3rem);
+      line-height: 1.3;
+      font-weight: 900;
+      text-shadow: 0 0 20px rgba(255, 212, 90, 0.16);
+    }
+
+    .tagline {
+      max-width: 620px;
+      margin-top: 8px;
+      color: #fff;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 700;
+    }
+
+    .instruction {
+      margin-top: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 8px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      color: #dbe5f6;
+      background: linear-gradient(90deg, rgba(44, 229, 198, 0.09), rgba(121, 92, 255, 0.12));
+      box-shadow: inset 0 0 24px rgba(255, 255, 255, 0.025);
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+
+    footer {
+      position: relative;
+      z-index: 2;
+      border-top: 1px solid rgba(255, 255, 255, 0.065);
+      padding: 16px;
+      text-align: center;
+      color: #7f899c;
+      background: rgba(3, 5, 12, 0.6);
+      font-size: 0.75rem;
+    }
+
+    .page-transition {
+      position: fixed;
+      inset: 0;
+      z-index: 5000;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: radial-gradient(circle, rgba(44, 229, 198, 0.98), #080d22 38%, #02040a 72%);
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(1.25);
+      transition: opacity 0.35s ease, transform 0.48s ease;
+      font-size: 1.05rem;
+      font-weight: 900;
+    }
+
+    .page-transition.physics {
+      background: radial-gradient(circle, rgba(121, 92, 255, 0.98), #080d22 38%, #02040a 72%);
+    }
+
+    .page-transition.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1);
+    }
+
+    @keyframes star-drift {
+      to { background-position: 125px 125px, -150px 285px, 415px -250px; }
+    }
+
+    @keyframes orbit-spin {
+      to { transform: translate(-50%, -50%) rotateX(66deg) rotateZ(360deg); }
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes spin-reverse {
+      to { transform: rotate(-360deg); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-9px); }
+    }
+
+    @media (max-width: 980px) {
+      .hero {
+        padding-top: 46px;
+      }
+
+      .center-panel {
+        padding-bottom: 16px;
+      }
+
+      .portal-visual {
+        min-height: 225px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .header-inner {
+        width: min(100% - 22px, 1200px);
+        min-height: 62px;
+      }
+
+      .brand {
+        font-size: 0.84rem;
+        white-space: normal;
+        line-height: 1.35;
+      }
+
+      .social {
+        gap: 6px;
+      }
+
+      .social a {
+        width: 33px;
+        height: 33px;
+      }
+
+      .social svg {
+        width: 17px;
+        height: 17px;
+      }
+
+      .hero {
+        width: min(100% - 22px, 1240px);
+        padding: 36px 0 34px;
+      }
+
+      .portal-layout {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "center"
+          "earth"
+          "physics";
+      }
+
+      .teacher-frame {
+        width: 158px;
+        height: 158px;
+      }
+
+      .teacher-photo {
+        width: 144px;
+        height: 144px;
+      }
+
+      .center-panel h1 {
+        font-size: clamp(1.75rem, 8vw, 2.25rem);
+      }
+
+      .portal {
+        width: min(100%, 430px);
+        margin: auto;
+      }
+
+      .portal-visual {
+        aspect-ratio: 1.45 / 1;
+        min-height: 220px;
+      }
+
+      .portal-copy {
+        margin-top: -26px;
+      }
+    }
+
+    @media (max-width: 410px) {
+      .header-inner {
+        min-height: auto;
+        padding: 10px 0;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .brand {
+        width: 100%;
+        max-width: none;
+        text-align: center;
+        font-size: 0.82rem;
+      }
+
+      .social a {
+        width: 34px;
+        height: 34px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">انتقل إلى المحتوى</a>
+
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="index.html">الأستاذ خالد مقدادي</a>
+
+      <div class="social" aria-label="حسابات التواصل الاجتماعي">
+        <a href="https://wa.me/962799457455" target="_blank" rel="noopener noreferrer" aria-label="واتساب">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a9.7 9.7 0 0 0-8.35 14.64L2 22l5.5-1.58A9.8 9.8 0 1 0 12 2Zm0 17.7a7.68 7.68 0 0 1-3.92-1.07l-.28-.17-3.27.94.97-3.18-.18-.3A7.7 7.7 0 1 1 12 19.7Zm4.22-5.76c-.23-.12-1.37-.68-1.58-.75-.21-.08-.37-.12-.52.11-.15.23-.6.75-.73.9-.14.16-.27.18-.5.06-.23-.12-.98-.36-1.86-1.15-.69-.61-1.15-1.37-1.29-1.6-.13-.23-.01-.35.1-.47l.35-.4c.12-.13.16-.23.24-.39.07-.15.04-.29-.02-.4-.06-.12-.52-1.26-.72-1.73-.19-.46-.38-.4-.52-.4h-.44c-.16 0-.41.06-.62.29-.21.23-.81.79-.81 1.94 0 1.14.83 2.25.95 2.4.11.15 1.64 2.5 3.97 3.5.55.24.99.38 1.32.49.56.18 1.07.15 1.47.09.45-.07 1.37-.56 1.57-1.1.19-.54.19-1.01.13-1.1-.06-.1-.21-.16-.44-.28Z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=100067791346419" target="_blank" rel="noopener noreferrer" aria-label="فيسبوك">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.6 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.3-1.5 1.6-1.5h1.7V4.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.4V14h2.8v8h3.4Z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/khaled_migdadi" target="_blank" rel="noopener noreferrer" aria-label="إنستغرام">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://youtube.com/@khaled_migdadi" target="_blank" rel="noopener noreferrer" aria-label="يوتيوب">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.5 7.1a2.8 2.8 0 0 0-2-2C18.8 4.6 12 4.6 12 4.6s-6.8 0-8.5.5a2.8 2.8 0 0 0-2 2A29.3 29.3 0 0 0 1 12a29.3 29.3 0 0 0 .5 4.9 2.8 2.8 0 0 0 2 2c1.7.5 8.5.5 8.5.5s6.8 0 8.5-.5a2.8 2.8 0 0 0 2-2A29.3 29.3 0 0 0 23 12a29.3 29.3 0 0 0-.5-4.9ZM9.8 15.4V8.6l5.9 3.4-5.9 3.4Z"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="hero">
+    <div class="portal-layout">
+      <a class="portal earth-portal" href="GEO.html" data-transition="earth" aria-label="الدخول إلى حقيبة علوم الأرض GEO CODE">
+        <div class="portal-visual">
+          <span class="static-symbol" aria-hidden="true">🌍</span>
+          <canvas id="earth-canvas" aria-hidden="true"></canvas>
+          <span class="orbit-line" aria-hidden="true"></span>
+        </div>
+        <div class="portal-copy">
+          <div class="portal-kicker">GEO CODE</div>
+          <h2>علوم الأرض</h2>
+        </div>
+      </a>
+
+      <section class="center-panel" aria-labelledby="teacher-name">
+        <div class="teacher-frame">
+          <div class="teacher-photo">
+            <span class="teacher-fallback">KM</span>
+            <img src="image/teacher.jpg" alt="صورة الأستاذ خالد مقدادي" onerror="this.parentElement.classList.add('missing')">
+          </div>
+        </div>
+
+        <div class="batch-badge">توجيهي 2009</div>
+        <h1 id="teacher-name">أهلًا وسهلًا في موقع الأستاذ خالد مقدادي</h1>
+        <p class="tagline">اختار مادتك وابدأ رحلتك للفل مارك</p>
+        <p class="instruction">علوم الأرض أم الفيزياء؟ اختر مادتك من الأسفل</p>
+      </section>
+
+      <a class="portal physics-portal" href="physics.html" data-transition="physics" aria-label="الدخول إلى حقيبة الفيزياء DYNAMO">
+        <div class="portal-visual">
+          <span class="static-symbol" aria-hidden="true">⚡</span>
+          <canvas id="physics-canvas" aria-hidden="true"></canvas>
+          <span class="orbit-line" aria-hidden="true"></span>
+        </div>
+        <div class="portal-copy">
+          <div class="portal-kicker">DYNAMO</div>
+          <h2>الفيزياء</h2>
+        </div>
+      </a>
+    </div>
+  </main>
+
+  <footer>© <span id="year"></span> جميع الحقوق محفوظة — الأستاذ خالد مقدادي</footer>
+  <div class="page-transition" id="page-transition" aria-hidden="true">جاري فتح المادة…</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const precisePointer = window.matchMedia("(pointer: fine)").matches;
+    const lowPowerDevice = window.matchMedia("(max-width: 620px)").matches ||
+      (typeof navigator.deviceMemory === "number" && navigator.deviceMemory <= 4);
+
+    function supportsWebGL() {
+      try {
+        const testCanvas = document.createElement("canvas");
+        return Boolean(
+          window.WebGLRenderingContext &&
+          (testCanvas.getContext("webgl") || testCanvas.getContext("experimental-webgl"))
+        );
+      } catch (error) {
+        return false;
+      }
+    }
+
+    function fitRenderer(renderer, camera, canvas) {
+      const width = canvas.clientWidth;
+      const height = canvas.clientHeight;
+      if (!width || !height) return;
+      renderer.setSize(width, height, false);
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+    }
+
+    function observeRenderer(renderer, camera, canvas) {
+      const resize = () => fitRenderer(renderer, camera, canvas);
+      resize();
+
+      if ("ResizeObserver" in window) {
+        const observer = new ResizeObserver(resize);
+        observer.observe(canvas);
+      } else {
+        window.addEventListener("resize", resize, { passive: true });
+      }
+    }
+
+    function startManagedLoop(canvas, draw) {
+      if (reduceMotion) {
+        draw();
+        return;
+      }
+
+      let isVisible = true;
+      let frameId = 0;
+
+      const start = () => {
+        if (!frameId && isVisible && !document.hidden) {
+          frameId = requestAnimationFrame(loop);
+        }
+      };
+
+      const loop = () => {
+        frameId = 0;
+        if (!isVisible || document.hidden) return;
+        draw();
+        frameId = requestAnimationFrame(loop);
+      };
+
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver((entries) => {
+          isVisible = entries[0]?.isIntersecting ?? true;
+          start();
+        }, { threshold: 0.02 });
+        observer.observe(canvas);
+      }
+
+      document.addEventListener("visibilitychange", start);
+      start();
+    }
+
+    function createPortalRenderer(canvas) {
+      const renderer = new THREE.WebGLRenderer({
+        canvas,
+        alpha: true,
+        antialias: !lowPowerDevice,
+        powerPreference: "default"
+      });
+      const pixelRatioLimit = lowPowerDevice ? 1.2 : 1.5;
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, pixelRatioLimit));
+      renderer.outputEncoding = THREE.sRGBEncoding;
+      return renderer;
+    }
+
+    function addStarCloud(scene, color, count) {
+      const positions = new Float32Array(count * 3);
+      for (let i = 0; i < count; i++) {
+        const radius = 1.7 + Math.random() * 1.6;
+        const theta = Math.random() * Math.PI * 2;
+        const phi = Math.acos(2 * Math.random() - 1);
+        positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
+        positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
+        positions[i * 3 + 2] = radius * Math.cos(phi);
+      }
+      const geometry = new THREE.BufferGeometry();
+      geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+      const material = new THREE.PointsMaterial({ color, size: 0.025, transparent: true, opacity: 0.8 });
+      const points = new THREE.Points(geometry, material);
+      scene.add(points);
+      return points;
+    }
+
+    function startEarthPortal() {
+      const canvas = document.getElementById("earth-canvas");
+      const portal = canvas.closest(".portal");
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
+      camera.position.set(0, 0.05, 3.65);
+      const renderer = createPortalRenderer(canvas);
+
+      scene.add(new THREE.AmbientLight(0xbfe9ff, 1.35));
+      const keyLight = new THREE.DirectionalLight(0xffffff, 2.45);
+      keyLight.position.set(3, 2, 4);
+      scene.add(keyLight);
+      const rimLight = new THREE.PointLight(0x00d9ff, 4.2, 8);
+      rimLight.position.set(-2.5, -1, 2);
+      scene.add(rimLight);
+      const landLight = new THREE.PointLight(0x49ff9b, 3.4, 7);
+      landLight.position.set(2.2, 0.8, 1.5);
+      scene.add(landLight);
+
+      const earthGroup = new THREE.Group();
+      scene.add(earthGroup);
+      const earthSegments = lowPowerDevice ? 40 : 64;
+      const atmosphereSegments = lowPowerDevice ? 32 : 48;
+
+      const earthMaterial = new THREE.MeshStandardMaterial({
+        color: 0x1e86d7,
+        emissive: 0x06386f,
+        emissiveIntensity: 0.22,
+        roughness: 0.62,
+        metalness: 0.02
+      });
+      const earth = new THREE.Mesh(new THREE.SphereGeometry(1, earthSegments, earthSegments), earthMaterial);
+      earth.rotation.z = -0.15;
+      earthGroup.add(earth);
+
+      const colorLayerMaterial = new THREE.MeshBasicMaterial({
+        color: 0x8eeeff,
+        transparent: true,
+        opacity: 0.16,
+        blending: THREE.AdditiveBlending,
+        depthWrite: false
+      });
+      const colorLayer = new THREE.Mesh(new THREE.SphereGeometry(1.006, earthSegments, earthSegments), colorLayerMaterial);
+      colorLayer.rotation.z = -0.15;
+      earthGroup.add(colorLayer);
+
+      const loader = new THREE.TextureLoader();
+      loader.setCrossOrigin("anonymous");
+      loader.load(
+        "https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg",
+        (texture) => {
+          texture.encoding = THREE.sRGBEncoding;
+          texture.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());
+          earthMaterial.color.setHex(0xffffff);
+          earthMaterial.map = texture;
+          earthMaterial.emissiveMap = texture;
+          earthMaterial.needsUpdate = true;
+          colorLayerMaterial.map = texture;
+          colorLayerMaterial.needsUpdate = true;
+        }
+      );
+
+      const atmosphere = new THREE.Mesh(
+        new THREE.SphereGeometry(1.07, atmosphereSegments, atmosphereSegments),
+        new THREE.MeshBasicMaterial({
+          color: 0x28c9ff,
+          transparent: true,
+          opacity: 0.22,
+          side: THREE.BackSide,
+          blending: THREE.AdditiveBlending,
+          depthWrite: false
+        })
+      );
+      earthGroup.add(atmosphere);
+
+      const outerGlow = new THREE.Mesh(
+        new THREE.SphereGeometry(1.14, atmosphereSegments, atmosphereSegments),
+        new THREE.MeshBasicMaterial({
+          color: 0x3fffd0,
+          transparent: true,
+          opacity: 0.065,
+          side: THREE.BackSide,
+          blending: THREE.AdditiveBlending,
+          depthWrite: false
+        })
+      );
+      earthGroup.add(outerGlow);
+
+      const halo = new THREE.Mesh(
+        new THREE.TorusGeometry(1.35, 0.014, 8, 120),
+        new THREE.MeshBasicMaterial({ color: 0x2ce5c6, transparent: true, opacity: 0.56 })
+      );
+      halo.rotation.x = 1.2;
+      halo.rotation.z = 0.35;
+      earthGroup.add(halo);
+
+      const stars = addStarCloud(scene, 0x9fffee, lowPowerDevice ? 65 : 100);
+      let hover = 0;
+      let pointerX = 0;
+      let pointerY = 0;
+
+      portal.addEventListener("pointerenter", () => { hover = 1; });
+      portal.addEventListener("pointerleave", () => {
+        hover = 0;
+        pointerX = 0;
+        pointerY = 0;
+      });
+      portal.addEventListener("pointermove", (event) => {
+        if (!precisePointer) return;
+        const rect = portal.getBoundingClientRect();
+        pointerX = (event.clientX - rect.left) / rect.width - 0.5;
+        pointerY = (event.clientY - rect.top) / rect.height - 0.5;
+      });
+
+      observeRenderer(renderer, camera, canvas);
+      portal.classList.add("webgl-ready");
+      canvas.addEventListener("webglcontextlost", (event) => {
+        event.preventDefault();
+        portal.classList.remove("webgl-ready");
+      }, { once: true });
+
+      function render() {
+        const speed = reduceMotion ? 0 : 0.0038 + hover * 0.004;
+        earth.rotation.y += speed;
+        colorLayer.rotation.y = earth.rotation.y;
+        halo.rotation.z += reduceMotion ? 0 : 0.002 + hover * 0.002;
+        stars.rotation.y -= reduceMotion ? 0 : 0.0007;
+        earthGroup.rotation.y += (pointerX * 0.28 - earthGroup.rotation.y) * 0.045;
+        earthGroup.rotation.x += (-pointerY * 0.18 - earthGroup.rotation.x) * 0.045;
+        const targetScale = 1 + hover * 0.06;
+        earthGroup.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.06);
+        renderer.render(scene, camera);
+      }
+      startManagedLoop(canvas, render);
+    }
+
+    function startPhysicsPortal() {
+      const canvas = document.getElementById("physics-canvas");
+      const portal = canvas.closest(".portal");
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
+      camera.position.set(0, 0, 3.8);
+      const renderer = createPortalRenderer(canvas);
+
+      scene.add(new THREE.AmbientLight(0xd7e6ff, 0.9));
+      const violetLight = new THREE.PointLight(0x8f54ff, 7, 8);
+      violetLight.position.set(-1.6, 1.4, 2.3);
+      scene.add(violetLight);
+      const cyanLight = new THREE.PointLight(0x31e6ff, 6, 8);
+      cyanLight.position.set(1.9, -1, 2.5);
+      scene.add(cyanLight);
+      const pinkLight = new THREE.PointLight(0xff4fa3, 4.5, 7);
+      pinkLight.position.set(0.8, 1.9, 1.2);
+      scene.add(pinkLight);
+
+      const coreGroup = new THREE.Group();
+      scene.add(coreGroup);
+
+      const boltShape = new THREE.Shape();
+      boltShape.moveTo(-0.12, 1.42);
+      boltShape.lineTo(0.62, 1.42);
+      boltShape.lineTo(0.16, 0.34);
+      boltShape.lineTo(0.76, 0.34);
+      boltShape.lineTo(-0.48, -1.42);
+      boltShape.lineTo(-0.12, -0.34);
+      boltShape.lineTo(-0.72, -0.34);
+      boltShape.closePath();
+
+      const boltGeometry = new THREE.ExtrudeGeometry(boltShape, {
+        depth: 0.28,
+        bevelEnabled: true,
+        bevelSegments: lowPowerDevice ? 3 : 5,
+        steps: 1,
+        bevelSize: 0.07,
+        bevelThickness: 0.07
+      });
+      boltGeometry.center();
+      boltGeometry.computeBoundingBox();
+
+      const boltColors = [];
+      const boltPosition = boltGeometry.getAttribute("position");
+      const boltBottom = new THREE.Color(0xff3f9f);
+      const boltMiddle = new THREE.Color(0xff7a26);
+      const boltTop = new THREE.Color(0xfff06a);
+      const boltColor = new THREE.Color();
+      const minY = boltGeometry.boundingBox.min.y;
+      const maxY = boltGeometry.boundingBox.max.y;
+
+      for (let index = 0; index < boltPosition.count; index++) {
+        const amount = (boltPosition.getY(index) - minY) / (maxY - minY);
+        if (amount < 0.5) {
+          boltColor.lerpColors(boltBottom, boltMiddle, amount * 2);
+        } else {
+          boltColor.lerpColors(boltMiddle, boltTop, (amount - 0.5) * 2);
+        }
+        boltColors.push(boltColor.r, boltColor.g, boltColor.b);
+      }
+      boltGeometry.setAttribute("color", new THREE.Float32BufferAttribute(boltColors, 3));
+
+      const bolt = new THREE.Mesh(
+        boltGeometry,
+        new THREE.MeshStandardMaterial({
+          vertexColors: true,
+          emissive: 0x5a142d,
+          emissiveIntensity: 0.85,
+          roughness: 0.18,
+          metalness: 0.48
+        })
+      );
+      bolt.scale.setScalar(0.8);
+      bolt.rotation.set(-0.1, 0.28, -0.04);
+      coreGroup.add(bolt);
+
+      const boltAura = new THREE.Mesh(
+        boltGeometry.clone(),
+        new THREE.MeshBasicMaterial({
+          color: 0x48dcff,
+          transparent: true,
+          opacity: 0.16,
+          side: THREE.BackSide,
+          blending: THREE.AdditiveBlending,
+          depthWrite: false
+        })
+      );
+      boltAura.scale.setScalar(0.86);
+      boltAura.rotation.copy(bolt.rotation);
+      coreGroup.add(boltAura);
+
+      const energyRing = new THREE.Mesh(
+        new THREE.TorusGeometry(1.2, 0.025, lowPowerDevice ? 8 : 12, lowPowerDevice ? 96 : 160),
+        new THREE.MeshBasicMaterial({
+          color: 0x5de8ff,
+          transparent: true,
+          opacity: 0.5,
+          blending: THREE.AdditiveBlending,
+          depthWrite: false
+        })
+      );
+      energyRing.rotation.set(1.08, 0.4, 0.24);
+      coreGroup.add(energyRing);
+
+      const arcMaterials = [];
+      [
+        { side: -1, phase: 0.2, color: 0x36e7ff },
+        { side: 1, phase: 1.5, color: 0xff4fa3 },
+        { side: -1, phase: 2.7, color: 0xffd45a }
+      ].forEach((settings, arcIndex) => {
+        const points = [];
+        for (let step = 0; step < 8; step++) {
+          const y = -1.12 + step * 0.32;
+          const x = settings.side * (0.82 + Math.sin(step * 1.75 + settings.phase) * 0.13);
+          const z = -0.16 + arcIndex * 0.06;
+          points.push(new THREE.Vector3(x, y, z));
+        }
+        const material = new THREE.LineBasicMaterial({
+          color: settings.color,
+          transparent: true,
+          opacity: 0.5,
+          blending: THREE.AdditiveBlending,
+          depthWrite: false
+        });
+        arcMaterials.push(material);
+        coreGroup.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), material));
+      });
+
+      const particles = addStarCloud(scene, 0xd8e8ff, lowPowerDevice ? 70 : 120);
+      let hover = 0;
+      let pointerX = 0;
+      let pointerY = 0;
+
+      portal.addEventListener("pointerenter", () => { hover = 1; });
+      portal.addEventListener("pointerleave", () => {
+        hover = 0;
+        pointerX = 0;
+        pointerY = 0;
+      });
+      portal.addEventListener("pointermove", (event) => {
+        if (!precisePointer) return;
+        const rect = portal.getBoundingClientRect();
+        pointerX = (event.clientX - rect.left) / rect.width - 0.5;
+        pointerY = (event.clientY - rect.top) / rect.height - 0.5;
+      });
+
+      observeRenderer(renderer, camera, canvas);
+      portal.classList.add("webgl-ready");
+      canvas.addEventListener("webglcontextlost", (event) => {
+        event.preventDefault();
+        portal.classList.remove("webgl-ready");
+      }, { once: true });
+
+      function render() {
+        const time = reduceMotion ? 0 : performance.now() * 0.001;
+        const pulse = 1 + Math.sin(time * 3.1) * 0.025;
+        bolt.scale.setScalar(0.8 * pulse);
+        bolt.rotation.x = -0.1 + Math.sin(time * 0.75) * 0.035;
+        bolt.rotation.y = 0.28 + Math.sin(time * 0.9) * 0.16;
+        bolt.position.y = Math.sin(time * 1.35) * 0.035;
+        boltAura.scale.setScalar(0.86 * (1 + Math.sin(time * 2.4) * 0.035));
+        boltAura.rotation.copy(bolt.rotation);
+        boltAura.position.copy(bolt.position);
+        energyRing.rotation.z += reduceMotion ? 0 : 0.0022 + hover * 0.0015;
+        energyRing.rotation.y += reduceMotion ? 0 : 0.001;
+        arcMaterials.forEach((material, index) => {
+          material.opacity = 0.34 + Math.sin(time * 3.2 + index * 1.7) * 0.16;
+        });
+        particles.rotation.y += reduceMotion ? 0 : 0.001 + hover * 0.001;
+        coreGroup.rotation.y += (pointerX * 0.24 - coreGroup.rotation.y) * 0.045;
+        coreGroup.rotation.x += (-pointerY * 0.18 - coreGroup.rotation.x) * 0.045;
+        const targetScale = 1 + hover * 0.07;
+        coreGroup.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.06);
+        renderer.render(scene, camera);
+      }
+      startManagedLoop(canvas, render);
+    }
+
+    if (window.THREE && supportsWebGL()) {
+      [startEarthPortal, startPhysicsPortal].forEach((startPortal) => {
+        try {
+          startPortal();
+        } catch (error) {
+          console.warn("تعذر تشغيل أحد المشاهد ثلاثية الأبعاد، سيتم استخدام الرمز البديل.", error);
+        }
+      });
+    }
+
+    if (precisePointer && !reduceMotion) {
+      document.querySelectorAll(".portal").forEach((portal) => {
+        portal.addEventListener("pointermove", (event) => {
+          const rect = portal.getBoundingClientRect();
+          const x = (event.clientX - rect.left) / rect.width - 0.5;
+          const y = (event.clientY - rect.top) / rect.height - 0.5;
+          portal.style.transform = `rotateY(${x * 7}deg) rotateX(${y * -7}deg) translateY(-5px)`;
+        });
+        portal.addEventListener("pointerleave", () => {
+          portal.style.transform = "rotateY(0deg) rotateX(0deg) translateY(0)";
+        });
+      });
+
+    }
+
+    document.querySelectorAll("[data-transition]").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        if (reduceMotion || event.ctrlKey || event.metaKey || event.shiftKey) return;
+        event.preventDefault();
+        const transition = document.getElementById("page-transition");
+        transition.classList.toggle("physics", link.dataset.transition === "physics");
+        transition.classList.add("active");
+        setTimeout(() => { window.location.href = link.href; }, 430);
+      });
+    });
+  </script>
+</body>
+</html>
