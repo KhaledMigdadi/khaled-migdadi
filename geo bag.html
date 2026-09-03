@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>بنك الملفات | علوم الأرض</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #00f2fe;
+      --secondary: #4facfe;
+      --bg-dark: #070b15;
+      --card-bg: rgba(11, 27, 59, 0.6);
+      --text: #fdfdfd;
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: "Cairo", sans-serif;
+      background: var(--bg-dark);
+      color: var(--text);
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* خلفية متحركة تناسب جو الدراسة (مربعات وخطوط هندسية) */
+    .bg-pattern {
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+      background: linear-gradient(rgba(79, 172, 254, 0.05) 1px, transparent 1px),
+                  linear-gradient(90deg, rgba(79, 172, 254, 0.05) 1px, transparent 1px);
+      background-size: 30px 30px;
+      z-index: -2;
+    }
+    .glow {
+      position: fixed; top: 20%; left: 30%; width: 50vw; height: 50vh;
+      background: radial-gradient(circle, rgba(0, 242, 254, 0.15) 0%, transparent 60%);
+      z-index: -1; pointer-events: none;
+    }
+
+    /* الهيدر */
+    header {
+      padding: 15px 5%;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(7, 11, 21, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 242, 254, 0.2);
+      position: sticky; top: 0; z-index: 1000;
+    }
+    .brand { font-weight: 800; font-size: clamp(18px, 4vw, 22px); color: var(--primary); text-shadow: 0 0 10px rgba(0, 242, 254, 0.5); }
+    .back-btn {
+      padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: clamp(12px, 3vw, 14px);
+      background: rgba(255,255,255,0.1); color: #fff; text-decoration: none;
+      transition: 0.3s; border: 1px solid rgba(255,255,255,0.2);
+    }
+    .back-btn:hover { background: var(--primary); color: #000; border-color: var(--primary); }
+
+    /* عنوان الصفحة */
+    .page-header { text-align: center; padding: 40px 20px 20px; }
+    .page-header h1 { font-size: clamp(24px, 6vw, 36px); color: #fff; margin-bottom: 10px;}
+    .page-header h1 span { color: var(--primary); }
+    .page-header p { color: #ccc; font-size: clamp(14px, 4vw, 18px); max-width: 600px; margin: 0 auto; line-height: 1.6;}
+
+    /* تصنيفات الملفات */
+    .section-title {
+      font-size: 22px; font-weight: 800; color: #fff;
+      margin: 40px 5% 20px; padding-right: 15px;
+      border-right: 4px solid var(--primary);
+      text-shadow: 0 0 10px rgba(0,242,254,0.3);
+    }
+
+    /* شبكة الملفات */
+    .files-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 0 5% 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* تصميم بطاقة الملف */
+    .file-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px; padding: 25px;
+      backdrop-filter: blur(10px);
+      transition: all 0.4s ease;
+      display: flex; flex-direction: column;
+      position: relative; overflow: hidden;
+    }
+    .file-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.4), inset 0 0 20px rgba(0,242,254,0.1);
+      border-color: rgba(0, 242, 254, 0.4);
+    }
+    
+    .file-icon {
+      font-size: 40px; margin-bottom: 15px;
+      background: rgba(0,242,254,0.1); width: 70px; height: 70px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 16px;
+    }
+
+    .file-card h3 { font-size: 20px; margin-bottom: 10px; color: #fff; }
+    .file-card p { font-size: 14px; color: #aaa; margin-bottom: 25px; line-height: 1.6; flex-grow: 1; }
+
+    /* زر التحميل */
+    .download-btn {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 12px; border-radius: 10px; font-weight: bold; font-size: 15px;
+      background: linear-gradient(45deg, var(--secondary), var(--primary));
+      color: #000; text-decoration: none;
+      transition: 0.3s; width: 100%;
+    }
+    .download-btn:hover { transform: scale(1.02); box-shadow: 0 5px 15px rgba(0, 242, 254, 0.4); }
+
+    /* البطاقات المغلقة (الدروس القادمة) */
+    .file-card.locked { opacity: 0.6; border-style: dashed; }
+    .file-card.locked:hover { transform: none; box-shadow: none; border-color: rgba(255,255,255,0.1); cursor: not-allowed; }
+    .file-card.locked .file-icon { background: rgba(255,255,255,0.05); filter: grayscale(1); }
+    .locked-badge {
+      background: rgba(255,255,255,0.1); color: #ccc;
+      padding: 10px; border-radius: 10px; text-align: center;
+      font-weight: bold; font-size: 14px;
+    }
+
+    footer { text-align: center; padding: 20px; color: rgba(255,255,255,0.4); font-size: 14px; margin-top: auto; }
+  </style>
+</head>
+<body>
+
+  <div class="bg-pattern"></div>
+  <div class="glow"></div>
+
+  <header>
+    <div class="brand">بنك الملفات</div>
+    <a href="GEO.html" class="back-btn">العودة للمادة ↩</a>
+  </header>
+
+  <div class="page-header">
+    <h1>دوسيات وملفات <span>علوم الأرض</span></h1>
+    <p>حمل الخرائط الذهنية وملفات التأسيس لتسهيل حفظ وفهم المادة بشكل كامل.</p>
+  </div>
+
+  <!-- القسم الأول: ملفات التأسيس -->
+  <div class="section-title">ملفات التأسيس</div>
+  <div class="files-grid">
+    
+    <div class="file-card">
+      <div class="file-icon">🚀</div>
+      <h3>الدورة التحضيرية</h3>
+      <p>ملف "تأسيس 2009" الشامل. يحتوي على أهم الأساسيات التي ستحتاجها قبل البدء بالمادة لضمان تفوقك.</p>
+      <!-- تأكدي أن امتداد الملف .pdf أو حسب نوعه على جهازك -->
+      <a href="تأسيس 2009.pdf" download class="download-btn">
+        📥 تحميل الملف
+      </a>
+    </div>
+
+  </div>
+
+  <!-- القسم الثاني: خرائط وحدة الوقود الأحفوري -->
+  <div class="section-title">وحدة الوقود الأحفوري (خرائط ذهنية)</div>
+  <div class="files-grid">
+    
+    <!-- الدرس الأول (متاح) -->
+    <div class="file-card">
+      <div class="file-icon">🗺️</div>
+      <h3>خريطة الدرس الأول</h3>
+      <p>خريطة ذهنية مبسطة وشاملة لأفكار الدرس الأول (الوقود الأحفوري) لتسهيل المراجعة وتثبيت الحفظ.</p>
+      <a href="خريطة ذهنية 1.pdf" download class="download-btn">
+        📥 تحميل الخريطة
+      </a>
+    </div>
+
+    <!-- الدرس الثاني (مغلق) -->
+    <div class="file-card locked">
+      <div class="file-icon">🔒</div>
+      <h3>خريطة الدرس الثاني</h3>
+      <p>خريطة ذهنية مخصصة لأفكار الدرس الثاني.</p>
+      <div class="locked-badge">تتوفر قريباً مع شرح الدرس</div>
+    </div>
+
+    <!-- الدرس الثالث (مغلق) -->
+    <div class="file-card locked">
+      <div class="file-icon">🔒</div>
+      <h3>خريطة الدرس الثالث</h3>
+      <p>خريطة ذهنية مخصصة لأفكار الدرس الثالث.</p>
+      <div class="locked-badge">تتوفر قريباً مع شرح الدرس</div>
+    </div>
+
+  </div>
+
+  <footer>
+    © <span id="year"></span> جميع الحقوق محفوظة — الأستاذ خالد مقدادي
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

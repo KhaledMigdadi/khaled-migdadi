@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>علوم الأرض | الأستاذ خالد مقدادي</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4facfe;
+      --secondary: #00f2fe;
+      --pink: #ff4fa3;
+      --gold: #f5c542;
+      --bg-dark: #050810;
+      --card-bg: rgba(11, 27, 59, 0.5);
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: "Cairo", sans-serif;
+      background: var(--bg-dark);
+      color: #fff;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* خلفية متحركة تناسب علوم الأرض والفضاء */
+    .bg-animation {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: radial-gradient(circle at 10% 20%, rgba(0, 75, 120, 0.4), transparent 40%),
+                  radial-gradient(circle at 90% 80%, rgba(79, 172, 254, 0.2), transparent 40%);
+      z-index: -2;
+    }
+    .stars {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+      z-index: -1; opacity: 0.6; pointer-events: none;
+    }
+
+    /* الهيدر وزر العودة */
+    header {
+      padding: 15px 5%;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(11, 27, 59, 0.6);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      position: sticky; top: 0; z-index: 1000;
+    }
+    .brand { font-weight: 800; font-size: 22px; color: var(--primary); text-shadow: 0 0 10px rgba(79, 172, 254, 0.5); }
+    .back-btn {
+      padding: 8px 16px; border-radius: 8px; font-weight: 600;
+      background: rgba(255,255,255,0.1); color: #fff; text-decoration: none;
+      transition: 0.3s; border: 1px solid rgba(255,255,255,0.2);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .back-btn:hover { background: var(--primary); color: #000; }
+
+    /* عنوان الصفحة */
+    .page-header {
+      text-align: center; padding: 40px 20px;
+    }
+    .page-header h1 { font-size: 36px; margin-bottom: 10px; color: #fff; }
+    .page-header h1 span { color: var(--primary); }
+    .page-header p { color: #cbd5e1; font-size: 18px; max-width: 600px; margin: 0 auto; }
+
+    /* شبكة البطاقات (الأزرار الإبداعية) */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      padding: 20px 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+      flex: 1;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 30px 20px;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      backdrop-filter: blur(10px);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    
+    .card::before {
+      content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+      opacity: 0; transition: 0.5s; pointer-events: none;
+    }
+    
+    .card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.5); }
+    .card:hover::before { opacity: 1; transform: scale(1.2); }
+    
+    .card .icon { font-size: 45px; margin-bottom: 15px; display: inline-block; transition: 0.4s; }
+    .card:hover .icon { transform: scale(1.2) rotate(5deg); }
+    
+    .card h3 { font-size: 22px; margin-bottom: 10px; }
+    .card p { font-size: 14px; color: #aaa; }
+
+    /* تلوين مخصص لبعض البطاقات */
+    .card.buy { border-bottom: 4px solid var(--gold); }
+    .card.buy:hover { box-shadow: 0 15px 30px rgba(245, 197, 66, 0.2); }
+    .card.buy h3 { color: var(--gold); }
+
+    .card.whatsapp { border-bottom: 4px solid #25D366; }
+    .card.whatsapp:hover { box-shadow: 0 15px 30px rgba(37, 211, 102, 0.2); }
+    
+    .card.youtube { border-bottom: 4px solid #FF0000; }
+    .card.youtube:hover { box-shadow: 0 15px 30px rgba(255, 0, 0, 0.2); }
+
+    /* نافذة الفيديو المنبثقة (Modal) */
+    .modal {
+      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9); z-index: 2000; justify-content: center; align-items: center;
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .modal.active { display: flex; opacity: 1; }
+    .modal-content {
+      position: relative; width: 90%; max-width: 800px;
+      background: #000; border-radius: 15px; border: 2px solid var(--primary);
+      box-shadow: 0 0 40px rgba(79, 172, 254, 0.5);
+      padding: 10px;
+    }
+    .modal-content iframe { width: 100%; height: 450px; border-radius: 10px; }
+    .close-modal {
+      position: absolute; top: -40px; right: 0;
+      color: #fff; font-size: 30px; cursor: pointer;
+      background: none; border: none;
+    }
+    .close-modal:hover { color: var(--pink); }
+
+    footer { text-align: center; padding: 20px; color: rgba(255,255,255,0.5); font-size: 14px; margin-top: 40px; }
+
+    @media (max-width: 768px) {
+      .modal-content iframe { height: 250px; }
+      .page-header h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-animation"></div>
+  <div class="stars"></div>
+
+  <header>
+    <div class="brand">علوم الأرض</div>
+    <a href="index.html" class="back-btn">
+      الصفحة الرئيسية ↩
+    </a>
+  </header>
+
+  <div class="page-header">
+    <h1>مادة <span>علوم الأرض والبيئة</span></h1>
+    <p>كل ما تحتاجه للتفوق في المادة من ملفات، امتحانات، وحصص تأسيسية في مكان واحد.</p>
+  </div>
+
+  <div class="grid-container">
+    
+    <!-- زر شراء البطاقة -->
+    <a href="https://wa.me/962792004566" target="_blank" class="card buy">
+      <div class="icon">💳</div>
+      <h3>شراء بطاقة المادة</h3>
+      <p>اطلب بطاقتك الآن عبر الواتساب لتفعيل دورتك الشاملة.</p>
+    </a>
+
+    <!-- زر خطة المادة (يفتح نافذة الفيديو) -->
+    <div class="card" onclick="openModal()">
+      <div class="icon">📅</div>
+      <h3>خطة المادة والمواعيد</h3>
+      <p>شاهد فيديو الخطة التفصيلية ومواعيد تنزيل الحصص.</p>
+    </div>
+
+    <!-- زر حصص مجانية -->
+    <a href="https://youtube.com/playlist?list=PLNwRbNG6En6U&si=VDV6zyxOlHOWXiRs" target="_blank" class="card youtube">
+      <div class="icon">▶️</div>
+      <h3>حصص تأسيس مجانية</h3>
+      <p>انتقل إلى قائمة التشغيل على يوتيوب وابدأ التعلم مجاناً.</p>
+    </a>
+
+    <!-- زر جروب الواتساب -->
+    <a href="https://chat.whatsapp.com/F3C7XF6y9ng8F4zyyus8yb" target="_blank" class="card whatsapp">
+      <div class="icon">💬</div>
+      <h3>جروب الواتساب</h3>
+      <p>انضم لمجتمع الطلاب لمتابعة التحديثات وطرح الأسئلة.</p>
+    </a>
+
+    <!-- زر الملفات -->
+    <a href="geo%20bag.HTML" class="card">
+      <div class="icon">📚</div>
+      <h3>الدوسيات والملفات</h3>
+      <p>حمل ملخصات وأوراق عمل بصيغة PDF .</p>
+    </a>
+
+    <!-- زر الامتحانات -->
+    <a href="exam%20geo.HTML" class="card">
+      <div class="icon">📝</div>
+      <h3>الامتحانات المحوسبة</h3>
+      <p>اختبر مستواك من خلال امتحانات إلكترونية وورقية مقسمة حسب الدروس.</p>
+    </a>
+
+  </div>
+
+  <!-- نافذة عرض فيديو الخطة -->
+  <div class="modal" id="videoModal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeModal()">✖</button>
+      <iframe id="ytVideo" width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <footer>
+    © <span id="year"></span> جميع الحقوق محفوظة — الأستاذ خالد مقدادي
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // برمجة النافذة المنبثقة للفيديو
+    const modal = document.getElementById('videoModal');
+    const ytVideo = document.getElementById('ytVideo');
+    const videoSrc = "https://www.youtube.com/embed/8O9iKJZMQ2A?si=U8I1K2BCvEO234nL"; // رابط الخطة
+
+    function openModal() {
+      modal.classList.add('active');
+      ytVideo.src = videoSrc; // نضع الرابط عند الفتح فقط لتسريع تحميل الصفحة
+    }
+
+    function closeModal() {
+      modal.classList.remove('active');
+      ytVideo.src = ""; // نوقف الفيديو عند الإغلاق
+    }
+
+    // إغلاق النافذة عند الضغط خارجها
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        closeModal();
+      }
+    }
+  </script>
+</body>
+</html>
