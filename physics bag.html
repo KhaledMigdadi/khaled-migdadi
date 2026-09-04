@@ -2,9 +2,18 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  />
+
   <title>ملفات الفيزياء | الأستاذ خالد مقدادي</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap"
+    rel="stylesheet"
+  />
+
   <style>
     :root {
       --gold: #f5c542;
@@ -28,14 +37,14 @@
     }
 
     body {
-      font-family: "Cairo", sans-serif;
-      background: var(--bg-dark);
-      color: var(--text);
-      overflow-x: hidden;
       min-height: 100vh;
       min-height: 100dvh;
+      overflow-x: hidden;
       display: flex;
       flex-direction: column;
+      background: var(--bg-dark);
+      color: var(--text);
+      font-family: "Cairo", sans-serif;
     }
 
     a,
@@ -43,31 +52,57 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    /* شبكة الخلفية */
+    /* خلفية الشبكة */
     .cyber-grid {
       position: fixed;
       top: 50%;
       left: 50%;
       width: 200vw;
       height: 200vh;
-      transform: translate(-50%, -50%) perspective(600px) rotateX(60deg);
+      z-index: -2;
+      pointer-events: none;
+
+      transform:
+        translate(-50%, -50%)
+        perspective(600px)
+        rotateX(60deg);
+
       background-image:
-        linear-gradient(rgba(157, 78, 221, 0.25) 2px, transparent 2px),
-        linear-gradient(90deg, rgba(157, 78, 221, 0.25) 2px, transparent 2px);
+        linear-gradient(
+          rgba(157, 78, 221, 0.25) 2px,
+          transparent 2px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(157, 78, 221, 0.25) 2px,
+          transparent 2px
+        );
+
       background-size: 50px 50px;
       animation: gridMove 6s linear infinite;
-      z-index: -2;
-      mask-image: radial-gradient(circle at center, white 10%, transparent 70%);
-      -webkit-mask-image: radial-gradient(circle at center, white 10%, transparent 70%);
-      pointer-events: none;
+
+      mask-image:
+        radial-gradient(circle at center, white 10%, transparent 70%);
+
+      -webkit-mask-image:
+        radial-gradient(circle at center, white 10%, transparent 70%);
     }
 
     @keyframes gridMove {
       0% {
-        transform: translate(-50%, -50%) perspective(600px) rotateX(60deg) translateY(0);
+        transform:
+          translate(-50%, -50%)
+          perspective(600px)
+          rotateX(60deg)
+          translateY(0);
       }
+
       100% {
-        transform: translate(-50%, -50%) perspective(600px) rotateX(60deg) translateY(50px);
+        transform:
+          translate(-50%, -50%)
+          perspective(600px)
+          rotateX(60deg)
+          translateY(50px);
       }
     }
 
@@ -77,10 +112,16 @@
       left: 50%;
       width: 80vw;
       height: 40vh;
-      transform: translateX(-50%);
-      background: radial-gradient(ellipse at top, rgba(245, 197, 66, 0.12), transparent 70%);
       z-index: -1;
       pointer-events: none;
+      transform: translateX(-50%);
+
+      background:
+        radial-gradient(
+          ellipse at top,
+          rgba(245, 197, 66, 0.12),
+          transparent 70%
+        );
     }
 
     /* الهيدر */
@@ -88,51 +129,63 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      padding: max(10px, env(safe-area-inset-top)) max(14px, env(safe-area-inset-right)) 10px max(14px, env(safe-area-inset-left));
+
+      padding:
+        max(10px, env(safe-area-inset-top))
+        max(14px, env(safe-area-inset-right))
+        10px
+        max(14px, env(safe-area-inset-left));
+
       background: rgba(5, 2, 10, 0.85);
-      -webkit-backdrop-filter: blur(10px);
-      backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(245, 197, 66, 0.3);
       box-shadow: 0 5px 20px rgba(157, 78, 221, 0.2);
+
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
     }
 
     .header-inner {
       width: min(100%, 1200px);
       min-width: 0;
       margin: 0 auto;
+
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       gap: 12px;
     }
 
     .brand {
       min-width: 0;
-      font-weight: 900;
-      font-size: clamp(16px, 4vw, 22px);
-      line-height: 1.3;
       color: var(--gold);
-      text-shadow: 0 0 12px var(--gold);
+      font-size: clamp(16px, 4vw, 22px);
+      font-weight: 900;
+      line-height: 1.3;
       white-space: nowrap;
+      text-shadow: 0 0 12px var(--gold);
     }
 
     .back-btn {
       min-height: 44px;
       padding: 8px 14px;
-      border: 1px solid var(--gold);
-      border-radius: 8px;
-      background: transparent;
-      color: var(--gold);
-      font-weight: 700;
-      font-size: clamp(12px, 3vw, 14px);
-      line-height: 1.2;
-      text-decoration: none;
-      white-space: nowrap;
-      flex: 0 0 auto;
+
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 6px;
+      flex: 0 0 auto;
+
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      background: transparent;
+      color: var(--gold);
+
+      font-size: clamp(12px, 3vw, 14px);
+      font-weight: 700;
+      line-height: 1.2;
+      text-decoration: none;
+      white-space: nowrap;
+
       box-shadow: 0 0 10px rgba(245, 197, 66, 0.2);
       transition: 0.3s;
       touch-action: manipulation;
@@ -182,11 +235,14 @@
       width: min(90%, 1200px);
       margin: 30px auto 20px;
       padding-right: 15px;
+
       border-right: 4px solid var(--gold);
       color: #fff;
+
       font-size: clamp(18px, 4vw, 22px);
       font-weight: 800;
       line-height: 1.4;
+
       text-shadow: 0 0 10px rgba(245, 197, 66, 0.4);
     }
 
@@ -196,8 +252,11 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 max(14px, 5%) 40px;
+
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+      grid-template-columns:
+        repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+
       gap: clamp(16px, 3vw, 25px);
     }
 
@@ -207,35 +266,53 @@
       position: relative;
       overflow: hidden;
       padding: 25px;
+
       display: flex;
       flex-direction: column;
+
       background: var(--card-bg);
       border: 1px solid rgba(157, 78, 221, 0.4);
       border-radius: 12px;
+
       -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
-      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
-      transition: all 0.35s ease;
+
+      clip-path:
+        polygon(
+          0 0,
+          100% 0,
+          100% calc(100% - 15px),
+          calc(100% - 15px) 100%,
+          0 100%
+        );
+
       overflow-wrap: anywhere;
+      transition: all 0.35s ease;
     }
 
     .file-card:hover {
       transform: translateY(-8px);
       border-color: var(--neon-gold);
-      box-shadow: 0 10px 30px rgba(245, 197, 66, 0.15), inset 0 0 15px rgba(157, 78, 221, 0.2);
+
+      box-shadow:
+        0 10px 30px rgba(245, 197, 66, 0.15),
+        inset 0 0 15px rgba(157, 78, 221, 0.2);
     }
 
     .file-icon {
       width: 65px;
       height: 65px;
       margin-bottom: 15px;
-      border: 1px solid rgba(245, 197, 66, 0.3);
-      border-radius: 12px;
-      background: rgba(245, 197, 66, 0.1);
-      font-size: 38px;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
+      border: 1px solid rgba(245, 197, 66, 0.3);
+      border-radius: 12px;
+      background: rgba(245, 197, 66, 0.1);
+
+      font-size: 38px;
       filter: drop-shadow(0 0 8px var(--gold));
     }
 
@@ -259,18 +336,22 @@
       width: 100%;
       min-height: 48px;
       padding: 11px 12px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+
       border-radius: 8px;
       background: linear-gradient(45deg, var(--gold), #ffb703);
       color: #000;
+
       font-size: 15px;
       font-weight: 800;
       line-height: 1.4;
       text-align: center;
       text-decoration: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
+
       box-shadow: 0 4px 15px rgba(245, 197, 66, 0.3);
       transition: 0.3s;
       touch-action: manipulation;
@@ -281,46 +362,19 @@
       box-shadow: 0 6px 20px rgba(245, 197, 66, 0.5);
     }
 
-    /* كرت قريبًا */
-    .file-card.locked {
-      opacity: 0.6;
-      border-style: dashed;
-      border-color: rgba(255, 255, 255, 0.2);
-      clip-path: none;
-    }
-
-    .file-card.locked:hover {
-      transform: none;
-      border-color: rgba(255, 255, 255, 0.2);
-      box-shadow: none;
-    }
-
-    .file-card.locked .file-icon {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: transparent;
-      filter: grayscale(1);
-    }
-
-    .locked-badge {
-      padding: 10px;
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.08);
-      color: #bbb;
-      font-size: 14px;
-      font-weight: 700;
-      text-align: center;
-    }
-
     footer {
       margin-top: auto;
       padding: 20px 14px max(20px, env(safe-area-inset-bottom));
+
       border-top: 1px solid rgba(157, 78, 221, 0.2);
       color: rgba(255, 255, 255, 0.3);
+
       font-size: 14px;
       line-height: 1.6;
       text-align: center;
     }
 
+    /* الأجهزة اللوحية */
     @media (max-width: 768px) {
       .cyber-grid {
         width: 260vw;
@@ -332,6 +386,7 @@
       }
     }
 
+    /* الهواتف */
     @media (max-width: 480px) {
       header {
         padding-top: max(8px, env(safe-area-inset-top));
@@ -344,7 +399,6 @@
 
       .brand {
         font-size: 15px;
-        letter-spacing: 0;
       }
 
       .back-btn {
@@ -415,6 +469,7 @@
       }
     }
 
+    /* أجهزة اللمس */
     @media (hover: none) {
       .file-card:hover,
       .download-btn:hover {
@@ -422,6 +477,7 @@
       }
     }
 
+    /* تقليل الحركة */
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
@@ -434,6 +490,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <div class="cyber-grid"></div>
@@ -441,39 +498,115 @@
 
   <header>
     <div class="header-inner">
-      <div class="brand">بنك ملفات الفيزياء ⚡</div>
-      <a href="physics.html" class="back-btn" aria-label="العودة إلى صفحة الفيزياء">
-        العودة للفيزياء <span aria-hidden="true">↩</span>
+
+      <div class="brand">
+        بنك ملفات الفيزياء ⚡
+      </div>
+
+      <a
+        href="physics.html"
+        class="back-btn"
+        aria-label="العودة إلى صفحة الفيزياء"
+      >
+        العودة للفيزياء
+        <span aria-hidden="true">↩</span>
       </a>
+
     </div>
   </header>
 
   <main>
+
     <div class="page-header">
-      <h1>دوسيات وملفات <span>الفيزياء</span></h1>
-      <p>حمل ملخصات التأسيس وأوراق العمل لتبني أساسًا رياضيًا وفيزيائيًا متينًا للتوجيهي.</p>
+      <h1>
+        دوسيات وملفات
+        <span>الفيزياء</span>
+      </h1>
+
+      <p>
+        حمل ملخصات التأسيس وأوراق العمل لتبني أساسًا رياضيًا
+        وفيزيائيًا متينًا للتوجيهي.
+      </p>
     </div>
 
-    <div class="section-title">ملفات التأسيس</div>
+    <!-- قسم ملف التأسيس -->
+    <div class="section-title">
+      ملفات التأسيس
+    </div>
 
     <div class="files-grid">
+
       <div class="file-card">
+
         <div class="file-icon">⚡</div>
+
         <h3>تأسيس فيزياء 2009</h3>
-        <p>الدوسية التحضيرية الشاملة لمادة الفيزياء. تشمل المفاهيم الرياضية والفيزيائية الأساسية التي يحتاجها الطالب قبل الدخول في المنهج.</p>
-        <a href="/pdf/%D8%AA%D8%A3%D8%B3%D9%8A%D8%B3%20%D9%81%D9%8A%D8%B2%D9%8A%D8%A7%D8%A1%202009%20.pdf" download class="download-btn">
-          <span aria-hidden="true">📥</span> تحميل الملف PDF
+
+        <p>
+          الدوسية التحضيرية الشاملة لمادة الفيزياء. تشمل المفاهيم
+          الرياضية والفيزيائية الأساسية التي يحتاجها الطالب قبل
+          الدخول في المنهج.
+        </p>
+
+        <!-- اسم الملف: physics-foundation .pdf -->
+        <a
+          href="./pdf/physics-foundation%20.pdf"
+          download="physics-foundation.pdf"
+          class="download-btn"
+        >
+          <span aria-hidden="true">📥</span>
+          تحميل ملف التأسيس PDF
         </a>
+
       </div>
+
     </div>
+
+    <!-- قسم خطة المادة -->
+    <div class="section-title">
+      خطة المادة
+    </div>
+
+    <div class="files-grid">
+
+      <div class="file-card">
+
+        <div class="file-icon">📅</div>
+
+        <h3>
+          خطة مادة الفيزياء – الفصل الأول
+        </h3>
+
+        <p>
+          الخطة الدراسية لمادة الفيزياء خلال الفصل الأول،
+          لتوضيح ترتيب دراسة المادة وتنظيم الحصص.
+        </p>
+
+        <!-- اسم الملف: خطة مادة الفيزياء ف 1.pdf -->
+        <a
+          href="./pdf/%D8%AE%D8%B7%D8%A9%20%D9%85%D8%A7%D8%AF%D8%A9%20%D8%A7%D9%84%D9%81%D9%8A%D8%B2%D9%8A%D8%A7%D8%A1%20%D9%81%201.pdf"
+          download="خطة مادة الفيزياء ف 1.pdf"
+          class="download-btn"
+        >
+          <span aria-hidden="true">📥</span>
+          تحميل خطة الفصل الأول PDF
+        </a>
+
+      </div>
+
+    </div>
+
   </main>
 
   <footer>
-    © <span id="year"></span> جميع الحقوق محفوظة — الأستاذ خالد مقدادي
+    © <span id="year"></span>
+    جميع الحقوق محفوظة — الأستاذ خالد مقدادي
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
   </script>
+
 </body>
 </html>
