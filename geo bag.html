@@ -13,9 +13,9 @@
       --card-bg: rgba(11, 27, 59, 0.6);
       --text: #fdfdfd;
     }
-    
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    
+
     body {
       font-family: "Cairo", sans-serif;
       background: var(--bg-dark);
@@ -34,6 +34,7 @@
       background-size: 30px 30px;
       z-index: -2;
     }
+
     .glow {
       position: fixed; top: 20%; left: 30%; width: 50vw; height: 50vh;
       background: radial-gradient(circle, rgba(0, 242, 254, 0.15) 0%, transparent 60%);
@@ -49,24 +50,51 @@
       border-bottom: 1px solid rgba(0, 242, 254, 0.2);
       position: sticky; top: 0; z-index: 1000;
     }
-    .brand { font-weight: 800; font-size: clamp(18px, 4vw, 22px); color: var(--primary); text-shadow: 0 0 10px rgba(0, 242, 254, 0.5); }
-    .back-btn {
-      padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: clamp(12px, 3vw, 14px);
-      background: rgba(255,255,255,0.1); color: #fff; text-decoration: none;
-      transition: 0.3s; border: 1px solid rgba(255,255,255,0.2);
+
+    .brand {
+      font-weight: 800;
+      font-size: clamp(18px, 4vw, 22px);
+      color: var(--primary);
+      text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
     }
-    .back-btn:hover { background: var(--primary); color: #000; border-color: var(--primary); }
+
+    .back-btn {
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: clamp(12px, 3vw, 14px);
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      text-decoration: none;
+      transition: 0.3s;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .back-btn:hover {
+      background: var(--primary);
+      color: #000;
+      border-color: var(--primary);
+    }
 
     /* عنوان الصفحة */
     .page-header { text-align: center; padding: 40px 20px 20px; }
-    .page-header h1 { font-size: clamp(24px, 6vw, 36px); color: #fff; margin-bottom: 10px;}
+    .page-header h1 { font-size: clamp(24px, 6vw, 36px); color: #fff; margin-bottom: 10px; }
     .page-header h1 span { color: var(--primary); }
-    .page-header p { color: #ccc; font-size: clamp(14px, 4vw, 18px); max-width: 600px; margin: 0 auto; line-height: 1.6;}
+    .page-header p {
+      color: #ccc;
+      font-size: clamp(14px, 4vw, 18px);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
 
     /* تصنيفات الملفات */
     .section-title {
-      font-size: 22px; font-weight: 800; color: #fff;
-      margin: 40px 5% 20px; padding-right: 15px;
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      margin: 40px 5% 20px;
+      padding-right: 15px;
       border-right: 4px solid var(--primary);
       text-shadow: 0 0 10px rgba(0,242,254,0.3);
     }
@@ -86,49 +114,109 @@
     .file-card {
       background: var(--card-bg);
       border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 16px; padding: 25px;
+      border-radius: 16px;
+      padding: 25px;
       backdrop-filter: blur(10px);
       transition: all 0.4s ease;
-      display: flex; flex-direction: column;
-      position: relative; overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
     }
+
     .file-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 15px 30px rgba(0,0,0,0.4), inset 0 0 20px rgba(0,242,254,0.1);
       border-color: rgba(0, 242, 254, 0.4);
     }
-    
+
     .file-icon {
-      font-size: 40px; margin-bottom: 15px;
-      background: rgba(0,242,254,0.1); width: 70px; height: 70px;
-      display: flex; align-items: center; justify-content: center;
+      font-size: 40px;
+      margin-bottom: 15px;
+      background: rgba(0,242,254,0.1);
+      width: 70px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border-radius: 16px;
     }
 
     .file-card h3 { font-size: 20px; margin-bottom: 10px; color: #fff; }
-    .file-card p { font-size: 14px; color: #aaa; margin-bottom: 25px; line-height: 1.6; flex-grow: 1; }
+    .file-card p {
+      font-size: 14px;
+      color: #aaa;
+      margin-bottom: 25px;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
 
     /* زر التحميل */
     .download-btn {
-      display: flex; align-items: center; justify-content: center; gap: 10px;
-      padding: 12px; border-radius: 10px; font-weight: bold; font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 15px;
       background: linear-gradient(45deg, var(--secondary), var(--primary));
-      color: #000; text-decoration: none;
-      transition: 0.3s; width: 100%;
+      color: #000;
+      text-decoration: none;
+      transition: 0.3s;
+      width: 100%;
     }
-    .download-btn:hover { transform: scale(1.02); box-shadow: 0 5px 15px rgba(0, 242, 254, 0.4); }
+
+    .download-btn:hover {
+      transform: scale(1.02);
+      box-shadow: 0 5px 15px rgba(0, 242, 254, 0.4);
+    }
 
     /* البطاقات المغلقة (الدروس القادمة) */
     .file-card.locked { opacity: 0.6; border-style: dashed; }
-    .file-card.locked:hover { transform: none; box-shadow: none; border-color: rgba(255,255,255,0.1); cursor: not-allowed; }
-    .file-card.locked .file-icon { background: rgba(255,255,255,0.05); filter: grayscale(1); }
-    .locked-badge {
-      background: rgba(255,255,255,0.1); color: #ccc;
-      padding: 10px; border-radius: 10px; text-align: center;
-      font-weight: bold; font-size: 14px;
+    .file-card.locked:hover {
+      transform: none;
+      box-shadow: none;
+      border-color: rgba(255,255,255,0.1);
+      cursor: not-allowed;
     }
 
-    footer { text-align: center; padding: 20px; color: rgba(255,255,255,0.4); font-size: 14px; margin-top: auto; }
+    .file-card.locked .file-icon {
+      background: rgba(255,255,255,0.05);
+      filter: grayscale(1);
+    }
+
+    .locked-badge {
+      background: rgba(255,255,255,0.1);
+      color: #ccc;
+      padding: 10px;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: rgba(255,255,255,0.4);
+      font-size: 14px;
+      margin-top: auto;
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 12px 4%; gap: 10px; }
+      .back-btn { padding: 8px 11px; white-space: nowrap; }
+      .page-header { padding: 30px 16px 10px; }
+      .section-title { font-size: 19px; margin-top: 32px; }
+      .files-grid {
+        grid-template-columns: minmax(0, 1fr);
+        padding-right: 14px;
+        padding-left: 14px;
+      }
+      .file-card { padding: 21px; }
+    }
   </style>
 </head>
 <body>
@@ -149,29 +237,52 @@
   <!-- القسم الأول: ملفات التأسيس -->
   <div class="section-title">ملفات التأسيس</div>
   <div class="files-grid">
-    
+
     <div class="file-card">
       <div class="file-icon">🚀</div>
       <h3>الدورة التحضيرية</h3>
       <p>ملف "تأسيس 2009" الشامل. يحتوي على أهم الأساسيات التي ستحتاجها قبل البدء بالمادة لضمان تفوقك.</p>
-      <!-- تأكدي أن امتداد الملف .pdf أو حسب نوعه على جهازك -->
-      <a href="تأسيس 2009.pdf" download class="download-btn">
+      <a href="/pdf/%D8%AA%D8%A3%D8%B3%D9%8A%D8%B3%202009%20.pdf" download class="download-btn">
         📥 تحميل الملف
       </a>
     </div>
 
   </div>
 
-  <!-- القسم الثاني: خرائط وحدة الوقود الأحفوري -->
+  <!-- القسم الثاني: الخطط الدراسية -->
+  <div class="section-title">الخطط الدراسية</div>
+  <div class="files-grid">
+
+    <div class="file-card">
+      <div class="file-icon">📘</div>
+      <h3>خطة مادة علوم الأرض – الفصل الأول</h3>
+      <p>خطة منظمة لمادة علوم الأرض للفصل الدراسي الأول تساعدك على متابعة الحصص وإنجاز المادة أولًا بأول.</p>
+      <a href="pdf/خطة مادة علوم الأرض ف1.pdf" download class="download-btn">
+        📥 تحميل الخطة
+      </a>
+    </div>
+
+    <div class="file-card">
+      <div class="file-icon">🩺</div>
+      <h3>خطة دراسية لطلاب الحقل الصحي</h3>
+      <p>خطة دراسية مخصصة لطلاب الحقل الصحي تساعدك على تنظيم دراسة المواد وتوزيعها بطريقة واضحة.</p>
+      <a href="pdf/خطة دراسية لطلاب الحقل الصحي.pdf" download class="download-btn">
+        📥 تحميل الخطة
+      </a>
+    </div>
+
+  </div>
+
+  <!-- القسم الثالث: خرائط وحدة الوقود الأحفوري -->
   <div class="section-title">وحدة الوقود الأحفوري (خرائط ذهنية)</div>
   <div class="files-grid">
-    
+
     <!-- الدرس الأول (متاح) -->
     <div class="file-card">
       <div class="file-icon">🗺️</div>
       <h3>خريطة الدرس الأول</h3>
       <p>خريطة ذهنية مبسطة وشاملة لأفكار الدرس الأول (الوقود الأحفوري) لتسهيل المراجعة وتثبيت الحفظ.</p>
-      <a href="خريطة ذهنية 1.pdf" download class="download-btn">
+      <a href="/pdf/%D8%AE%D8%B1%D9%8A%D8%B7%D8%A9%20%D8%B0%D9%87%D9%86%D9%8A%D8%A9%201.pdf" download class="download-btn">
         📥 تحميل الخريطة
       </a>
     </div>

@@ -2,9 +2,18 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  />
+
   <title>الفيزياء | الأستاذ خالد مقدادي</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap"
+    rel="stylesheet"
+  >
+
   <style>
     :root {
       --gold: #f5c542;
@@ -12,174 +21,981 @@
       --electric-purple: #9d4edd;
       --bg-dark: #05020a;
       --card-bg: rgba(15, 5, 25, 0.7);
+      --pad-x: clamp(16px, 5vw, 80px);
     }
-    
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      width: 100%;
+      min-width: 0;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
+
     body {
+      width: 100%;
+      min-width: 0;
+      min-height: 100vh;
+      min-height: 100dvh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
       font-family: "Cairo", sans-serif;
       background: var(--bg-dark);
       color: #fff;
-      overflow-x: hidden;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    /* تأثير الشبكة الكهرومغناطيسية المتحركة (3D Grid) */
+    img,
+    iframe {
+      max-width: 100%;
+    }
+
+    /* خلفية الصفحة */
     .cyber-grid {
       position: fixed;
-      top: 50%; left: 50%;
-      width: 200vw; height: 200vh;
-      transform: translate(-50%, -50%) perspective(600px) rotateX(60deg);
-      background-image: 
-        linear-gradient(rgba(157, 78, 221, 0.3) 2px, transparent 2px),
-        linear-gradient(90deg, rgba(157, 78, 221, 0.3) 2px, transparent 2px);
-      background-size: 50px 50px;
+      top: 50%;
+      left: 50%;
+      width: 200vw;
+      height: 200vh;
+      transform:
+        translate(-50%, -50%)
+        perspective(600px)
+        rotateX(60deg);
+
+      background-image:
+        linear-gradient(
+          rgba(157, 78, 221, 0.3) 2px,
+          transparent 2px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(157, 78, 221, 0.3) 2px,
+          transparent 2px
+        );
+
+      background-size:
+        clamp(30px, 8vw, 50px)
+        clamp(30px, 8vw, 50px);
+
       animation: gridMove 5s linear infinite;
       z-index: -2;
-      mask-image: radial-gradient(circle at center, white 10%, transparent 70%);
-      -webkit-mask-image: radial-gradient(circle at center, white 10%, transparent 70%);
-    }
-    
-    @keyframes gridMove {
-      0% { transform: translate(-50%, -50%) perspective(600px) rotateX(60deg) translateY(0); }
-      100% { transform: translate(-50%, -50%) perspective(600px) rotateX(60deg) translateY(50px); }
+
+      mask-image:
+        radial-gradient(circle at center, white 10%, transparent 70%);
+
+      -webkit-mask-image:
+        radial-gradient(circle at center, white 10%, transparent 70%);
     }
 
-    /* إضاءة محيطية (Ambient Light) */
+    @keyframes gridMove {
+      0% {
+        transform:
+          translate(-50%, -50%)
+          perspective(600px)
+          rotateX(60deg)
+          translateY(0);
+      }
+
+      100% {
+        transform:
+          translate(-50%, -50%)
+          perspective(600px)
+          rotateX(60deg)
+          translateY(50px);
+      }
+    }
+
     .ambient-light {
-      position: fixed; top: 0; left: 50%; transform: translateX(-50%);
-      width: 80vw; height: 50vh;
-      background: radial-gradient(ellipse at top, rgba(245, 197, 66, 0.15), transparent 70%);
-      z-index: -1; pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 50%;
+      width: 80vw;
+      height: 50vh;
+      transform: translateX(-50%);
+
+      background:
+        radial-gradient(
+          ellipse at top,
+          rgba(245, 197, 66, 0.15),
+          transparent 70%
+        );
+
+      z-index: -1;
+      pointer-events: none;
     }
 
     /* الهيدر */
     header {
-      padding: 15px 5%;
-      display: flex; justify-content: space-between; align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      padding: 12px var(--pad-x);
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      gap: 10px;
+
       background: rgba(5, 2, 10, 0.8);
       backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+
       border-bottom: 1px solid rgba(245, 197, 66, 0.3);
-      position: sticky; top: 0; z-index: 1000;
       box-shadow: 0 5px 20px rgba(157, 78, 221, 0.2);
     }
-    .brand { font-weight: 900; font-size: clamp(18px, 4vw, 24px); color: var(--gold); text-shadow: 0 0 15px var(--gold); letter-spacing: 1px;}
-    .back-btn {
-      padding: 8px 16px; border-radius: 4px; font-weight: 700; font-size: clamp(12px, 3vw, 14px);
-      background: transparent; color: var(--gold); text-decoration: none;
-      border: 1px solid var(--gold);
-      box-shadow: 0 0 10px rgba(245, 197, 66, 0.2), inset 0 0 10px rgba(245, 197, 66, 0.1);
-      transition: 0.3s; text-transform: uppercase;
-    }
-    .back-btn:hover { background: var(--gold); color: #000; box-shadow: 0 0 20px var(--gold); }
 
-    /* عنوان الصفحة بتأثير النيون */
-    .page-header { text-align: center; padding: 50px 20px 30px; position: relative; }
-    .page-header h1 { 
-      font-size: clamp(30px, 8vw, 45px); 
-      color: #fff; 
-      margin-bottom: 10px;
-      text-shadow: 0 0 10px var(--electric-purple), 0 0 20px var(--electric-purple), 0 0 40px var(--electric-purple);
+    .brand {
       font-weight: 900;
+      font-size: clamp(17px, 4vw, 24px);
+      color: var(--gold);
+      text-shadow: 0 0 15px var(--gold);
+      letter-spacing: 1px;
     }
-    .page-header p { color: #d1b3ff; font-size: clamp(15px, 4vw, 18px); max-width: 600px; margin: 0 auto; line-height: 1.6;}
 
-    /* شبكة الأزرار (البطاقات) */
+    .back-btn {
+      padding: 8px 16px;
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+
+      color: var(--gold);
+      background: transparent;
+      text-decoration: none;
+
+      font-weight: 700;
+      font-size: clamp(12px, 3vw, 14px);
+      white-space: nowrap;
+
+      box-shadow:
+        0 0 10px rgba(245, 197, 66, 0.2),
+        inset 0 0 10px rgba(245, 197, 66, 0.1);
+
+      transition: 0.3s;
+    }
+
+    .back-btn:hover {
+      color: #000;
+      background: var(--gold);
+      box-shadow: 0 0 20px var(--gold);
+    }
+
+    /* عنوان الصفحة */
+    .page-header {
+      position: relative;
+      padding:
+        clamp(32px, 8vw, 50px)
+        var(--pad-x)
+        clamp(20px, 5vw, 30px);
+
+      text-align: center;
+    }
+
+    .page-header h1 {
+      margin-bottom: 10px;
+
+      color: #fff;
+      font-size: clamp(28px, 8vw, 45px);
+      font-weight: 900;
+      line-height: 1.2;
+
+      text-shadow:
+        0 0 10px var(--electric-purple),
+        0 0 20px var(--electric-purple),
+        0 0 40px var(--electric-purple);
+    }
+
+    .page-header p {
+      max-width: 600px;
+      margin: 0 auto;
+
+      color: #d1b3ff;
+      font-size: clamp(14px, 4vw, 18px);
+      line-height: 1.6;
+    }
+
+    /* شبكة البطاقات */
     .grid-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      padding: 20px 5% 50px;
+      width: 100%;
       max-width: 1200px;
       margin: 0 auto;
+
+      padding:
+        clamp(16px, 4vw, 20px)
+        var(--pad-x)
+        clamp(32px, 8vw, 50px);
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          auto-fit,
+          minmax(min(100%, 260px), 1fr)
+        );
+
+      gap: clamp(16px, 4vw, 30px);
       flex: 1;
     }
 
-    /* تصميم البطاقة السايبربانك */
     .card {
-      background: var(--card-bg);
-      border: 1px solid rgba(157, 78, 221, 0.4);
-      padding: 30px 20px;
-      text-align: center;
-      text-decoration: none;
-      color: #fff;
+      width: 100%;
+      min-width: 0;
+      min-height: 205px;
+
       position: relative;
       overflow: hidden;
-      cursor: pointer;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+      padding:
+        clamp(22px, 5vw, 30px)
+        clamp(16px, 4vw, 20px);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      border: 1px solid rgba(157, 78, 221, 0.4);
       border-radius: 12px;
-      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%); /* قص الزاوية */
+
+      color: #fff;
+      background: var(--card-bg);
+
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+
+      clip-path:
+        polygon(
+          0 0,
+          100% 0,
+          100% calc(100% - 20px),
+          calc(100% - 20px) 100%,
+          0 100%
+        );
+
+      transition:
+        all 0.4s
+        cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
-    
-    /* تأثير الخط المتحرك حول البطاقة */
+
     .card::before {
-      content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 2px;
-      background: linear-gradient(90deg, transparent, var(--neon-gold));
+      content: "";
+
+      position: absolute;
+      top: 0;
+      left: -100%;
+
+      width: 100%;
+      height: 2px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--neon-gold)
+        );
+
       transition: 0.5s;
     }
-    .card:hover::before { left: 100%; }
+
+    .card:hover::before {
+      left: 100%;
+    }
 
     .card:hover {
       transform: translateY(-10px) scale(1.02);
       border-color: var(--neon-gold);
-      box-shadow: 0 10px 30px rgba(245, 197, 66, 0.2), inset 0 0 20px rgba(157, 78, 221, 0.3);
+
+      box-shadow:
+        0 10px 30px rgba(245, 197, 66, 0.2),
+        inset 0 0 20px rgba(157, 78, 221, 0.3);
+
       background: rgba(20, 5, 35, 0.9);
     }
-    
-    .card .icon { 
-      font-size: 50px; margin-bottom: 15px; display: inline-block; transition: 0.4s; 
+
+    .card .icon {
+      margin-bottom: 15px;
+      display: inline-block;
+
+      font-size: clamp(40px, 11vw, 50px);
+
       filter: drop-shadow(0 0 10px var(--gold));
+      transition: 0.4s;
     }
-    .card:hover .icon { transform: scale(1.2) rotateY(180deg); filter: drop-shadow(0 0 20px var(--neon-gold)); }
-    
-    .card h3 { font-size: 22px; margin-bottom: 10px; font-weight: 800; color: var(--gold); }
-    .card p { font-size: 14px; color: #b39ddb; line-height: 1.5; }
 
-    /* تخصيص ألوان بعض البطاقات */
-    .card.buy { border-top: 3px solid var(--neon-gold); }
-    .card.whatsapp { border-top: 3px solid #25D366; }
-    .card.whatsapp h3 { color: #25D366; filter: drop-shadow(0 0 5px #25D366);}
-    
-    /* بطاقة الامتحانات المغلقة */
-    .card.locked { opacity: 0.5; border-style: dashed; border-color: #555; clip-path: none; border-radius: 12px; }
-    .card.locked:hover { transform: none; box-shadow: none; cursor: not-allowed; background: var(--card-bg); }
-    .card.locked h3 { color: #888; }
-    .card.locked .icon { filter: grayscale(1); }
+    .card:hover .icon {
+      transform: scale(1.2) rotateY(180deg);
+      filter: drop-shadow(0 0 20px var(--neon-gold));
+    }
 
-    /* نافذة الفيديو (Modal) - بأسلوب شاشة تحكم */
+    .card h3 {
+      margin-bottom: 10px;
+
+      color: var(--gold);
+      font-size: clamp(19px, 5vw, 22px);
+      font-weight: 800;
+    }
+
+    .card p {
+      color: #b39ddb;
+      font-size: clamp(13px, 3.6vw, 14px);
+      line-height: 1.5;
+    }
+
+    .card.buy {
+      border-top: 3px solid var(--neon-gold);
+    }
+
+    .card.whatsapp {
+      border-top: 3px solid #25d366;
+    }
+
+    .card.whatsapp h3 {
+      color: #25d366;
+      filter: drop-shadow(0 0 5px #25d366);
+    }
+
+    .card.locked {
+      opacity: 0.5;
+      border-style: dashed;
+      border-color: #555;
+      border-radius: 12px;
+      clip-path: none;
+    }
+
+    .card.locked:hover {
+      transform: none;
+      border-color: #555;
+      background: var(--card-bg);
+      box-shadow: none;
+      cursor: not-allowed;
+    }
+
+    .card.locked h3 {
+      color: #888;
+    }
+
+    .card.locked .icon {
+      filter: grayscale(1);
+    }
+
+    /* معرض الصور */
+    .gallery-section {
+      width: 100%;
+      max-width: 1200px;
+
+      margin: 18px auto 54px;
+      padding-inline: var(--pad-x);
+    }
+
+    .gallery-heading {
+      margin-bottom: 18px;
+
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .gallery-heading h2 {
+      color: var(--gold);
+      font-size: clamp(23px, 4vw, 34px);
+      line-height: 1.35;
+
+      text-shadow:
+        0 0 16px rgba(245, 197, 66, 0.35);
+    }
+
+    .gallery-heading p {
+      margin-top: 5px;
+      color: #cdb8e8;
+      font-size: 14px;
+    }
+
+    .gallery-controls {
+      display: flex;
+      gap: 9px;
+      direction: ltr;
+      flex: 0 0 auto;
+    }
+
+    .gallery-btn {
+      width: 43px;
+      height: 43px;
+
+      border: 1px solid rgba(245, 197, 66, 0.45);
+      border-radius: 50%;
+
+      display: grid;
+      place-items: center;
+
+      color: var(--gold);
+      background: rgba(15, 5, 25, 0.86);
+
+      box-shadow:
+        inset 0 0 13px rgba(157, 78, 221, 0.18);
+
+      font-size: 21px;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .gallery-btn:hover {
+      color: #05020a;
+      background: var(--gold);
+
+      box-shadow:
+        0 0 22px rgba(245, 197, 66, 0.45);
+
+      transform: translateY(-2px);
+    }
+
+    .gallery-frame {
+      position: relative;
+      overflow: hidden;
+
+      padding: 13px;
+
+      border: 1px solid rgba(157, 78, 221, 0.36);
+      border-radius: 27px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(157, 78, 221, 0.1),
+          rgba(15, 5, 25, 0.72)
+        );
+
+      box-shadow:
+        0 22px 55px rgba(0, 0, 0, 0.34),
+        inset 0 0 25px rgba(157, 78, 221, 0.08);
+    }
+
+    .gallery-frame::before,
+    .gallery-frame::after {
+      content: "";
+
+      position: absolute;
+      top: 13px;
+      bottom: 13px;
+      z-index: 3;
+
+      width: 42px;
+      pointer-events: none;
+    }
+
+    .gallery-frame::before {
+      left: 13px;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(5, 2, 10, 0.78),
+          transparent
+        );
+    }
+
+    .gallery-frame::after {
+      right: 13px;
+
+      background:
+        linear-gradient(
+          -90deg,
+          rgba(5, 2, 10, 0.78),
+          transparent
+        );
+    }
+
+    .gallery-track {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(245px, 31%);
+      gap: 15px;
+
+      overflow-x: auto;
+      direction: ltr;
+
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scroll-padding-inline: 10px;
+
+      overscroll-behavior-inline: contain;
+      scrollbar-width: none;
+      touch-action: pan-x;
+
+      padding: 7px 9px 12px;
+    }
+
+    .gallery-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .gallery-card {
+      position: relative;
+      overflow: hidden;
+
+      aspect-ratio: 720 / 906;
+
+      scroll-snap-align: center;
+      scroll-snap-stop: always;
+
+      border: 1px solid rgba(245, 197, 66, 0.24);
+      border-radius: 21px;
+
+      background: #10071d;
+
+      box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.38);
+
+      opacity: 0.64;
+      transform: scale(0.94);
+
+      transition:
+        opacity 0.35s ease,
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+    }
+
+    .gallery-card.active {
+      opacity: 1;
+      transform: scale(1);
+
+      border-color: rgba(245, 197, 66, 0.78);
+
+      box-shadow:
+        0 15px 34px rgba(0, 0, 0, 0.5),
+        0 0 24px rgba(157, 78, 221, 0.22);
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+
+      display: block;
+      object-fit: cover;
+
+      transition: transform 0.55s ease;
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.035);
+    }
+
+    .gallery-card::after {
+      content: "";
+
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      height: 34%;
+
+      background:
+        linear-gradient(
+          transparent,
+          rgba(5, 2, 10, 0.72)
+        );
+
+      pointer-events: none;
+    }
+
+    .gallery-number {
+      position: absolute;
+      left: 13px;
+      bottom: 12px;
+      z-index: 2;
+
+      min-width: 36px;
+      height: 30px;
+      padding-inline: 9px;
+
+      border: 1px solid rgba(245, 197, 66, 0.45);
+      border-radius: 999px;
+
+      display: grid;
+      place-items: center;
+
+      color: var(--gold);
+      background: rgba(5, 2, 10, 0.72);
+      backdrop-filter: blur(8px);
+
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .gallery-dots {
+      margin-top: 14px;
+
+      display: flex;
+      justify-content: center;
+      gap: 7px;
+
+      direction: ltr;
+    }
+
+    .gallery-dot {
+      width: 8px;
+      height: 8px;
+      padding: 0;
+
+      border: 0;
+      border-radius: 999px;
+
+      background: rgba(255, 255, 255, 0.24);
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .gallery-dot.active {
+      width: 26px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--electric-purple),
+          var(--gold)
+        );
+
+      box-shadow:
+        0 0 12px rgba(245, 197, 66, 0.34);
+    }
+
+    /* نافذة الفيديو */
     .modal {
-      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.95); z-index: 2000; justify-content: center; align-items: center;
-      opacity: 0; transition: opacity 0.4s;
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+
+      display: none;
+      align-items: center;
+      justify-content: center;
+
+      opacity: 0;
+      background: rgba(0, 0, 0, 0.95);
+
+      transition: opacity 0.4s;
     }
-    .modal.active { display: flex; opacity: 1; }
+
+    .modal.active {
+      display: flex;
+      opacity: 1;
+    }
+
     .modal-content {
-      position: relative; width: 90%; max-width: 800px;
-      background: #000; padding: 5px;
+      position: relative;
+
+      width: 100%;
+      max-width: 800px;
+      padding: 5px;
+
       border: 2px solid var(--electric-purple);
-      box-shadow: 0 0 30px var(--electric-purple), inset 0 0 20px var(--electric-purple);
-      clip-path: polygon(0 15px, 15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
+
+      background: #000;
+
+      box-shadow:
+        0 0 30px var(--electric-purple),
+        inset 0 0 20px var(--electric-purple);
+
+      clip-path:
+        polygon(
+          0 15px,
+          15px 0,
+          100% 0,
+          100% calc(100% - 15px),
+          calc(100% - 15px) 100%,
+          0 100%
+        );
     }
-    .modal-content iframe { width: 100%; height: 450px; display: block; border: none; }
+
+    .modal-content iframe {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+
+      display: block;
+      border: none;
+    }
+
     .close-modal {
-      position: absolute; top: -40px; right: 0;
-      color: var(--neon-gold); font-size: 35px; cursor: pointer;
-      background: none; border: none; font-weight: bold; text-shadow: 0 0 10px var(--neon-gold);
+      position: absolute;
+      top: -42px;
+      left: 0;
+
+      color: var(--neon-gold);
+      background: none;
+      border: none;
+
+      font-size: 34px;
+      font-weight: bold;
+      line-height: 1;
+
+      text-shadow:
+        0 0 10px var(--neon-gold);
+
+      cursor: pointer;
     }
-    .close-modal:hover { color: #fff; transform: scale(1.1); }
 
-    footer { text-align: center; padding: 20px; color: rgba(255,255,255,0.3); font-size: 14px; margin-top: auto; border-top: 1px solid rgba(157, 78, 221, 0.2); }
+    .close-modal:hover {
+      color: #fff;
+      transform: scale(1.1);
+    }
 
-    @media (max-width: 768px) {
-      .modal-content iframe { height: 250px; }
+    footer {
+      margin-top: auto;
+      padding: 20px var(--pad-x);
+      padding-bottom:
+        max(20px, env(safe-area-inset-bottom));
+
+      border-top:
+        1px solid rgba(157, 78, 221, 0.2);
+
+      color: rgba(255, 255, 255, 0.35);
+      font-size: clamp(12px, 3.4vw, 14px);
+      text-align: center;
+    }
+
+    /* تنسيق الهاتف */
+    @media (max-width: 700px) {
+      :root {
+        --pad-x: 14px;
+      }
+
+      header {
+        padding:
+          max(10px, env(safe-area-inset-top))
+          max(13px, env(safe-area-inset-right))
+          10px
+          max(13px, env(safe-area-inset-left));
+      }
+
+      .brand {
+        font-size: 17px;
+        letter-spacing: 0;
+        white-space: nowrap;
+      }
+
+      .back-btn {
+        min-height: 38px;
+        padding: 7px 11px;
+        font-size: 12px;
+      }
+
+      .page-header {
+        padding: 27px 16px 14px;
+      }
+
+      .page-header h1 {
+        margin-bottom: 8px;
+        font-size: clamp(27px, 9vw, 34px);
+        line-height: 1.35;
+      }
+
+      .page-header p {
+        max-width: 34ch;
+        font-size: 14px;
+        line-height: 1.75;
+      }
+
+      .grid-container {
+        width: 100%;
+        max-width: 540px;
+
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+
+        padding: 10px 14px 37px;
+      }
+
+      .card {
+        min-height: 0;
+        padding: 21px 16px;
+        border-radius: 13px;
+
+        clip-path:
+          polygon(
+            0 0,
+            100% 0,
+            100% calc(100% - 14px),
+            calc(100% - 14px) 100%,
+            0 100%
+          );
+      }
+
+      .card .icon {
+        margin-bottom: 10px;
+        font-size: 39px;
+      }
+
+      .card h3 {
+        margin-bottom: 7px;
+        font-size: 18px;
+      }
+
+      .card p {
+        font-size: 14px;
+        line-height: 1.65;
+      }
+
+      .modal {
+        padding:
+          max(58px, env(safe-area-inset-top))
+          13px
+          max(18px, env(safe-area-inset-bottom));
+      }
+
+      .modal-content {
+        width: 100%;
+      }
+
+      .gallery-section {
+        margin: 4px auto 42px;
+        padding-inline: 14px;
+      }
+
+      .gallery-heading {
+        align-items: center;
+        margin-bottom: 14px;
+      }
+
+      .gallery-heading h2 {
+        font-size: 23px;
+      }
+
+      .gallery-heading p {
+        font-size: 13px;
+      }
+
+      .gallery-controls {
+        display: none;
+      }
+
+      .gallery-frame {
+        padding: 8px;
+        border-radius: 22px;
+      }
+
+      .gallery-frame::before,
+      .gallery-frame::after {
+        top: 8px;
+        bottom: 8px;
+        width: 25px;
+      }
+
+      .gallery-frame::before {
+        left: 8px;
+      }
+
+      .gallery-frame::after {
+        right: 8px;
+      }
+
+      .gallery-track {
+        grid-auto-columns: 84%;
+        gap: 12px;
+        scroll-padding-inline: 8%;
+        padding: 6px 5px 10px;
+      }
+
+      .gallery-card {
+        border-radius: 18px;
+      }
+
+      footer {
+        padding-inline: 14px;
+      }
+    }
+
+    @media (max-width: 350px) {
+      .brand {
+        font-size: 15px;
+      }
+
+      .back-btn {
+        padding-inline: 9px;
+        font-size: 11px;
+      }
+
+      .card {
+        clip-path: none;
+      }
+    }
+
+    /* تأثير اللمس على الهاتف */
+    @media (hover: none) {
+      .card:hover {
+        transform: none;
+        border-color: rgba(157, 78, 221, 0.4);
+        background: var(--card-bg);
+        box-shadow: none;
+      }
+
+      .card:active {
+        transform: scale(0.985);
+        border-color: var(--neon-gold);
+        background: rgba(20, 5, 35, 0.95);
+
+        box-shadow:
+          inset 0 0 20px rgba(157, 78, 221, 0.3);
+      }
+
+      .card.locked:active {
+        transform: none;
+        border-color: #555;
+        background: var(--card-bg);
+        box-shadow: none;
+      }
+    }
+
+    /* الهاتف بالوضع الأفقي */
+    @media (max-height: 500px) {
+      .close-modal {
+        top: 6px;
+        left: 6px;
+
+        width: 38px;
+        height: 38px;
+
+        border-radius: 50%;
+
+        background: rgba(0, 0, 0, 0.6);
+        font-size: 22px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cyber-grid {
+        animation: none;
+      }
+
+      .card,
+      .card .icon,
+      .card::before,
+      .gallery-card,
+      .gallery-card img {
+        transition: none;
+      }
+
+      .gallery-track {
+        scroll-behavior: auto;
+      }
     }
   </style>
 </head>
+
 <body>
 
-  <!-- تأثيرات الخلفية -->
   <div class="cyber-grid"></div>
   <div class="ambient-light"></div>
 
@@ -190,55 +1006,102 @@
 
   <div class="page-header">
     <h1>مادة <span>الفيزياء</span></h1>
-    <p>أهلًا وسهلًا فيك يارب أشوفك أجدع مهندس طريقنا للفل مارك بلّش .</p>
+
+    <p>
+      أهلًا وسهلًا فيك يارب أشوفك أجدع مهندس
+      طريقنا للفل مارك بلّش.
+    </p>
   </div>
 
   <div class="grid-container">
-    
-    <!-- زر شراء البطاقة -->
-    <a href="https://wa.me/962792004566" target="_blank" class="card buy">
+
+    <a
+      href="https://wa.me/962792004566"
+      target="_blank"
+      rel="noopener"
+      class="card buy"
+    >
       <div class="icon">💳</div>
       <h3>شراء البطاقة</h3>
-      <p>اطلب بطاقتك الآن لتفعيل دورتك الشاملة واستلام الكود الخاص بك.</p>
+
+      <p>
+        اطلب بطاقتك الآن لتفعيل دورتك الشاملة
+        واستلام الكود الخاص بك.
+      </p>
     </a>
 
-    <!-- زر خطة المادة (يفتح نافذة الفيديو) -->
-    <div class="card" onclick="openModal()">
+    <div
+      class="card"
+      role="button"
+      tabindex="0"
+      onclick="openModal()"
+      onkeydown="
+        if(event.key==='Enter'||event.key===' '){
+          event.preventDefault();
+          openModal();
+        }
+      "
+    >
       <div class="icon">🎯</div>
       <h3>خطة المادة والمواعيد</h3>
-      <p>شاهد الاستراتيجية التي سنتبعها ومواعيد نزول الحصص الأسبوعية.</p>
+
+      <p>
+        شاهد الاستراتيجية التي سنتبعها
+        ومواعيد نزول الحصص الأسبوعية.
+      </p>
     </div>
 
-    <!-- زر التأسيس -->
-    <a href="https://www.youtube.com/watch?v=gX_L4WW9euc&list=PL6ogumG5qc9vcTdaWPieMqk7_gGj6nSzQ&pp=sAgC" target="_blank" class="card">
+    <a
+      href="https://www.youtube.com/watch?v=gX_L4WW9euc&list=PL6ogumG5qc9vcTdaWPieMqk7_gGj6nSzQ&pp=sAgC"
+      target="_blank"
+      rel="noopener"
+      class="card"
+    >
       <div class="icon">🧱</div>
       <h3>حصص التأسيس</h3>
-      <p>حجر الأساس. ابدأ من هنا لتبني قاعدة قوية في مفاهيم الفيزياء قبل المنهج.</p>
+
+      <p>
+        حجر الأساس. ابدأ من هنا لتبني قاعدة قوية
+        في مفاهيم الفيزياء قبل المنهج.
+      </p>
     </a>
 
-    <!-- زر الحصص المجانية -->
-    <a href="https://www.youtube.com/watch?v=PTQ90ilAbTw&list=PLcME8YDKW44Y&pp=sAgC" target="_blank" class="card">
+    <a
+      href="https://www.youtube.com/watch?v=PTQ90ilAbTw&list=PLcME8YDKW44Y&pp=sAgC"
+      target="_blank"
+      rel="noopener"
+      class="card"
+    >
       <div class="icon">🔓</div>
       <h3>حصص مجانية</h3>
-      <p>شاهد أسلوب الشرح واستفد من الحصص المفتوحة المتاحة للجميع.</p>
+
+      <p>
+        شاهد أسلوب الشرح واستفد من الحصص
+        المفتوحة المتاحة للجميع.
+      </p>
     </a>
 
-    <!-- زر جروب الواتساب -->
-    <a href="https://chat.whatsapp.com/DP8LsCG4S3IF7XsnyKPsLn" target="_blank" class="card whatsapp">
+    <a
+      href="https://chat.whatsapp.com/DP8LsCG4S3IF7XsnyKPsLn"
+      target="_blank"
+      rel="noopener"
+      class="card whatsapp"
+    >
       <div class="icon">💬</div>
       <h3>جروب الواتساب</h3>
-      <p>انضم لزملائك لمناقشة الأسئلة ومتابعة كل جديد يخص المادة.</p>
+
+      <p>
+        انضم لزملائك لمناقشة الأسئلة
+        ومتابعة كل جديد يخص المادة.
+      </p>
     </a>
 
-    <!-- زر الملفات (مفتوح لأنك ستضيفين عليه) -->
-    <!-- يمكنك لاحقاً ربطه بصفحة physics-files.html كما فعلنا في علوم الأرض -->
     <a href="physics bag.html" class="card">
       <div class="icon">📂</div>
       <h3>بنك الملفات</h3>
-      <p>الملفات الورقية و أوراق العمل</p>
+      <p>الملفات الورقية وأوراق العمل</p>
     </a>
 
-    <!-- زر الامتحانات (مغلق حالياً) -->
     <div class="card locked">
       <div class="icon">📝</div>
       <h3>الامتحانات المحوسبة</h3>
@@ -247,42 +1110,382 @@
 
   </div>
 
-  <!-- نافذة عرض فيديو الخطة -->
+  <!-- نافذة الفيديو -->
   <div class="modal" id="videoModal">
     <div class="modal-content">
-      <button class="close-modal" onclick="closeModal()">✖</button>
-      <iframe id="ytVideo" width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+      <button
+        class="close-modal"
+        onclick="closeModal()"
+        aria-label="إغلاق"
+      >
+        ✖
+      </button>
+
+      <iframe
+        id="ytVideo"
+        src=""
+        title="خطة مادة الفيزياء"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+
     </div>
   </div>
 
+  <!-- معرض الصور -->
+  <section
+    class="gallery-section"
+    aria-labelledby="galleryTitle"
+  >
+
+    <div class="gallery-heading">
+      <div>
+        <h2 id="galleryTitle">
+          من أجواء حصص الفيزياء ⚡
+        </h2>
+
+        <p>اسحب الصور لتشاهد المزيد</p>
+      </div>
+
+      <div
+        class="gallery-controls"
+        aria-label="أزرار التنقل بين الصور"
+      >
+        <button
+          type="button"
+          class="gallery-btn"
+          id="galleryPrev"
+          aria-label="الصورة السابقة"
+        >
+          ←
+        </button>
+
+        <button
+          type="button"
+          class="gallery-btn"
+          id="galleryNext"
+          aria-label="الصورة التالية"
+        >
+          →
+        </button>
+      </div>
+    </div>
+
+    <div class="gallery-frame">
+
+      <div
+        class="gallery-track"
+        id="galleryTrack"
+        tabindex="0"
+        aria-label="صور الأستاذ خالد مقدادي داخل الحصص"
+      >
+
+        <figure class="gallery-card active">
+          <img
+            src="image/dumpls.jpg"
+            alt="الأستاذ خالد مقدادي أثناء شرح الفيزياء على اللوح"
+            loading="lazy"
+            decoding="async"
+          >
+
+          <span class="gallery-number">01</span>
+        </figure>
+
+        <figure class="gallery-card">
+          <img
+            src="image/experment.jpg"
+            alt="الأستاذ خالد مقدادي أثناء تجربة في حصة الفيزياء"
+            loading="lazy"
+            decoding="async"
+          >
+
+          <span class="gallery-number">02</span>
+        </figure>
+
+        <figure class="gallery-card">
+          <img
+            src="image/heart.jpg"
+            alt="الأستاذ خالد مقدادي في أجواء الحصة"
+            loading="lazy"
+            decoding="async"
+          >
+
+          <span class="gallery-number">03</span>
+        </figure>
+
+        <figure class="gallery-card">
+          <img
+            src="image/spher.jpg"
+            alt="الأستاذ خالد مقدادي يشرح باستخدام نموذج تعليمي"
+            loading="lazy"
+            decoding="async"
+          >
+
+          <span class="gallery-number">04</span>
+        </figure>
+
+        <figure class="gallery-card">
+          <img
+            src="image/splash.jpg"
+            alt="لقطة ممتعة من تجارب حصة الفيزياء"
+            loading="lazy"
+            decoding="async"
+          >
+
+          <span class="gallery-number">05</span>
+        </figure>
+
+      </div>
+    </div>
+
+    <div
+      class="gallery-dots"
+      id="galleryDots"
+      aria-label="اختيار صورة"
+    >
+      <button
+        type="button"
+        class="gallery-dot active"
+        aria-label="الصورة الأولى"
+      ></button>
+
+      <button
+        type="button"
+        class="gallery-dot"
+        aria-label="الصورة الثانية"
+      ></button>
+
+      <button
+        type="button"
+        class="gallery-dot"
+        aria-label="الصورة الثالثة"
+      ></button>
+
+      <button
+        type="button"
+        class="gallery-dot"
+        aria-label="الصورة الرابعة"
+      ></button>
+
+      <button
+        type="button"
+        class="gallery-dot"
+        aria-label="الصورة الخامسة"
+      ></button>
+    </div>
+
+  </section>
+
   <footer>
-    © <span id="year"></span> جميع الحقوق محفوظة — الأستاذ خالد مقدادي
+    © <span id="year"></span>
+    جميع الحقوق محفوظة — الأستاذ خالد مقدادي
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
 
-    // برمجة النافذة المنبثقة للفيديو
-    const modal = document.getElementById('videoModal');
-    const ytVideo = document.getElementById('ytVideo');
-    const videoSrc = "https://www.youtube.com/embed/PTQ90ilAbTw?si=LJ7cNq8B4_v63MON";
+    /* فيديو الخطة */
+    const modal =
+      document.getElementById("videoModal");
+
+    const ytVideo =
+      document.getElementById("ytVideo");
+
+    const videoSrc =
+      "https://www.youtube.com/embed/PTQ90ilAbTw?si=LJ7cNq8B4_v63MON";
 
     function openModal() {
-      modal.classList.add('active');
-      ytVideo.src = videoSrc; 
+      modal.classList.add("active");
+      ytVideo.src = videoSrc;
+      document.body.style.overflow = "hidden";
     }
 
     function closeModal() {
-      modal.classList.remove('active');
-      ytVideo.src = ""; 
+      modal.classList.remove("active");
+      ytVideo.src = "";
+      document.body.style.overflow = "";
     }
 
-    // إغلاق النافذة عند الضغط خارجها
-    window.onclick = function(event) {
-      if (event.target == modal) {
+    window.addEventListener("click", function (event) {
+      if (event.target === modal) {
         closeModal();
       }
+    });
+
+    window.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        closeModal();
+      }
+    });
+
+    /* معرض الصور */
+    const galleryTrack =
+      document.getElementById("galleryTrack");
+
+    const galleryCards =
+      Array.from(
+        galleryTrack.querySelectorAll(".gallery-card")
+      );
+
+    const galleryDots =
+      Array.from(
+        document.querySelectorAll(".gallery-dot")
+      );
+
+    const galleryPrev =
+      document.getElementById("galleryPrev");
+
+    const galleryNext =
+      document.getElementById("galleryNext");
+
+    let galleryFrameRequest;
+
+    function getGalleryStep() {
+      const styles =
+        window.getComputedStyle(galleryTrack);
+
+      const gap =
+        parseFloat(styles.columnGap || styles.gap) || 0;
+
+      return (
+        galleryCards[0].getBoundingClientRect().width
+        + gap
+      );
     }
+
+    function setActiveGalleryItem(index) {
+      galleryCards.forEach(
+        function (card, cardIndex) {
+          card.classList.toggle(
+            "active",
+            cardIndex === index
+          );
+        }
+      );
+
+      galleryDots.forEach(
+        function (dot, dotIndex) {
+          dot.classList.toggle(
+            "active",
+            dotIndex === index
+          );
+        }
+      );
+    }
+
+    function updateGalleryPosition() {
+      const trackBox =
+        galleryTrack.getBoundingClientRect();
+
+      const trackCenter =
+        trackBox.left + trackBox.width / 2;
+
+      let nearestIndex = 0;
+      let nearestDistance = Infinity;
+
+      galleryCards.forEach(
+        function (card, index) {
+          const cardBox =
+            card.getBoundingClientRect();
+
+          const cardCenter =
+            cardBox.left + cardBox.width / 2;
+
+          const distance =
+            Math.abs(trackCenter - cardCenter);
+
+          if (distance < nearestDistance) {
+            nearestDistance = distance;
+            nearestIndex = index;
+          }
+        }
+      );
+
+      setActiveGalleryItem(nearestIndex);
+    }
+
+    galleryTrack.addEventListener(
+      "scroll",
+      function () {
+        window.cancelAnimationFrame(
+          galleryFrameRequest
+        );
+
+        galleryFrameRequest =
+          window.requestAnimationFrame(
+            updateGalleryPosition
+          );
+      },
+      { passive: true }
+    );
+
+    galleryPrev.addEventListener(
+      "click",
+      function () {
+        galleryTrack.scrollBy({
+          left: -getGalleryStep(),
+          behavior: "smooth"
+        });
+      }
+    );
+
+    galleryNext.addEventListener(
+      "click",
+      function () {
+        galleryTrack.scrollBy({
+          left: getGalleryStep(),
+          behavior: "smooth"
+        });
+      }
+    );
+
+    galleryDots.forEach(
+      function (dot, index) {
+        dot.addEventListener(
+          "click",
+          function () {
+            galleryCards[index].scrollIntoView({
+              behavior: "smooth",
+              block: "nearest",
+              inline: "center"
+            });
+          }
+        );
+      }
+    );
+
+    galleryTrack.addEventListener(
+      "keydown",
+      function (event) {
+        if (
+          event.key === "ArrowLeft" ||
+          event.key === "ArrowRight"
+        ) {
+          event.preventDefault();
+
+          const direction =
+            event.key === "ArrowRight" ? 1 : -1;
+
+          galleryTrack.scrollBy({
+            left:
+              direction * getGalleryStep(),
+            behavior: "smooth"
+          });
+        }
+      }
+    );
+
+    window.addEventListener(
+      "resize",
+      updateGalleryPosition
+    );
+
+    updateGalleryPosition();
   </script>
+
 </body>
 </html>
