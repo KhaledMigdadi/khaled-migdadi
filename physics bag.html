@@ -362,6 +362,54 @@
       box-shadow: 0 6px 20px rgba(245, 197, 66, 0.5);
     }
 
+    /* عنوان قابل للتكرار لملفات كل وحدة */
+    .unit-section {
+      width: 100%;
+      max-width: 1200px;
+      margin: 10px auto 0;
+    }
+
+    .unit-heading {
+      margin: 0 max(14px, 5%) 22px;
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      border: 1px solid rgba(245, 197, 66, 0.4);
+      border-radius: 12px;
+      background: linear-gradient(
+        100deg,
+        rgba(245, 197, 66, 0.13),
+        rgba(157, 78, 221, 0.12)
+      );
+    }
+
+    .unit-number {
+      min-width: 72px;
+      min-height: 72px;
+      padding: 8px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(245, 197, 66, 0.55);
+      border-radius: 12px;
+      color: var(--gold);
+      font-size: 30px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .unit-heading h2 {
+      color: #fff;
+      font-size: clamp(19px, 4vw, 24px);
+      line-height: 1.5;
+    }
+
+    .unit-heading p {
+      color: #d1b3ff;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
     footer {
       margin-top: auto;
       padding: 20px 14px max(20px, env(safe-area-inset-bottom));
@@ -437,6 +485,18 @@
         font-size: 14px;
       }
 
+      .unit-heading {
+        margin-inline: 12px;
+        padding: 14px;
+        gap: 12px;
+      }
+
+      .unit-number {
+        min-width: 56px;
+        min-height: 56px;
+        font-size: 23px;
+      }
+
       footer {
         font-size: 12px;
       }
@@ -466,6 +526,10 @@
 
       .section-title {
         width: calc(100% - 20px);
+      }
+
+      .unit-heading {
+        margin-inline: 8px;
       }
     }
 
@@ -582,7 +646,6 @@
           لتوضيح ترتيب دراسة المادة وتنظيم الحصص.
         </p>
 
-        <!-- اسم الملف: خطة مادة الفيزياء ف 1.pdf -->
         <a
           href="pdf/roadmap%20physics.pdf"
           download="roadmap physics.pdf"
@@ -608,10 +671,6 @@
           الأساتذة سامر رشاد، خالد مقدادي، وسيف عويمر.
         </p>
 
-        <!--
-          ضع الملف داخل مجلد pdf بهذا الاسم تمامًا:
-          خطة الفصل الأول-سامر رشاد-خالد مقداد-سيف عويمر.pdf
-        -->
         <a
           href="pdf/%D8%AE%D8%B7%D8%A9%20%D8%A7%D9%84%D9%81%D8%B5%D9%84%20%D8%A7%D9%84%D8%A3%D9%88%D9%84-%D8%B3%D8%A7%D9%85%D8%B1%20%D8%B1%D8%B4%D8%A7%D8%AF-%D8%AE%D8%A7%D9%84%D8%AF%20%D9%85%D9%82%D8%AF%D8%A7%D8%AF-%D8%B3%D9%8A%D9%81%20%D8%B9%D9%88%D9%8A%D9%85%D8%B1.pdf"
           download="خطة الفصل الأول-سامر رشاد-خالد مقداد-سيف عويمر.pdf"
@@ -624,6 +683,47 @@
       </div>
 
     </div>
+
+    <!-- كرّري هذا القسم للوحدات القادمة مع تعديل الرقم والعنوان وروابط الملفات -->
+    <section class="unit-section" aria-labelledby="unit-1-title">
+      <div class="unit-heading">
+        <div class="unit-number" aria-hidden="true">01</div>
+        <div>
+          <h2 id="unit-1-title">الوحدة الأولى: الزخم الخطي والتصادمات</h2>
+          <p>ملخص الوحدة وورقة العمل في مكان واحد.</p>
+        </div>
+      </div>
+
+      <div class="files-grid">
+        <div class="file-card">
+          <div class="file-icon" aria-hidden="true">📖</div>
+          <h3>ملخص الوحدة الأولى</h3>
+          <p>ملخص الزخم الخطي والتصادمات لمراجعة الأفكار والقوانين الأساسية للوحدة.</p>
+          <a
+            href="pdf/%D9%85%D9%84%D8%AE%D8%B5%20%D8%A7%D9%84%D8%B2%D8%AE%D9%85.pdf"
+            download="ملخص الزخم.pdf"
+            class="download-btn"
+          >
+            <span aria-hidden="true">📥</span>
+            تحميل ملخص الوحدة PDF
+          </a>
+        </div>
+
+        <div class="file-card">
+          <div class="file-icon" aria-hidden="true">📝</div>
+          <h3>ورقة عمل الوحدة الأولى</h3>
+          <p>تدريبات على الزخم الخطي والتصادمات لتطبيق ما تعلّمته واختبار فهمك.</p>
+          <a
+            href="pdf/%D9%88%D8%B1%D9%82%D8%A9%20%D8%B9%D9%85%D9%841.pdf"
+            download="ورقة عمل1.pdf"
+            class="download-btn"
+          >
+            <span aria-hidden="true">📥</span>
+            تحميل ورقة العمل PDF
+          </a>
+        </div>
+      </div>
+    </section>
 
   </main>
 
