@@ -26,7 +26,6 @@
       flex-direction: column;
     }
 
-    /* خلفية متحركة تناسب جو الدراسة (مربعات وخطوط هندسية) */
     .bg-pattern {
       position: fixed;
       top: 0; left: 0;
@@ -47,7 +46,6 @@
       pointer-events: none;
     }
 
-    /* الهيدر */
     header {
       padding: 15px 5%;
       display: flex;
@@ -86,7 +84,6 @@
       border-color: var(--primary);
     }
 
-    /* عنوان الصفحة */
     .page-header {
       text-align: center;
       padding: 40px 20px 20px;
@@ -108,7 +105,6 @@
       line-height: 1.6;
     }
 
-    /* تصنيفات الملفات */
     .section-title {
       font-size: 22px;
       font-weight: 800;
@@ -119,7 +115,6 @@
       text-shadow: 0 0 10px rgba(0,242,254,0.3);
     }
 
-    /* شبكة الملفات */
     .files-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -130,7 +125,6 @@
       width: 100%;
     }
 
-    /* تصميم بطاقة الملف */
     .file-card {
       background: var(--card-bg);
       border: 1px solid rgba(255,255,255,0.1);
@@ -176,7 +170,6 @@
       flex-grow: 1;
     }
 
-    /* زر التحميل */
     .download-btn {
       display: flex;
       align-items: center;
@@ -198,34 +191,6 @@
       box-shadow: 0 5px 15px rgba(0, 242, 254, 0.4);
     }
 
-    /* البطاقات المغلقة (الدروس القادمة) */
-    .file-card.locked {
-      opacity: 0.6;
-      border-style: dashed;
-    }
-
-    .file-card.locked:hover {
-      transform: none;
-      box-shadow: none;
-      border-color: rgba(255,255,255,0.1);
-      cursor: not-allowed;
-    }
-
-    .file-card.locked .file-icon {
-      background: rgba(255,255,255,0.05);
-      filter: grayscale(1);
-    }
-
-    .locked-badge {
-      background: rgba(255,255,255,0.1);
-      color: #ccc;
-      padding: 10px;
-      border-radius: 10px;
-      text-align: center;
-      font-weight: bold;
-      font-size: 14px;
-    }
-
     footer {
       text-align: center;
       padding: 20px;
@@ -235,29 +200,15 @@
     }
 
     @media (max-width: 600px) {
-      header {
-        padding: 12px 4%;
-        gap: 10px;
-      }
-
-      .back-btn {
-        padding: 8px 11px;
-        white-space: nowrap;
-      }
-
+      header { padding: 12px 4%; gap: 10px; }
+      .back-btn { padding: 8px 11px; white-space: nowrap; }
       .page-header { padding: 30px 16px 10px; }
-
-      .section-title {
-        font-size: 19px;
-        margin-top: 32px;
-      }
-
+      .section-title { font-size: 19px; margin-top: 32px; }
       .files-grid {
         grid-template-columns: minmax(0, 1fr);
         padding-right: 14px;
         padding-left: 14px;
       }
-
       .file-card { padding: 21px; }
     }
   </style>
@@ -273,10 +224,10 @@
 
   <div class="page-header">
     <h1>دوسيات وملفات <span>علوم الأرض</span></h1>
-    <p>حمل الخرائط الذهنية وملفات التأسيس لتسهيل حفظ وفهم المادة بشكل كامل.</p>
+    <p>حمّل الخرائط الذهنية وملفات التأسيس وأوراق العمل لتسهيل فهم المادة ومراجعتها.</p>
   </div>
 
-  <!-- القسم الأول: ملفات التأسيس -->
+  <!-- ملفات التأسيس -->
   <div class="section-title">ملفات التأسيس</div>
   <div class="files-grid">
     <div class="file-card">
@@ -289,7 +240,7 @@
     </div>
   </div>
 
-  <!-- القسم الثاني: الخطط الدراسية -->
+  <!-- الخطط الدراسية -->
   <div class="section-title">الخطط الدراسية</div>
   <div class="files-grid">
     <div class="file-card">
@@ -311,10 +262,9 @@
     </div>
   </div>
 
-  <!-- القسم الثالث: خرائط وحدة الوقود الأحفوري -->
+  <!-- الخرائط الذهنية -->
   <div class="section-title">وحدة الوقود الأحفوري (خرائط ذهنية)</div>
   <div class="files-grid">
-    <!-- الدرس الأول -->
     <div class="file-card">
       <div class="file-icon">🗺️</div>
       <h3>خريطة الدرس الأول</h3>
@@ -324,7 +274,6 @@
       </a>
     </div>
 
-    <!-- الدرس الثاني -->
     <div class="file-card">
       <div class="file-icon">🗺️</div>
       <h3>خريطة الدرس الثاني</h3>
@@ -334,13 +283,34 @@
       </a>
     </div>
 
-    <!-- الدرس الثالث -->
     <div class="file-card">
       <div class="file-icon">🗺️</div>
       <h3>خريطة الدرس الثالث</h3>
       <p>خريطة ذهنية مخصصة لأفكار الدرس الثالث.</p>
       <a href="pdf/lesson%203%20mindmap.pdf" download class="download-btn">
         📥 تحميل الخريطة
+      </a>
+    </div>
+  </div>
+
+  <!-- ورقة عمل الوحدة الأولى وإجاباتها -->
+  <div class="section-title">أوراق عمل الوحدة الأولى: الوقود الأحفوري والبيئة</div>
+  <div class="files-grid">
+    <div class="file-card">
+      <div class="file-icon">📝</div>
+      <h3>ورقة عمل الوحدة الأولى</h3>
+      <p>تدرّب على أفكار وحدة الوقود الأحفوري والبيئة، وحاول حل الأسئلة قبل الاطلاع على الإجابات.</p>
+      <a href="pdf/ورقة عمل الوقود الأحفوري.pdf" download class="download-btn">
+        📥 تحميل ورقة العمل
+      </a>
+    </div>
+
+    <div class="file-card">
+      <div class="file-icon">✅</div>
+      <h3>حل ورقة عمل الوحدة الأولى</h3>
+      <p>راجع إجابات ورقة العمل وتأكد من فهمك لأفكار الوحدة بعد الحل.</p>
+      <a href="pdf/حل ورقة عمل الوقود الأحفوري.pdf" download class="download-btn">
+        📥 تحميل الحل
       </a>
     </div>
   </div>
