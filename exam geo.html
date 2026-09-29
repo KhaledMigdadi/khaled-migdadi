@@ -26,16 +26,20 @@
       flex-direction: column;
     }
 
-    /* خلفية متحركة */
     .sparks-bg {
-      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       background: radial-gradient(circle at 50% 100%, rgba(255, 107, 107, 0.15), transparent 60%);
       z-index: -2;
     }
 
     .spark {
       position: absolute;
-      width: 4px; height: 4px;
+      width: 4px;
+      height: 4px;
       background: var(--secondary);
       border-radius: 50%;
       box-shadow: 0 0 10px var(--secondary), 0 0 20px var(--primary);
@@ -52,11 +56,15 @@
 
     header {
       padding: 15px 5%;
-      display: flex; justify-content: space-between; align-items: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       background: rgba(10, 5, 5, 0.8);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,107,107,0.2);
-      position: sticky; top: 0; z-index: 1000;
+      border-bottom: 1px solid rgba(255, 107, 107, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     .brand {
@@ -67,12 +75,15 @@
     }
 
     .back-btn {
-      padding: 8px 16px; border-radius: 8px;
-      font-weight: 600; font-size: clamp(12px, 3vw, 14px);
-      background: rgba(255,255,255,0.1);
-      color: #fff; text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: clamp(12px, 3vw, 14px);
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      text-decoration: none;
       transition: 0.3s;
-      border: 1px solid rgba(255,255,255,0.2);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .back-btn:hover {
@@ -81,12 +92,15 @@
       border-color: var(--primary);
     }
 
-    .page-header { text-align: center; padding: 40px 20px 20px; }
+    .page-header {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
 
     .page-header h1 {
       font-size: clamp(24px, 6vw, 36px);
       color: #fff;
-      text-shadow: 0 0 15px rgba(255,107,107,0.6);
+      text-shadow: 0 0 15px rgba(255, 107, 107, 0.6);
       margin-bottom: 10px;
     }
 
@@ -108,10 +122,12 @@
     .timeline::before {
       content: '';
       position: absolute;
-      top: 0; right: 50%;
+      top: 0;
+      right: 50%;
       transform: translateX(50%);
-      width: 4px; height: 100%;
-      background: rgba(255,255,255,0.1);
+      width: 4px;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
       border-radius: 4px;
     }
 
@@ -124,19 +140,29 @@
     }
 
     .timeline-item:nth-child(odd) {
-      right: 0; left: auto; text-align: right;
+      right: 0;
+      left: auto;
+      text-align: right;
     }
 
     .timeline-item:nth-child(odd) .timeline-dot {
-      position: absolute; top: 40px; left: -12px; right: auto;
+      position: absolute;
+      top: 40px;
+      left: -12px;
+      right: auto;
     }
 
     .timeline-item:nth-child(even) {
-      right: 50%; left: auto; text-align: left;
+      right: 50%;
+      left: auto;
+      text-align: left;
     }
 
     .timeline-item:nth-child(even) .timeline-dot {
-      position: absolute; top: 40px; right: -12px; left: auto;
+      position: absolute;
+      top: 40px;
+      right: -12px;
+      left: auto;
     }
 
     .timeline-item:nth-child(1) { animation-delay: 0.2s; }
@@ -150,7 +176,8 @@
     }
 
     .timeline-dot {
-      width: 24px; height: 24px;
+      width: 24px;
+      height: 24px;
       border-radius: 50%;
       background: var(--bg-dark);
       border: 4px solid #555;
@@ -173,7 +200,7 @@
 
     .card {
       background: var(--card-bg);
-      border: 1px solid rgba(255,255,255,0.05);
+      border: 1px solid rgba(255, 255, 255, 0.05);
       border-radius: 16px;
       padding: 25px;
       backdrop-filter: blur(10px);
@@ -196,18 +223,8 @@
       color: #fff;
     }
 
-    .timeline-item.active .card h3 { color: var(--secondary); }
-
-    .card-locked {
-      text-align: center;
-      color: #777;
-      padding: 20px 0;
-    }
-
-    .card-locked .icon {
-      font-size: 30px;
-      margin-bottom: 10px;
-      opacity: 0.5;
+    .timeline-item.active .card h3 {
+      color: var(--secondary);
     }
 
     .actions {
@@ -249,9 +266,9 @@
     }
 
     .btn-pdf {
-      background: rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.1);
       color: #fff;
-      border: 1px solid rgba(255,255,255,0.2);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .btn-pdf:hover {
@@ -275,7 +292,7 @@
     footer {
       text-align: center;
       padding: 20px;
-      color: rgba(255,255,255,0.4);
+      color: rgba(255, 255, 255, 0.4);
       font-size: 14px;
       margin-top: auto;
     }
@@ -319,7 +336,7 @@
   </header>
 
   <div class="page-header">
-    <span style="display: inline-block; background: rgba(255,107,107,0.2); color: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 14px; font-weight: bold; margin-bottom: 15px;">الوحدة الأولى</span>
+    <span style="display: inline-block; background: rgba(255, 107, 107, 0.2); color: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 14px; font-weight: bold; margin-bottom: 15px;">الوحدة الأولى</span>
     <h1>الوقود الأحفوري</h1>
     <p>اختبر معلوماتك وقم بتقييم مستواك بعد كل درس لتتأكد من فهمك الكامل للمادة.</p>
   </div>
@@ -335,7 +352,7 @@
           امتحان شامل لأفكار الدرس الأول. يمكنك تقديمه إلكترونياً أو تحميله كملف PDF لطباعته.
         </p>
         <div class="actions">
-          <a href="https://www.joacademy.com/ar/online-exams/5570" target="_blank" class="btn btn-online">
+          <a href="https://www.joacademy.com/ar/online-exams/5570" target="_blank" rel="noopener noreferrer" class="btn btn-online">
             🌐 امتحان إلكتروني
           </a>
           <a href="pdf/exam%201%20.pdf" download class="btn btn-pdf">
@@ -392,14 +409,24 @@
       </div>
     </div>
 
-    <!-- امتحان الوحدة الشامل -->
-    <div class="timeline-item">
+    <!-- امتحان الوحدة الأولى -->
+    <div class="timeline-item active">
       <div class="timeline-dot"></div>
       <div class="card">
-        <div class="card-locked">
-          <div class="icon">🏆</div>
-          <h3>امتحان الوحدة الشامل</h3>
-          <p>يُفتح بعد إتمام جميع دروس الوحدة</p>
+        <h3>🏆 امتحان الوحدة الأولى: الوقود الأحفوري</h3>
+        <p style="color: #ddd; font-size: clamp(13px, 3vw, 15px); line-height: 1.6;">
+          امتحان شامل للوحدة الأولى. يمكنك تقديمه إلكترونياً أو تحميل الامتحان والإجابات بصيغة PDF.
+        </p>
+        <div class="actions">
+          <a href="https://www.joacademy.com/ar/online-exams/5753" target="_blank" rel="noopener noreferrer" class="btn btn-online">
+            🌐 امتحان إلكتروني
+          </a>
+          <a href="pdf/%D8%A7%D9%85%D8%AA%D8%AD%D8%A7%D9%86%20%D8%A7%D9%84%D9%88%D8%AD%D8%AF%D8%A9%20%D8%A7%D9%84%D9%88%D9%82%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%AD%D9%81%D9%88%D8%B1%D9%8A.pdf" download class="btn btn-pdf">
+            📥 تحميل PDF
+          </a>
+          <a href="pdf/%D8%AD%D9%84%20%D8%A7%D9%85%D8%AA%D8%AD%D8%A7%D9%86%20%D8%A7%D9%84%D9%88%D9%82%D9%88%D8%AF%20%D8%A7%D9%84%D8%A3%D8%AD%D9%81%D9%88%D8%B1%D9%8A.pdf" download class="btn btn-answers">
+            ✅ تحميل إجابات الامتحان
+          </a>
         </div>
       </div>
     </div>
