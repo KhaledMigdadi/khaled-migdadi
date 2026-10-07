@@ -1,0 +1,1626 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  />
+
+  <title>اختبارات الفيزياء | الأستاذ خالد مقدادي</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --gold: #f5c542;
+      --neon-gold: #ffdf00;
+
+      --purple: #9d4edd;
+      --purple-light: #c77dff;
+
+      --blue: #00d9ff;
+
+      --green: #4cff88;
+
+      --bg: #05020a;
+      --bg-2: #0b0314;
+
+      --card: rgba(16, 6, 29, 0.82);
+
+      --text-soft: #d7c5ef;
+
+      --pad-x: clamp(16px, 5vw, 75px);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+
+      overflow-x: hidden;
+
+      font-family: "Cairo", sans-serif;
+
+      color: #fff;
+
+      background:
+        radial-gradient(
+          circle at 50% -10%,
+          rgba(157, 78, 221, 0.18),
+          transparent 38%
+        ),
+        radial-gradient(
+          circle at 90% 25%,
+          rgba(245, 197, 66, 0.08),
+          transparent 30%
+        ),
+        linear-gradient(
+          180deg,
+          #05020a 0%,
+          #080310 50%,
+          #040107 100%
+        );
+
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    /* =========================
+       الخلفية المتحركة
+    ========================= */
+
+    .space {
+      position: fixed;
+      inset: 0;
+      z-index: -5;
+
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .grid {
+      position: absolute;
+
+      left: 50%;
+      top: 47%;
+
+      width: 180vw;
+      height: 150vh;
+
+      transform:
+        translate(-50%, -50%)
+        perspective(700px)
+        rotateX(68deg);
+
+      background-image:
+        linear-gradient(
+          rgba(157, 78, 221, 0.18) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(157, 78, 221, 0.18) 1px,
+          transparent 1px
+        );
+
+      background-size: 55px 55px;
+
+      mask-image:
+        radial-gradient(
+          circle at center,
+          black 8%,
+          transparent 72%
+        );
+
+      -webkit-mask-image:
+        radial-gradient(
+          circle at center,
+          black 8%,
+          transparent 72%
+        );
+
+      animation: moveGrid 8s linear infinite;
+    }
+
+    @keyframes moveGrid {
+      from {
+        transform:
+          translate(-50%, -50%)
+          perspective(700px)
+          rotateX(68deg)
+          translateY(0);
+      }
+
+      to {
+        transform:
+          translate(-50%, -50%)
+          perspective(700px)
+          rotateX(68deg)
+          translateY(55px);
+      }
+    }
+
+    .orb {
+      position: absolute;
+
+      width: 400px;
+      height: 400px;
+
+      border-radius: 50%;
+
+      filter: blur(90px);
+
+      opacity: 0.14;
+    }
+
+    .orb.one {
+      top: -160px;
+      right: -80px;
+
+      background: var(--purple);
+    }
+
+    .orb.two {
+      bottom: -180px;
+      left: -120px;
+
+      background: var(--gold);
+    }
+
+    .stars {
+      position: absolute;
+      inset: 0;
+
+      background-image:
+        radial-gradient(
+          circle,
+          rgba(255,255,255,0.8) 1px,
+          transparent 1px
+        );
+
+      background-size: 70px 70px;
+
+      opacity: 0.16;
+    }
+
+    /* =========================
+       Header
+    ========================= */
+
+    header {
+      position: sticky;
+      top: 0;
+
+      z-index: 100;
+
+      min-height: 68px;
+
+      padding:
+        11px var(--pad-x);
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 15px;
+
+      background:
+        rgba(5, 2, 10, 0.78);
+
+      border-bottom:
+        1px solid rgba(245, 197, 66, 0.22);
+
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+
+      box-shadow:
+        0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    .brand {
+      font-size:
+        clamp(17px, 4vw, 23px);
+
+      font-weight: 900;
+
+      color: var(--gold);
+
+      text-shadow:
+        0 0 15px rgba(245, 197, 66, 0.55);
+    }
+
+    .back-btn {
+      padding:
+        8px 15px;
+
+      border:
+        1px solid rgba(245, 197, 66, 0.65);
+
+      border-radius: 8px;
+
+      color: var(--gold);
+
+      background:
+        rgba(245, 197, 66, 0.04);
+
+      text-decoration: none;
+
+      font-size: 13px;
+      font-weight: 800;
+
+      transition: 0.25s ease;
+    }
+
+    .back-btn:hover {
+      color: #09030f;
+
+      background:
+        var(--gold);
+
+      box-shadow:
+        0 0 20px rgba(245, 197, 66, 0.35);
+
+      transform:
+        translateY(-2px);
+    }
+
+    /* =========================
+       Hero
+    ========================= */
+
+    .hero {
+      width: min(1100px, 100%);
+
+      margin-inline: auto;
+
+      padding:
+        clamp(48px, 8vw, 88px)
+        var(--pad-x)
+        25px;
+
+      text-align: center;
+    }
+
+    .hero-badge {
+      width: fit-content;
+
+      margin:
+        0 auto 16px;
+
+      padding:
+        7px 15px;
+
+      border:
+        1px solid rgba(245, 197, 66, 0.38);
+
+      border-radius:
+        999px;
+
+      color:
+        var(--gold);
+
+      background:
+        rgba(245, 197, 66, 0.07);
+
+      font-size:
+        clamp(11px, 3vw, 13px);
+
+      font-weight:
+        800;
+
+      letter-spacing:
+        1px;
+
+      box-shadow:
+        inset 0 0 14px rgba(245, 197, 66, 0.06),
+        0 0 18px rgba(245, 197, 66, 0.06);
+    }
+
+    .hero h1 {
+      position: relative;
+
+      font-size:
+        clamp(34px, 8vw, 61px);
+
+      font-weight:
+        900;
+
+      line-height:
+        1.25;
+
+      background:
+        linear-gradient(
+          90deg,
+          #fff,
+          #f7e8ff,
+          var(--gold),
+          #fff
+        );
+
+      background-size:
+        200% auto;
+
+      -webkit-background-clip:
+        text;
+
+      background-clip:
+        text;
+
+      color:
+        transparent;
+
+      animation:
+        titleGlow 5s linear infinite;
+
+      filter:
+        drop-shadow(
+          0 0 18px rgba(157, 78, 221, 0.2)
+        );
+    }
+
+    @keyframes titleGlow {
+      to {
+        background-position: 200% center;
+      }
+    }
+
+    .hero p {
+      max-width:
+        650px;
+
+      margin:
+        16px auto 0;
+
+      color:
+        var(--text-soft);
+
+      font-size:
+        clamp(14px, 3.6vw, 18px);
+
+      line-height:
+        1.9;
+    }
+
+    .hero p strong {
+      color:
+        var(--gold);
+    }
+
+    /* =========================
+       Main
+    ========================= */
+
+    main {
+      width:
+        min(1080px, 100%);
+
+      margin:
+        0 auto;
+
+      padding:
+        25px var(--pad-x) 70px;
+    }
+
+    /* =========================
+       Exam Card
+    ========================= */
+
+    .exam-card {
+      position: relative;
+
+      overflow: hidden;
+      isolation: isolate;
+
+      padding:
+        clamp(25px, 5vw, 45px);
+
+      border:
+        1px solid rgba(157, 78, 221, 0.5);
+
+      border-radius:
+        28px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(26, 9, 46, 0.96),
+          rgba(9, 3, 17, 0.96)
+        );
+
+      box-shadow:
+        0 30px 80px rgba(0,0,0,0.45),
+        inset 0 0 40px rgba(157, 78, 221, 0.07);
+
+      transition:
+        0.4s ease;
+    }
+
+    .exam-card:hover {
+      border-color:
+        rgba(245, 197, 66, 0.7);
+
+      box-shadow:
+        0 35px 90px rgba(0,0,0,0.5),
+        0 0 30px rgba(245,197,66,0.09),
+        inset 0 0 45px rgba(157, 78, 221, 0.12);
+
+      transform:
+        translateY(-5px);
+    }
+
+    .exam-card::before {
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      left: -140%;
+
+      width: 75%;
+      height: 100%;
+
+      z-index: -1;
+
+      transform:
+        skewX(-18deg);
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255,255,255,0.035),
+          rgba(245,197,66,0.07),
+          transparent
+        );
+
+      animation:
+        scanCard 5s ease-in-out infinite;
+    }
+
+    @keyframes scanCard {
+      0%,
+      50% {
+        left: -140%;
+      }
+
+      90%,
+      100% {
+        left: 160%;
+      }
+    }
+
+    .unit-number {
+      position: absolute;
+
+      left: 18px;
+      top: -38px;
+
+      z-index: -1;
+
+      color:
+        rgba(255,255,255,0.025);
+
+      font-size:
+        clamp(145px, 30vw, 270px);
+
+      font-weight:
+        900;
+
+      line-height:
+        1;
+
+      user-select:
+        none;
+    }
+
+    .exam-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+    .unit-tag {
+      width: fit-content;
+
+      padding:
+        7px 13px;
+
+      border:
+        1px solid rgba(157, 78, 221, 0.5);
+
+      border-radius:
+        999px;
+
+      color:
+        var(--purple-light);
+
+      background:
+        rgba(157, 78, 221, 0.09);
+
+      font-size:
+        12px;
+
+      font-weight:
+        800;
+    }
+
+    .live-status {
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        7px;
+
+      padding:
+        7px 13px;
+
+      border:
+        1px solid rgba(76, 255, 136, 0.35);
+
+      border-radius:
+        999px;
+
+      color:
+        #8dffb1;
+
+      background:
+        rgba(76, 255, 136, 0.07);
+
+      font-size:
+        12px;
+
+      font-weight:
+        800;
+    }
+
+    .status-dot {
+      width:
+        8px;
+
+      height:
+        8px;
+
+      border-radius:
+        50%;
+
+      background:
+        var(--green);
+
+      box-shadow:
+        0 0 10px var(--green);
+
+      animation:
+        pulseDot 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulseDot {
+      50% {
+        opacity: 0.4;
+
+        transform:
+          scale(0.75);
+      }
+    }
+
+    /* =========================
+       Collision Animation
+    ========================= */
+
+    .collision-zone {
+      position: relative;
+
+      height:
+        115px;
+
+      margin:
+        20px 0 5px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      overflow:
+        hidden;
+    }
+
+    .collision-line {
+      position: absolute;
+
+      left: 7%;
+      right: 7%;
+      top: 50%;
+
+      height:
+        1px;
+
+      transform:
+        translateY(-50%);
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(157,78,221,0.35),
+          rgba(245,197,66,0.6),
+          rgba(157,78,221,0.35),
+          transparent
+        );
+    }
+
+    .ball {
+      position:
+        absolute;
+
+      top:
+        50%;
+
+      width:
+        46px;
+
+      height:
+        46px;
+
+      border-radius:
+        50%;
+
+      transform:
+        translateY(-50%);
+
+      box-shadow:
+        0 0 25px currentColor;
+
+      z-index:
+        2;
+    }
+
+    .ball-left {
+      left:
+        16%;
+
+      color:
+        var(--purple-light);
+
+      background:
+        radial-gradient(
+          circle at 30% 30%,
+          #fff,
+          var(--purple-light) 20%,
+          #6921aa 72%
+        );
+
+      animation:
+        collisionLeft 2.9s ease-in-out infinite;
+    }
+
+    .ball-right {
+      right:
+        16%;
+
+      color:
+        var(--gold);
+
+      background:
+        radial-gradient(
+          circle at 30% 30%,
+          #fff,
+          var(--gold) 20%,
+          #9f7410 72%
+        );
+
+      animation:
+        collisionRight 2.9s ease-in-out infinite;
+    }
+
+    @keyframes collisionLeft {
+      0%,
+      15% {
+        left: 16%;
+      }
+
+      45%,
+      52% {
+        left: calc(50% - 47px);
+      }
+
+      80%,
+      100% {
+        left: 16%;
+      }
+    }
+
+    @keyframes collisionRight {
+      0%,
+      15% {
+        right: 16%;
+      }
+
+      45%,
+      52% {
+        right: calc(50% - 47px);
+      }
+
+      80%,
+      100% {
+        right: 16%;
+      }
+    }
+
+    .impact {
+      position:
+        absolute;
+
+      left:
+        50%;
+
+      top:
+        50%;
+
+      width:
+        24px;
+
+      height:
+        24px;
+
+      transform:
+        translate(-50%, -50%);
+
+      border:
+        2px solid var(--neon-gold);
+
+      border-radius:
+        50%;
+
+      opacity:
+        0;
+
+      animation:
+        impactPulse 2.9s ease-in-out infinite;
+    }
+
+    .impact::before,
+    .impact::after {
+      content: "";
+
+      position:
+        absolute;
+
+      left:
+        50%;
+
+      top:
+        50%;
+
+      width:
+        65px;
+
+      height:
+        2px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--neon-gold),
+          transparent
+        );
+    }
+
+    .impact::before {
+      transform:
+        translate(-50%, -50%)
+        rotate(45deg);
+    }
+
+    .impact::after {
+      transform:
+        translate(-50%, -50%)
+        rotate(-45deg);
+    }
+
+    @keyframes impactPulse {
+      0%,
+      42% {
+        opacity: 0;
+
+        transform:
+          translate(-50%, -50%)
+          scale(0.3);
+      }
+
+      48% {
+        opacity: 1;
+
+        transform:
+          translate(-50%, -50%)
+          scale(1.4);
+      }
+
+      59%,
+      100% {
+        opacity: 0;
+
+        transform:
+          translate(-50%, -50%)
+          scale(2.4);
+      }
+    }
+
+    /* =========================
+       Exam Content
+    ========================= */
+
+    .exam-content {
+      text-align:
+        center;
+    }
+
+    .exam-content h2 {
+      margin-top:
+        2px;
+
+      color:
+        #fff;
+
+      font-size:
+        clamp(25px, 6vw, 38px);
+
+      font-weight:
+        900;
+
+      line-height:
+        1.45;
+
+      text-shadow:
+        0 0 20px rgba(157, 78, 221, 0.26);
+    }
+
+    .exam-sub {
+      max-width:
+        620px;
+
+      margin:
+        10px auto 0;
+
+      color:
+        #c8b8df;
+
+      font-size:
+        clamp(13px, 3.4vw, 16px);
+
+      line-height:
+        1.8;
+    }
+
+    .exam-meta {
+      margin:
+        22px auto 0;
+
+      display:
+        flex;
+
+      flex-wrap:
+        wrap;
+
+      justify-content:
+        center;
+
+      gap:
+        8px;
+    }
+
+    .meta-chip {
+      padding:
+        7px 12px;
+
+      border:
+        1px solid rgba(255,255,255,0.1);
+
+      border-radius:
+        999px;
+
+      color:
+        #dfd3ed;
+
+      background:
+        rgba(255,255,255,0.035);
+
+      font-size:
+        12px;
+
+      font-weight:
+        700;
+    }
+
+    /* =========================
+       Buttons
+    ========================= */
+
+    .exam-actions {
+      margin-top:
+        28px;
+
+      display:
+        grid;
+
+      grid-template-columns:
+        1.25fr 1fr 1fr;
+
+      gap:
+        13px;
+    }
+
+    .action-btn {
+      min-height:
+        72px;
+
+      padding:
+        13px 15px;
+
+      position:
+        relative;
+
+      overflow:
+        hidden;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      gap:
+        9px;
+
+      border-radius:
+        15px;
+
+      text-decoration:
+        none;
+
+      font-size:
+        14px;
+
+      font-weight:
+        900;
+
+      transition:
+        0.3s ease;
+    }
+
+    .action-btn span:first-child {
+      font-size:
+        22px;
+    }
+
+    .action-primary {
+      color:
+        #09030f;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ffec6d,
+          var(--gold)
+        );
+
+      box-shadow:
+        0 0 30px rgba(245,197,66,0.18);
+
+      border:
+        1px solid rgba(255,255,255,0.35);
+    }
+
+    .action-primary::before {
+      content: "";
+
+      position:
+        absolute;
+
+      top:
+        0;
+
+      left:
+        -120%;
+
+      width:
+        70%;
+
+      height:
+        100%;
+
+      transform:
+        skewX(-20deg);
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255,255,255,0.45),
+          transparent
+        );
+
+      animation:
+        buttonShine 3.8s ease-in-out infinite;
+    }
+
+    @keyframes buttonShine {
+      0%,
+      45% {
+        left: -120%;
+      }
+
+      75%,
+      100% {
+        left: 150%;
+      }
+    }
+
+    .action-secondary {
+      color:
+        #fff;
+
+      border:
+        1px solid rgba(157, 78, 221, 0.55);
+
+      background:
+        rgba(157, 78, 221, 0.09);
+
+      box-shadow:
+        inset 0 0 20px rgba(157,78,221,0.07);
+    }
+
+    .action-answer {
+      color:
+        #e8fff0;
+
+      border:
+        1px solid rgba(76, 255, 136, 0.36);
+
+      background:
+        rgba(76, 255, 136, 0.065);
+
+      box-shadow:
+        inset 0 0 20px rgba(76,255,136,0.045);
+    }
+
+    .action-btn:hover {
+      transform:
+        translateY(-4px)
+        scale(1.015);
+    }
+
+    .action-primary:hover {
+      box-shadow:
+        0 8px 32px rgba(245,197,66,0.28),
+        0 0 30px rgba(245,197,66,0.18);
+    }
+
+    .action-secondary:hover {
+      border-color:
+        var(--purple-light);
+
+      box-shadow:
+        0 8px 27px rgba(157,78,221,0.15);
+    }
+
+    .action-answer:hover {
+      border-color:
+        var(--green);
+
+      box-shadow:
+        0 8px 27px rgba(76,255,136,0.12);
+    }
+
+    /* =========================
+       Coming Soon
+    ========================= */
+
+    .coming-soon {
+      margin-top:
+        26px;
+
+      padding:
+        24px;
+
+      position:
+        relative;
+
+      overflow:
+        hidden;
+
+      border:
+        1px dashed rgba(157,78,221,0.34);
+
+      border-radius:
+        20px;
+
+      text-align:
+        center;
+
+      background:
+        rgba(12,4,22,0.58);
+    }
+
+    .coming-soon::before {
+      content: "";
+
+      position:
+        absolute;
+
+      inset:
+        0;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(157,78,221,0.055),
+          transparent
+        );
+
+      transform:
+        translateX(-100%);
+
+      animation:
+        comingScan 5s linear infinite;
+    }
+
+    @keyframes comingScan {
+      to {
+        transform:
+          translateX(100%);
+      }
+    }
+
+    .coming-icon {
+      margin-bottom:
+        8px;
+
+      font-size:
+        28px;
+
+      filter:
+        drop-shadow(0 0 10px rgba(157,78,221,0.5));
+    }
+
+    .coming-soon h3 {
+      color:
+        var(--purple-light);
+
+      font-size:
+        clamp(18px, 4vw, 23px);
+    }
+
+    .coming-soon p {
+      margin-top:
+        5px;
+
+      color:
+        #a994c2;
+
+      font-size:
+        13px;
+
+      line-height:
+        1.7;
+    }
+
+    /* =========================
+       Footer
+    ========================= */
+
+    footer {
+      padding:
+        24px var(--pad-x)
+        max(24px, env(safe-area-inset-bottom));
+
+      border-top:
+        1px solid rgba(157,78,221,0.16);
+
+      color:
+        rgba(255,255,255,0.34);
+
+      text-align:
+        center;
+
+      font-size:
+        13px;
+    }
+
+    /* =========================
+       Mobile
+    ========================= */
+
+    @media (max-width: 720px) {
+      :root {
+        --pad-x:
+          14px;
+      }
+
+      header {
+        padding:
+          10px 14px;
+      }
+
+      .brand {
+        font-size:
+          16px;
+      }
+
+      .back-btn {
+        padding:
+          7px 11px;
+
+        font-size:
+          12px;
+      }
+
+      .hero {
+        padding:
+          38px 17px 18px;
+      }
+
+      .hero h1 {
+        font-size:
+          clamp(32px, 10vw, 43px);
+      }
+
+      main {
+        padding:
+          18px 14px 48px;
+      }
+
+      .exam-card {
+        padding:
+          22px 14px;
+
+        border-radius:
+          21px;
+      }
+
+      .exam-top {
+        gap:
+          8px;
+      }
+
+      .unit-tag,
+      .live-status {
+        padding:
+          6px 9px;
+
+        font-size:
+          10px;
+      }
+
+      .collision-zone {
+        height:
+          92px;
+      }
+
+      .ball {
+        width:
+          37px;
+
+        height:
+          37px;
+      }
+
+      .ball-left {
+        left:
+          10%;
+      }
+
+      .ball-right {
+        right:
+          10%;
+      }
+
+      @keyframes collisionLeft {
+        0%,
+        15% {
+          left: 10%;
+        }
+
+        45%,
+        52% {
+          left: calc(50% - 38px);
+        }
+
+        80%,
+        100% {
+          left: 10%;
+        }
+      }
+
+      @keyframes collisionRight {
+        0%,
+        15% {
+          right: 10%;
+        }
+
+        45%,
+        52% {
+          right: calc(50% - 38px);
+        }
+
+        80%,
+        100% {
+          right: 10%;
+        }
+      }
+
+      .exam-actions {
+        grid-template-columns:
+          1fr;
+
+        gap:
+          10px;
+      }
+
+      .action-btn {
+        min-height:
+          61px;
+      }
+
+      .unit-number {
+        top:
+          25px;
+
+        left:
+          6px;
+
+        font-size:
+          150px;
+      }
+    }
+
+    @media (hover: none) {
+      .exam-card:hover,
+      .action-btn:hover,
+      .back-btn:hover {
+        transform:
+          none;
+      }
+
+      .action-btn:active {
+        transform:
+          scale(0.985);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration:
+          0.001ms !important;
+
+        animation-iteration-count:
+          1 !important;
+
+        scroll-behavior:
+          auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- الخلفية -->
+  <div class="space">
+    <div class="grid"></div>
+    <div class="stars"></div>
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+  </div>
+
+  <!-- الهيدر -->
+  <header>
+    <div class="brand">
+      اختبارات الفيزياء ⚡
+    </div>
+
+    <a
+      href="physics.html"
+      class="back-btn"
+    >
+      رجوع ↩
+    </a>
+  </header>
+
+  <!-- العنوان -->
+  <section class="hero">
+
+    <div class="hero-badge">
+      PHYSICS EXAM ZONE ⚡
+    </div>
+
+    <h1>
+      مركز اختبارات الفيزياء
+    </h1>
+
+    <p>
+      اختبر فهمك بعد كل وحدة، وحدد نقاط قوتك
+      قبل الامتحان الحقيقي.
+      <strong>
+        افهمها صح... وبعدها اختبر حالك.
+      </strong>
+    </p>
+
+  </section>
+
+  <!-- المحتوى -->
+  <main>
+
+    <article class="exam-card">
+
+      <div class="unit-number">
+        01
+      </div>
+
+      <div class="exam-top">
+
+        <span class="unit-tag">
+          الوحدة الأولى
+        </span>
+
+        <span class="live-status">
+          <span class="status-dot"></span>
+          متاح الآن
+        </span>
+
+      </div>
+
+      <!-- حركة التصادم -->
+      <div
+        class="collision-zone"
+        aria-hidden="true"
+      >
+        <div class="collision-line"></div>
+
+        <div class="ball ball-left"></div>
+
+        <div class="impact"></div>
+
+        <div class="ball ball-right"></div>
+      </div>
+
+      <div class="exam-content">
+
+        <h2>
+          الزخم الخطي والتصادمات
+        </h2>
+
+        <p class="exam-sub">
+          خلصت الوحدة؟
+          هسا وقت تعرف مستوى فهمك الحقيقي.
+          حل الامتحان كامل، وبعدها راجع إجاباتك
+          وحدد الأسئلة اللي بدها تركيز أكثر.
+        </p>
+
+        <div class="exam-meta">
+          <span class="meta-chip">
+            🎯 امتحان شامل للوحدة
+          </span>
+
+          <span class="meta-chip">
+            ⚡ نسخة إلكترونية
+          </span>
+
+          <span class="meta-chip">
+            📄 نسخة PDF
+          </span>
+
+          <span class="meta-chip">
+            ✓ إجابات نموذجية
+          </span>
+        </div>
+
+        <!-- الأزرار -->
+        <div class="exam-actions">
+
+          <a
+            href="https://www.joacademy.com/ar/online-exams/5796"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="action-btn action-primary"
+          >
+            <span>⚡</span>
+            <span>
+              ابدأ الامتحان إلكترونيًا
+            </span>
+          </a>
+
+          <a
+            href="pdf/physics%20exam%201.pdf"
+            target="_blank"
+            class="action-btn action-secondary"
+          >
+            <span>📄</span>
+            <span>
+              نسخة الامتحان PDF
+            </span>
+          </a>
+
+          <a
+            href="pdf/answers%20phy1.pdf"
+            target="_blank"
+            class="action-btn action-answer"
+          >
+            <span>✓</span>
+            <span>
+              الإجابات النموذجية
+            </span>
+          </a>
+
+        </div>
+
+      </div>
+
+    </article>
+
+    <!-- القادم -->
+    <section class="coming-soon">
+
+      <div class="coming-icon">
+        ⚡
+      </div>
+
+      <h3>
+        اختبارات الوحدات القادمة
+      </h3>
+
+      <p>
+        رح يتم إضافة امتحان لكل وحدة أولًا بأول،
+        وبتلاقي النسخة الإلكترونية والـ PDF
+        والإجابات النموذجية بنفس المكان.
+      </p>
+
+    </section>
+
+  </main>
+
+  <footer>
+    ©
+    <span id="year"></span>
+    جميع الحقوق محفوظة — الأستاذ خالد مقدادي
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
