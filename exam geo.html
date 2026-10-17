@@ -1,10 +1,12 @@
+
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>امتحانات علوم الأرض | الوقود الأحفوري</title>
+  <title>بنك امتحانات علوم الأرض | الأستاذ خالد مقدادي</title>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --primary: #ff6b6b;
@@ -14,7 +16,11 @@
       --text: #fdfdfd;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       font-family: "Cairo", sans-serif;
@@ -32,8 +38,13 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: radial-gradient(circle at 50% 100%, rgba(255, 107, 107, 0.15), transparent 60%);
+      background: radial-gradient(
+        circle at 50% 100%,
+        rgba(255, 107, 107, 0.15),
+        transparent 60%
+      );
       z-index: -2;
+      pointer-events: none;
     }
 
     .spark {
@@ -42,16 +53,30 @@
       height: 4px;
       background: var(--secondary);
       border-radius: 50%;
-      box-shadow: 0 0 10px var(--secondary), 0 0 20px var(--primary);
+      box-shadow:
+        0 0 10px var(--secondary),
+        0 0 20px var(--primary);
       animation: flyUp linear infinite;
       opacity: 0;
     }
 
     @keyframes flyUp {
-      0% { transform: translateY(100vh) scale(0); opacity: 0; }
-      20% { opacity: 1; transform: translateY(80vh) scale(1.5); }
-      80% { opacity: 0.8; transform: translateY(20vh) scale(1); }
-      100% { transform: translateY(0) scale(0); opacity: 0; }
+      0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+        transform: translateY(80vh) scale(1.5);
+      }
+      80% {
+        opacity: 0.8;
+        transform: translateY(20vh) scale(1);
+      }
+      100% {
+        transform: translateY(0) scale(0);
+        opacity: 0;
+      }
     }
 
     header {
@@ -112,8 +137,32 @@
       line-height: 1.6;
     }
 
+    /* عناوين الوحدات */
+    .unit-heading {
+      text-align: center;
+      margin: 44px auto 0;
+      padding: 0 20px;
+    }
+
+    .unit-heading span {
+      display: inline-block;
+      padding: 6px 20px;
+      border: 1px solid rgba(252, 160, 72, 0.45);
+      border-radius: 30px;
+      background: rgba(252, 160, 72, 0.13);
+      color: var(--secondary);
+      font-weight: 800;
+    }
+
+    .unit-heading h2 {
+      font-size: clamp(23px, 5vw, 32px);
+      margin-top: 12px;
+    }
+
+    /* الخط الزمني للامتحانات */
     .timeline {
       position: relative;
+      width: 100%;
       max-width: 900px;
       margin: 40px auto;
       padding: 0 20px;
@@ -165,14 +214,31 @@
       left: auto;
     }
 
-    .timeline-item:nth-child(1) { animation-delay: 0.2s; }
-    .timeline-item:nth-child(2) { animation-delay: 0.4s; }
-    .timeline-item:nth-child(3) { animation-delay: 0.6s; }
-    .timeline-item:nth-child(4) { animation-delay: 0.8s; }
+    .timeline-item:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+
+    .timeline-item:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+
+    .timeline-item:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+
+    .timeline-item:nth-child(4) {
+      animation-delay: 0.8s;
+    }
 
     @keyframes slideIn {
-      from { transform: translateY(40px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
+      from {
+        transform: translateY(40px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
 
     .timeline-dot {
@@ -188,16 +254,25 @@
     .timeline-item.active .timeline-dot {
       border-color: var(--secondary);
       background: var(--primary);
-      box-shadow: 0 0 15px var(--primary), 0 0 30px var(--secondary);
+      box-shadow:
+        0 0 15px var(--primary),
+        0 0 30px var(--secondary);
       animation: pulseDot 2s infinite;
     }
 
     @keyframes pulseDot {
-      0% { box-shadow: 0 0 0 0 rgba(252, 160, 72, 0.7); }
-      70% { box-shadow: 0 0 0 15px rgba(252, 160, 72, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(252, 160, 72, 0); }
+      0% {
+        box-shadow: 0 0 0 0 rgba(252, 160, 72, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(252, 160, 72, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(252, 160, 72, 0);
+      }
     }
 
+    /* بطاقات الامتحانات */
     .card {
       background: var(--card-bg);
       border: 1px solid rgba(255, 255, 255, 0.05);
@@ -227,6 +302,13 @@
       color: var(--secondary);
     }
 
+    .card p {
+      color: #ddd;
+      font-size: clamp(13px, 3vw, 15px);
+      line-height: 1.6;
+    }
+
+    /* أزرار الامتحانات */
     .actions {
       display: flex;
       gap: 10px;
@@ -255,7 +337,11 @@
     }
 
     .btn-online {
-      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      background: linear-gradient(
+        45deg,
+        var(--primary),
+        var(--secondary)
+      );
       color: #000;
       box-shadow: 0 4px 15px rgba(252, 160, 72, 0.4);
     }
@@ -297,6 +383,7 @@
       margin-top: auto;
     }
 
+    /* تصميم الموبايل */
     @media (max-width: 768px) {
       .timeline::before {
         right: 30px;
@@ -322,136 +409,313 @@
         flex-direction: column;
       }
 
-      .btn { width: 100%; }
+      .btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <div class="sparks-bg"></div>
 
   <header>
     <div class="brand">بنك الامتحانات</div>
-    <a href="GEO.html" class="back-btn">العودة للمادة ↩</a>
+    <a href="GEO.html" class="back-btn">
+      العودة للمادة ↩
+    </a>
   </header>
 
   <div class="page-header">
-    <span style="display: inline-block; background: rgba(255, 107, 107, 0.2); color: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 14px; font-weight: bold; margin-bottom: 15px;">الوحدة الأولى</span>
-    <h1>الوقود الأحفوري</h1>
-    <p>اختبر معلوماتك وقم بتقييم مستواك بعد كل درس لتتأكد من فهمك الكامل للمادة.</p>
+    <span style="
+      display: inline-block;
+      background: rgba(255, 107, 107, 0.2);
+      color: var(--primary);
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    ">
+      علوم الأرض — توجيهي 2009
+    </span>
+
+    <h1>بنك امتحانات علوم الأرض</h1>
+
+    <p>
+      اختبر معلوماتك وقم بتقييم مستواك بعد كل درس
+      لتتأكد من فهمك الكامل للمادة.
+    </p>
   </div>
+
+
+  <!-- ================================= -->
+  <!-- الوحدة الأولى: الوقود الأحفوري -->
+  <!-- ================================= -->
+
+  <section class="unit-heading" aria-label="الوحدة الأولى">
+    <span>الوحدة الأولى</span>
+    <h2>الوقود الأحفوري</h2>
+  </section>
 
   <div class="timeline">
 
-    <!-- الدرس الأول -->
+    <!-- امتحان الدرس الأول -->
     <div class="timeline-item active">
       <div class="timeline-dot"></div>
+
       <div class="card">
         <h3>الدرس الأول: الوقود الأحفوري</h3>
-        <p style="color: #ddd; font-size: clamp(13px, 3vw, 15px); line-height: 1.6;">
-          امتحان شامل لأفكار الدرس الأول. يمكنك تقديمه إلكترونياً أو تحميله كملف PDF لطباعته.
+
+        <p>
+          امتحان شامل لأفكار الدرس الأول.
+          يمكنك تقديمه إلكترونياً أو تحميله كملف PDF لطباعته.
         </p>
+
         <div class="actions">
-          <a href="https://www.joacademy.com/ar/online-exams/5570" target="_blank" rel="noopener noreferrer" class="btn btn-online">
+
+          <a
+            href="https://www.joacademy.com/ar/online-exams/5570"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-online">
             🌐 امتحان إلكتروني
           </a>
-          <a href="pdf/exam%201%20.pdf" download class="btn btn-pdf">
+
+          <a
+            href="pdf/exam%201%20.pdf"
+            download
+            class="btn btn-pdf">
             📥 تحميل PDF
           </a>
-          <a href="pdf/answersF.pdf" download class="btn btn-answers">
+
+          <a
+            href="pdf/answersF.pdf"
+            download
+            class="btn btn-answers">
             ✅ تحميل إجابات الامتحان
           </a>
+
         </div>
       </div>
     </div>
 
-    <!-- الدرس الثاني -->
+
+    <!-- امتحان الدرس الثاني -->
     <div class="timeline-item active">
       <div class="timeline-dot"></div>
+
       <div class="card">
         <h3>الدرس الثاني</h3>
-        <p style="color: #ddd; font-size: clamp(13px, 3vw, 15px); line-height: 1.6;">
-          امتحان شامل لأفكار الدرس الثاني. يمكنك تقديمه إلكترونياً أو تحميله كملف PDF لطباعته.
+
+        <p>
+          امتحان شامل لأفكار الدرس الثاني.
+          يمكنك تقديمه إلكترونياً أو تحميله كملف PDF لطباعته.
         </p>
+
         <div class="actions">
-          <a href="https://www.joacademy.com/ar/online-exams/5600" target="_blank" rel="noopener noreferrer" class="btn btn-online">
+
+          <a
+            href="https://www.joacademy.com/ar/online-exams/5600"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-online">
             🌐 امتحان إلكتروني
           </a>
-          <a href="pdf/exam%202.pdf" download class="btn btn-pdf">
+
+          <a
+            href="pdf/exam%202.pdf"
+            download
+            class="btn btn-pdf">
             📥 تحميل PDF
           </a>
-          <a href="pdf/answer%20exam2.pdf" download class="btn btn-answers">
+
+          <a
+            href="pdf/answer%20exam2.pdf"
+            download
+            class="btn btn-answers">
             ✅ تحميل إجابات الامتحان
           </a>
+
         </div>
       </div>
     </div>
 
-    <!-- الدرس الثالث -->
+
+    <!-- امتحان الدرس الثالث -->
     <div class="timeline-item active">
       <div class="timeline-dot"></div>
+
       <div class="card">
         <h3>الدرس الثالث</h3>
-        <p style="color: #ddd; font-size: clamp(13px, 3vw, 15px); line-height: 1.6;">
-          امتحان شامل لأفكار الدرس الثالث. يمكنك تقديمه إلكترونياً أو تحميله كملف PDF لطباعته.
+
+        <p>
+          امتحان شامل لأفكار الدرس الثالث.
+          يمكنك تقديمه إلكترونياً أو تحميله كملف PDF لطباعته.
         </p>
+
         <div class="actions">
-          <a href="https://www.joacademy.com/ar/online-exams/5711" target="_blank" rel="noopener noreferrer" class="btn btn-online">
+
+          <a
+            href="https://www.joacademy.com/ar/online-exams/5711"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-online">
             🌐 امتحان إلكتروني
           </a>
-          <a href="pdf/exam3.pdf" download class="btn btn-pdf">
+
+          <a
+            href="pdf/exam3.pdf"
+            download
+            class="btn btn-pdf">
             📥 تحميل PDF
           </a>
-          <a href="pdf/answers%20three.pdf" download class="btn btn-answers">
+
+          <a
+            href="pdf/answers%20three.pdf"
+            download
+            class="btn btn-answers">
             ✅ تحميل إجابات الامتحان
           </a>
+
         </div>
       </div>
     </div>
 
-    <!-- امتحان الوحدة الأولى -->
+
+    <!-- امتحان الوحدة الأولى كاملًا -->
     <div class="timeline-item active">
       <div class="timeline-dot"></div>
+
       <div class="card">
         <h3>🏆 امتحان الوحدة الأولى: الوقود الأحفوري</h3>
-        <p style="color: #ddd; font-size: clamp(13px, 3vw, 15px); line-height: 1.6;">
-          امتحان شامل للوحدة الأولى. يمكنك تقديمه إلكترونياً أو تحميل الامتحان والإجابات بصيغة PDF.
+
+        <p>
+          امتحان شامل للوحدة الأولى.
+          يمكنك تقديمه إلكترونياً أو تحميل
+          الامتحان والإجابات بصيغة PDF.
         </p>
+
         <div class="actions">
-          <a href="https://www.joacademy.com/ar/online-exams/5753" target="_blank" rel="noopener noreferrer" class="btn btn-online">
+
+          <a
+            href="https://www.joacademy.com/ar/online-exams/5753"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-online">
             🌐 امتحان إلكتروني
           </a>
-          <a href="pdf/%D8%A7%D9%85%D8%AA%D8%AD%D8%A7%D9%86%20%D8%A7%D9%84%D9%88%D8%AD%D8%AF%D8%A9%20%D8%A7%D9%84%D9%88%D9%82%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%AD%D9%81%D9%88%D8%B1%D9%8A.pdf" download class="btn btn-pdf">
+
+          <a
+            href="pdf/امتحان الوحدة الوقود الاحفوري.pdf"
+            download
+            class="btn btn-pdf">
             📥 تحميل PDF
           </a>
-          <a href="pdf/%D8%AD%D9%84%20%D8%A7%D9%85%D8%AA%D8%AD%D8%A7%D9%86%20%D8%A7%D9%84%D9%88%D9%82%D9%88%D8%AF%20%D8%A7%D9%84%D8%A3%D8%AD%D9%81%D9%88%D8%B1%D9%8A.pdf" download class="btn btn-answers">
+
+          <a
+            href="pdf/حل امتحان الوقود الأحفوري.pdf"
+            download
+            class="btn btn-answers">
             ✅ تحميل إجابات الامتحان
           </a>
+
         </div>
       </div>
     </div>
 
   </div>
 
+
+  <!-- ================================= -->
+  <!-- الوحدة الثانية: الخرائط الجيولوجية -->
+  <!-- ================================= -->
+
+  <section class="unit-heading" aria-label="الوحدة الثانية">
+    <span>الوحدة الثانية</span>
+    <h2>الخرائط الجيولوجية</h2>
+  </section>
+
+  <div class="timeline">
+
+    <!-- امتحان الدرس الأول - الوحدة الثانية -->
+    <div class="timeline-item active">
+      <div class="timeline-dot"></div>
+
+      <div class="card">
+
+        <h3>الدرس الأول: الخرائط الجيولوجية</h3>
+
+        <p>
+          امتحان الدرس الأول من الوحدة الثانية.
+          قدّمه إلكترونيًا أو حمّل نسخة PDF وملف الإجابات.
+        </p>
+
+        <div class="actions">
+
+          <!-- الامتحان الإلكتروني -->
+          <a
+            href="https://www.joacademy.com/ar/online-exams/5955"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-online">
+            🌐 امتحان إلكتروني
+          </a>
+
+          <!-- ملف الامتحان PDF -->
+          <a
+            href="pdf/exam2-1.pdf"
+            download
+            class="btn btn-pdf">
+            📥 تحميل PDF
+          </a>
+
+          <!-- ملف إجابات الامتحان -->
+          <a
+            href="pdf/exam2-1%20answers.pdf"
+            download
+            class="btn btn-answers">
+            ✅ تحميل إجابات الامتحان
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
   <footer>
-    © <span id="year"></span> جميع الحقوق محفوظة — الأستاذ خالد مقدادي
+    © <span id="year"></span>
+    جميع الحقوق محفوظة — الأستاذ خالد مقدادي
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
 
-    const sparksContainer = document.querySelector('.sparks-bg');
+  <script>
+    // تحديث السنة تلقائيًا
+    document.getElementById('year').textContent =
+      new Date().getFullYear();
+
+    // حركة الشرارات في الخلفية
+    const sparksContainer =
+      document.querySelector('.sparks-bg');
 
     for (let i = 0; i < 30; i++) {
       let spark = document.createElement('div');
+
       spark.className = 'spark';
       spark.style.left = Math.random() * 100 + 'vw';
       spark.style.animationDelay = Math.random() * 5 + 's';
-      spark.style.animationDuration = (3 + Math.random() * 4) + 's';
-      spark.style.width = (2 + Math.random() * 4) + 'px';
+      spark.style.animationDuration =
+        (3 + Math.random() * 4) + 's';
+      spark.style.width =
+        (2 + Math.random() * 4) + 'px';
       spark.style.height = spark.style.width;
+
       sparksContainer.appendChild(spark);
     }
   </script>
+
 </body>
 </html>
