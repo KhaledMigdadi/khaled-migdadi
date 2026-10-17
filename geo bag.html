@@ -1,10 +1,13 @@
+
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>بنك الملفات | علوم الأرض</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --primary: #00f2fe;
@@ -14,7 +17,11 @@
       --text: #fdfdfd;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       font-family: "Cairo", sans-serif;
@@ -28,20 +35,35 @@
 
     .bg-pattern {
       position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       background:
-        linear-gradient(rgba(79, 172, 254, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(79, 172, 254, 0.05) 1px, transparent 1px);
+        linear-gradient(
+          rgba(79, 172, 254, 0.05) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(79, 172, 254, 0.05) 1px,
+          transparent 1px
+        );
       background-size: 30px 30px;
       z-index: -2;
     }
 
     .glow {
       position: fixed;
-      top: 20%; left: 30%;
-      width: 50vw; height: 50vh;
-      background: radial-gradient(circle, rgba(0, 242, 254, 0.15) 0%, transparent 60%);
+      top: 20%;
+      left: 30%;
+      width: 50vw;
+      height: 50vh;
+      background: radial-gradient(
+        circle,
+        rgba(0, 242, 254, 0.15) 0%,
+        transparent 60%
+      );
       z-index: -1;
       pointer-events: none;
     }
@@ -95,7 +117,9 @@
       margin-bottom: 10px;
     }
 
-    .page-header h1 span { color: var(--primary); }
+    .page-header h1 span {
+      color: var(--primary);
+    }
 
     .page-header p {
       color: #ccc;
@@ -117,7 +141,10 @@
 
     .files-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(280px, 1fr)
+      );
       gap: 20px;
       padding: 0 5% 30px;
       max-width: 1200px;
@@ -140,7 +167,9 @@
 
     .file-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.4), inset 0 0 20px rgba(0,242,254,0.1);
+      box-shadow:
+        0 15px 30px rgba(0,0,0,0.4),
+        inset 0 0 20px rgba(0,242,254,0.1);
       border-color: rgba(0, 242, 254, 0.4);
     }
 
@@ -179,7 +208,11 @@
       border-radius: 10px;
       font-weight: bold;
       font-size: 15px;
-      background: linear-gradient(45deg, var(--secondary), var(--primary));
+      background: linear-gradient(
+        45deg,
+        var(--secondary),
+        var(--primary)
+      );
       color: #000;
       text-decoration: none;
       transition: 0.3s;
@@ -191,6 +224,29 @@
       box-shadow: 0 5px 15px rgba(0, 242, 254, 0.4);
     }
 
+    /* تمييز الملفات الجديدة */
+    .new-file {
+      border: 1px solid rgba(0,242,254,0.5);
+      box-shadow: 0 0 20px rgba(0,242,254,0.08);
+    }
+
+    .new-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: linear-gradient(
+        45deg,
+        var(--secondary),
+        var(--primary)
+      );
+      color: #00121c;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 20px;
+      box-shadow: 0 0 12px rgba(0,242,254,0.25);
+    }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -200,127 +256,413 @@
     }
 
     @media (max-width: 600px) {
-      header { padding: 12px 4%; gap: 10px; }
-      .back-btn { padding: 8px 11px; white-space: nowrap; }
-      .page-header { padding: 30px 16px 10px; }
-      .section-title { font-size: 19px; margin-top: 32px; }
+      header {
+        padding: 12px 4%;
+        gap: 10px;
+      }
+
+      .back-btn {
+        padding: 8px 11px;
+        white-space: nowrap;
+      }
+
+      .page-header {
+        padding: 30px 16px 10px;
+      }
+
+      .section-title {
+        font-size: 19px;
+        margin-top: 32px;
+      }
+
       .files-grid {
         grid-template-columns: minmax(0, 1fr);
         padding-right: 14px;
         padding-left: 14px;
       }
-      .file-card { padding: 21px; }
+
+      .file-card {
+        padding: 21px;
+      }
     }
   </style>
 </head>
+
 <body>
+
   <div class="bg-pattern"></div>
   <div class="glow"></div>
 
   <header>
     <div class="brand">بنك الملفات</div>
-    <a href="GEO.html" class="back-btn">العودة للمادة ↩</a>
+    <a href="GEO.html" class="back-btn">
+      العودة للمادة ↩
+    </a>
   </header>
 
   <div class="page-header">
-    <h1>دوسيات وملفات <span>علوم الأرض</span></h1>
-    <p>حمّل الخرائط الذهنية وملفات التأسيس وأوراق العمل لتسهيل فهم المادة ومراجعتها.</p>
+    <h1>
+      دوسيات وملفات
+      <span>علوم الأرض</span>
+    </h1>
+
+    <p>
+      حمّل الخرائط الذهنية والخطط الدراسية
+      وملفات التأسيس وأوراق العمل لتسهيل فهم
+      المادة ومراجعتها.
+    </p>
   </div>
 
-  <!-- ملفات التأسيس -->
-  <div class="section-title">ملفات التأسيس</div>
+
+  <!-- ================================= -->
+  <!-- القسم الأول: ملفات التأسيس -->
+  <!-- ================================= -->
+
+  <div class="section-title">
+    ملفات التأسيس
+  </div>
+
   <div class="files-grid">
+
     <div class="file-card">
       <div class="file-icon">🚀</div>
+
       <h3>الدورة التحضيرية</h3>
-      <p>ملف "تأسيس 2009" الشامل. يحتوي على أهم الأساسيات التي ستحتاجها قبل البدء بالمادة لضمان تفوقك.</p>
-      <a href="pdf/geo-foundation.pdf" download class="download-btn">
+
+      <p>
+        ملف "تأسيس 2009" الشامل.
+        يحتوي على أهم الأساسيات التي ستحتاجها
+        قبل البدء بالمادة لضمان تفوقك.
+      </p>
+
+      <a
+        href="pdf/geo-foundation.pdf"
+        download
+        class="download-btn">
         📥 تحميل الملف
       </a>
     </div>
+
   </div>
 
-  <!-- الخطط الدراسية -->
-  <div class="section-title">الخطط الدراسية</div>
+
+  <!-- ================================= -->
+  <!-- القسم الثاني: الخطط الدراسية -->
+  <!-- ================================= -->
+
+  <div class="section-title">
+    الخطط الدراسية
+  </div>
+
   <div class="files-grid">
+
+    <!-- الخطة الأصلية -->
     <div class="file-card">
       <div class="file-icon">📘</div>
-      <h3>خطة مادة علوم الأرض – الفصل الأول</h3>
-      <p>خطة منظمة لمادة علوم الأرض للفصل الدراسي الأول تساعدك على متابعة الحصص وإنجاز المادة أولًا بأول.</p>
-      <a href="pdf/خطة مادة علوم الأرض ف1.pdf" download class="download-btn">
+
+      <h3>
+        خطة مادة علوم الأرض – الفصل الأول
+      </h3>
+
+      <p>
+        خطة منظمة لمادة علوم الأرض للفصل
+        الدراسي الأول تساعدك على متابعة
+        الحصص وإنجاز المادة أولًا بأول.
+      </p>
+
+      <a
+        href="pdf/خطة مادة علوم الأرض ف1.pdf"
+        download
+        class="download-btn">
         📥 تحميل الخطة
       </a>
     </div>
 
+
+    <!-- خطة الحقل الصحي -->
     <div class="file-card">
       <div class="file-icon">🩺</div>
-      <h3>خطة دراسية لطلاب الحقل الصحي</h3>
-      <p>خطة دراسية مخصصة لطلاب الحقل الصحي تساعدك على تنظيم دراسة المواد وتوزيعها بطريقة واضحة.</p>
-      <a href="pdf/خطة دراسية لطلاب الحقل الصحي.pdf" download class="download-btn">
+
+      <h3>
+        خطة دراسية لطلاب الحقل الصحي
+      </h3>
+
+      <p>
+        خطة دراسية مخصصة لطلاب الحقل الصحي
+        تساعدك على تنظيم دراسة المواد
+        وتوزيعها بطريقة واضحة.
+      </p>
+
+      <a
+        href="pdf/خطة دراسية لطلاب الحقل الصحي.pdf"
+        download
+        class="download-btn">
         📥 تحميل الخطة
       </a>
     </div>
+
+
+    <!-- جديد: خطة الطلاب الجدد 10/10 -->
+    <div class="file-card new-file">
+
+      <div class="new-badge">جديد ✨</div>
+      <div class="file-icon">📅</div>
+
+      <h3>
+        خطة الطلاب الجدد – تبدأ من 10/10
+      </h3>
+
+      <p>
+        متأخر بالمادة ومش عارف من وين تبدأ؟
+        هاي الخطة معمولة خصيصًا للطلاب الجدد!
+        جدول دراسي منظم يبدأ بتاريخ 10/10
+        يساعدك على إنهاء الحصص المتراكمة
+        ومتابعة الحصص الجديدة خطوة بخطوة.
+      </p>
+
+      <a
+        href="pdf/plan10.pdf"
+        download
+        class="download-btn">
+        📥 تحميل خطة 10/10
+      </a>
+
+    </div>
+
   </div>
 
-  <!-- الخرائط الذهنية -->
-  <div class="section-title">وحدة الوقود الأحفوري (خرائط ذهنية)</div>
+
+  <!-- ================================= -->
+  <!-- القسم الثالث: دليل المعلم -->
+  <!-- ================================= -->
+
+  <div class="section-title">
+    دليل المعلم والإجابات الوزارية
+  </div>
+
   <div class="files-grid">
+
+    <!-- جديد: دليل المعلم -->
+    <div class="file-card new-file">
+
+      <div class="new-badge">جديد ✨</div>
+      <div class="file-icon">📚</div>
+
+      <h3>
+        دليل المعلم – إجابات جميع أسئلة الكتاب
+      </h3>
+
+      <p>
+        دليل المعلم الرسمي الصادر عن وزارة
+        التربية والتعليم، والذي يحتوي على
+        إجابات جميع أسئلة الكتاب المدرسي.
+
+        أحدث نسخة من دليل المعلم الواردة
+        من الوزارة، لمساعدتك على مراجعة
+        إجاباتك والتأكد من صحة الحلول.
+      </p>
+
+      <a
+        href="pdf/دليل المعلم.pdf"
+        download
+        class="download-btn">
+        📥 تحميل دليل المعلم
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================================= -->
+  <!-- القسم الرابع: خرائط الوحدة الأولى -->
+  <!-- ================================= -->
+
+  <div class="section-title">
+    الوحدة الأولى: الوقود الأحفوري (خرائط ذهنية)
+  </div>
+
+  <div class="files-grid">
+
+    <!-- الدرس الأول -->
     <div class="file-card">
       <div class="file-icon">🗺️</div>
+
       <h3>خريطة الدرس الأول</h3>
-      <p>خريطة ذهنية مبسطة وشاملة لأفكار الدرس الأول (الوقود الأحفوري) لتسهيل المراجعة وتثبيت الحفظ.</p>
-      <a href="pdf/mindmap1.pdf" download class="download-btn">
+
+      <p>
+        خريطة ذهنية مبسطة وشاملة لأفكار
+        الدرس الأول (الوقود الأحفوري)
+        لتسهيل المراجعة وتثبيت الحفظ.
+      </p>
+
+      <a
+        href="pdf/mindmap1.pdf"
+        download
+        class="download-btn">
         📥 تحميل الخريطة
       </a>
     </div>
 
+
+    <!-- الدرس الثاني -->
     <div class="file-card">
       <div class="file-icon">🗺️</div>
+
       <h3>خريطة الدرس الثاني</h3>
-      <p>خريطة ذهنية مخصصة لأفكار الدرس الثاني.</p>
-      <a href="pdf/lesson%202%20-mind%20maps.pdf" download class="download-btn">
+
+      <p>
+        خريطة ذهنية مخصصة لأفكار
+        الدرس الثاني.
+      </p>
+
+      <a
+        href="pdf/lesson%202%20-mind%20maps.pdf"
+        download
+        class="download-btn">
         📥 تحميل الخريطة
       </a>
     </div>
 
+
+    <!-- الدرس الثالث -->
     <div class="file-card">
       <div class="file-icon">🗺️</div>
+
       <h3>خريطة الدرس الثالث</h3>
-      <p>خريطة ذهنية مخصصة لأفكار الدرس الثالث.</p>
-      <a href="pdf/lesson%203%20mindmap.pdf" download class="download-btn">
+
+      <p>
+        خريطة ذهنية مخصصة لأفكار
+        الدرس الثالث.
+      </p>
+
+      <a
+        href="pdf/lesson%203%20mindmap.pdf"
+        download
+        class="download-btn">
         📥 تحميل الخريطة
       </a>
     </div>
+
   </div>
 
-  <!-- ورقة عمل الوحدة الأولى وإجاباتها -->
-  <div class="section-title">أوراق عمل الوحدة الأولى: الوقود الأحفوري والبيئة</div>
+
+  <!-- ================================= -->
+  <!-- القسم الخامس: خرائط الوحدة الثانية -->
+  <!-- ================================= -->
+
+  <div class="section-title">
+    الوحدة الثانية: الخرائط الجيولوجية (خرائط ذهنية)
+  </div>
+
   <div class="files-grid">
+
+    <!-- جديد: خريطة الدرس الأول -->
+    <div class="file-card new-file">
+
+      <div class="new-badge">جديد ✨</div>
+      <div class="file-icon">🌍</div>
+
+      <h3>
+        الخريطة الذهنية – الدرس الأول
+      </h3>
+
+      <p>
+        خريطة ذهنية شاملة لأفكار الدرس
+        الأول من الوحدة الثانية
+        (الخرائط الجيولوجية).
+
+        تساعدك على ربط المفاهيم وتنظيم
+        المعلومات ومراجعة الدرس بطريقة
+        سهلة وسريعة قبل الامتحان.
+      </p>
+
+      <a
+        href="pdf/unit%202%20-%20lesson%201.pdf"
+        download
+        class="download-btn">
+        📥 تحميل الخريطة الذهنية
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================================= -->
+  <!-- القسم السادس: أوراق عمل الوحدة الأولى -->
+  <!-- ================================= -->
+
+  <div class="section-title">
+    أوراق عمل الوحدة الأولى: الوقود الأحفوري والبيئة
+  </div>
+
+  <div class="files-grid">
+
+    <!-- ورقة العمل -->
     <div class="file-card">
+
       <div class="file-icon">📝</div>
-      <h3>ورقة عمل الوحدة الأولى</h3>
-      <p>تدرّب على أفكار وحدة الوقود الأحفوري والبيئة، وحاول حل الأسئلة قبل الاطلاع على الإجابات.</p>
-      <a href="pdf/sheet%201%20geo.pdf" download class="download-btn">
+
+      <h3>
+        ورقة عمل الوحدة الأولى
+      </h3>
+
+      <p>
+        تدرّب على أفكار وحدة الوقود
+        الأحفوري والبيئة، وحاول حل
+        الأسئلة قبل الاطلاع على الإجابات.
+      </p>
+
+      <a
+        href="pdf/sheet%201%20geo.pdf"
+        download
+        class="download-btn">
         📥 تحميل ورقة العمل
       </a>
+
     </div>
 
+
+    <!-- إجابات ورقة العمل -->
     <div class="file-card">
+
       <div class="file-icon">✅</div>
-      <h3>حل ورقة عمل الوحدة الأولى</h3>
-      <p>راجع إجابات ورقة العمل وتأكد من فهمك لأفكار الوحدة بعد الحل.</p>
-      <a href="pdf/sheet%201%20geo%20answers.pdf" download class="download-btn">
+
+      <h3>
+        حل ورقة عمل الوحدة الأولى
+      </h3>
+
+      <p>
+        راجع إجابات ورقة العمل وتأكد
+        من فهمك لأفكار الوحدة بعد الحل.
+      </p>
+
+      <a
+        href="pdf/sheet%201%20geo%20answers.pdf"
+        download
+        class="download-btn">
         📥 تحميل الحل
       </a>
+
     </div>
+
   </div>
 
+
+  <!-- ================================= -->
+  <!-- التذييل -->
+  <!-- ================================= -->
+
   <footer>
-    © <span id="year"></span> جميع الحقوق محفوظة — الأستاذ خالد مقدادي
+    © <span id="year"></span>
+    جميع الحقوق محفوظة — الأستاذ خالد مقدادي
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('year').textContent =
+      new Date().getFullYear();
   </script>
+
 </body>
 </html>
