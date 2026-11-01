@@ -8,7 +8,7 @@
   <title>ملفات الفيزياء | الأستاذ خالد مقدادي</title>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap"
     rel="stylesheet"
   />
 
@@ -20,6 +20,7 @@
       --bg-dark: #05020a;
       --card-bg: rgba(15, 5, 25, 0.7);
       --text: #fdfdfd;
+      --november: #35f5df;
     }
 
     * {
@@ -50,6 +51,7 @@
     }
 
     /* خلفية الشبكة */
+
     .cyber-grid {
       position: fixed;
       top: 50%;
@@ -122,6 +124,7 @@
     }
 
     /* الهيدر */
+
     header {
       position: sticky;
       top: 0;
@@ -201,6 +204,7 @@
     }
 
     /* عنوان الصفحة */
+
     .page-header {
       padding: clamp(30px, 7vw, 40px) max(14px, 5%) 20px;
       text-align: center;
@@ -228,6 +232,7 @@
     }
 
     /* عنوان القسم */
+
     .section-title {
       width: min(90%, 1200px);
       margin: 30px auto 20px;
@@ -244,6 +249,7 @@
     }
 
     /* شبكة الملفات */
+
     .files-grid {
       width: 100%;
       max-width: 1200px;
@@ -258,6 +264,7 @@
     }
 
     /* بطاقة الملف */
+
     .file-card {
       min-width: 0;
       position: relative;
@@ -329,6 +336,7 @@
     }
 
     /* زر التحميل */
+
     .download-btn {
       width: 100%;
       min-height: 48px;
@@ -359,7 +367,101 @@
       box-shadow: 0 6px 20px rgba(245, 197, 66, 0.5);
     }
 
+    /* =====================================
+       خطة شهر 11 المميزة
+       ===================================== */
+
+    .november-plan {
+      grid-column: 1 / -1;
+
+      background: linear-gradient(
+        125deg,
+        rgba(8, 83, 88, 0.94),
+        rgba(9, 16, 34, 0.98) 70%
+      );
+
+      border: 2px solid var(--november);
+      border-radius: 18px;
+
+      padding: 32px;
+
+      box-shadow:
+        0 0 25px rgba(53, 245, 223, 0.2),
+        inset 0 0 30px rgba(53, 245, 223, 0.06);
+    }
+
+    .november-plan:hover {
+      border-color: #a5fff3;
+
+      box-shadow:
+        0 15px 38px rgba(53, 245, 223, 0.28),
+        inset 0 0 30px rgba(53, 245, 223, 0.12);
+    }
+
+    .november-badge {
+      align-self: flex-start;
+
+      background: linear-gradient(
+        45deg,
+        #35f5df,
+        #b5fff5
+      );
+
+      color: #032c2a;
+
+      padding: 7px 17px;
+      margin-bottom: 18px;
+
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 900;
+
+      box-shadow: 0 0 15px rgba(53, 245, 223, 0.35);
+    }
+
+    .november-plan .file-icon {
+      background: rgba(53, 245, 223, 0.14);
+      border-color: rgba(53, 245, 223, 0.6);
+      filter: none;
+    }
+
+    .november-plan h3 {
+      color: #a5fff3;
+      font-size: clamp(22px, 4vw, 29px);
+      font-weight: 900;
+    }
+
+    .november-plan p {
+      color: #e7fffc;
+      font-size: 16px;
+      line-height: 1.9;
+      max-width: 850px;
+    }
+
+    .november-plan .download-btn {
+      background: linear-gradient(
+        45deg,
+        #19d7c3,
+        #a5fff3,
+        #35f5df
+      );
+
+      color: #032524;
+      font-size: 17px;
+      font-weight: 900;
+      padding: 16px;
+
+      box-shadow:
+        0 6px 20px rgba(53, 245, 223, 0.24);
+    }
+
+    .november-plan .download-btn:hover {
+      box-shadow:
+        0 8px 28px rgba(53, 245, 223, 0.55);
+    }
+
     /* عنوان ملفات كل وحدة */
+
     .unit-section {
       width: 100%;
       max-width: 1200px;
@@ -369,11 +471,14 @@
     .unit-heading {
       margin: 0 max(14px, 5%) 22px;
       padding: 18px 22px;
+
       display: flex;
       align-items: center;
       gap: 18px;
+
       border: 1px solid rgba(245, 197, 66, 0.4);
       border-radius: 12px;
+
       background: linear-gradient(
         100deg,
         rgba(245, 197, 66, 0.13),
@@ -385,10 +490,13 @@
       min-width: 72px;
       min-height: 72px;
       padding: 8px;
+
       display: grid;
       place-items: center;
+
       border: 1px solid rgba(245, 197, 66, 0.55);
       border-radius: 12px;
+
       color: var(--gold);
       font-size: 30px;
       font-weight: 900;
@@ -420,6 +528,7 @@
     }
 
     /* الأجهزة اللوحية */
+
     @media (max-width: 768px) {
       .cyber-grid {
         width: 260vw;
@@ -429,9 +538,14 @@
       .file-card {
         padding: 22px 18px;
       }
+
+      .november-plan {
+        padding: 26px;
+      }
     }
 
     /* الهواتف */
+
     @media (max-width: 480px) {
       header {
         padding-top: max(8px, env(safe-area-inset-top));
@@ -480,6 +594,23 @@
 
       .download-btn {
         font-size: 14px;
+      }
+
+      .november-plan {
+        padding: 24px 20px;
+      }
+
+      .november-plan h3 {
+        font-size: 22px;
+      }
+
+      .november-plan p {
+        font-size: 14px;
+      }
+
+      .november-plan .download-btn {
+        font-size: 15px;
+        padding: 14px 10px;
       }
 
       .unit-heading {
@@ -531,6 +662,7 @@
     }
 
     /* أجهزة اللمس */
+
     @media (hover: none) {
       .file-card:hover,
       .download-btn:hover {
@@ -539,6 +671,7 @@
     }
 
     /* تقليل الحركة */
+
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
@@ -590,7 +723,11 @@
       </p>
     </div>
 
-    <!-- قسم ملف التأسيس -->
+
+    <!-- ================================= -->
+    <!-- القسم الأول: ملفات التأسيس -->
+    <!-- ================================= -->
+
     <div class="section-title">
       ملفات التأسيس
     </div>
@@ -609,7 +746,6 @@
           الدخول في المنهج.
         </p>
 
-        <!-- اسم الملف: physics-foundation .pdf -->
         <a
           href="./pdf/physics-foundation%20.pdf"
           download="physics-foundation.pdf"
@@ -623,12 +759,59 @@
 
     </div>
 
-    <!-- قسم خطة المادة -->
+
+    <!-- ================================= -->
+    <!-- القسم الثاني: الخطط الدراسية -->
+    <!-- ================================= -->
+
     <div class="section-title">
       خطة المادة
     </div>
 
     <div class="files-grid">
+
+      <!-- خطة شهر 11 الجديدة -->
+
+      <div class="file-card november-plan">
+
+        <div class="november-badge">
+          ⭐ خطة شهر 11 – ابدأ الآن!
+        </div>
+
+        <div class="file-icon">🗓️</div>
+
+        <h3>
+          خطة شهر 11 | للطلاب الجدد والمتأخرين
+        </h3>
+
+        <p>
+          لسه جديد بمادة الفيزياء أو متراكم عليك حصص
+          ومش عارف من وين تبدأ؟
+
+          هاي الخطة معمولة خصيصًا إلك!
+
+          خطة دراسية منظمة لشهر تشرين الثاني (11)
+          تساعدك تبدأ من مستواك الحالي،
+          وتلحق الحصص المتراكمة،
+          وتتابع الحصص الجديدة مع
+          الأستاذ خالد مقدادي خطوة بخطوة.
+
+          اختار الخطة المناسبة إلك وابدأ مشوارك!
+        </p>
+
+        <a
+          href="pdf/%D8%AE%D8%B7%D8%A9%20%D9%85%D8%A7%D8%AF%D8%A9%20%D8%A7%D9%84%D9%81%D9%8A%D8%B2%D9%8A%D8%A7%D8%A1.pdf"
+          download="خطة الفيزياء.pdf"
+          class="download-btn"
+        >
+          <span aria-hidden="true">📥</span>
+          تحميل خطة شهر 11 – الفيزياء PDF
+        </a>
+
+      </div>
+
+
+      <!-- خطة الفصل الأول الأصلية -->
 
       <div class="file-card">
 
@@ -653,6 +836,9 @@
         </a>
 
       </div>
+
+
+      <!-- خطة الحقل الهندسي -->
 
       <div class="file-card">
 
@@ -681,21 +867,50 @@
 
     </div>
 
-    <!-- الوحدة الأولى: الزخم الخطي والتصادمات -->
-    <section class="unit-section" aria-labelledby="unit-1-title">
+
+    <!-- ================================= -->
+    <!-- الوحدة الأولى: الزخم الخطي -->
+    <!-- ================================= -->
+
+    <section
+      class="unit-section"
+      aria-labelledby="unit-1-title"
+    >
+
       <div class="unit-heading">
-        <div class="unit-number" aria-hidden="true">01</div>
-        <div>
-          <h2 id="unit-1-title">الوحدة الأولى: الزخم الخطي والتصادمات</h2>
-          <p>ملخص الوحدة وورقة العمل في مكان واحد.</p>
+
+        <div class="unit-number" aria-hidden="true">
+          01
         </div>
+
+        <div>
+          <h2 id="unit-1-title">
+            الوحدة الأولى: الزخم الخطي والتصادمات
+          </h2>
+
+          <p>
+            ملخص الوحدة وورقة العمل في مكان واحد.
+          </p>
+        </div>
+
       </div>
 
+
       <div class="files-grid">
+
+        <!-- ملخص الوحدة الأولى -->
+
         <div class="file-card">
+
           <div class="file-icon" aria-hidden="true">📖</div>
+
           <h3>ملخص الوحدة الأولى</h3>
-          <p>ملخص الزخم الخطي والتصادمات لمراجعة الأفكار والقوانين الأساسية للوحدة.</p>
+
+          <p>
+            ملخص الزخم الخطي والتصادمات لمراجعة
+            الأفكار والقوانين الأساسية للوحدة.
+          </p>
+
           <a
             href="pdf/%D9%85%D9%84%D8%AE%D8%B5%20%D8%A7%D9%84%D8%B2%D8%AE%D9%85.pdf"
             download="ملخص الزخم.pdf"
@@ -704,12 +919,25 @@
             <span aria-hidden="true">📥</span>
             تحميل ملخص الوحدة PDF
           </a>
+
         </div>
 
+
+        <!-- ورقة عمل الوحدة الأولى -->
+
         <div class="file-card">
+
           <div class="file-icon" aria-hidden="true">📝</div>
-          <h3>ورقة عمل الوحدة الأولى</h3>
-          <p>تدريبات على الزخم الخطي والتصادمات لتطبيق ما تعلّمته واختبار فهمك.</p>
+
+          <h3>
+            ورقة عمل الوحدة الأولى
+          </h3>
+
+          <p>
+            تدريبات على الزخم الخطي والتصادمات
+            لتطبيق ما تعلّمته واختبار فهمك.
+          </p>
+
           <a
             href="pdf/sheet%201.pdf"
             download="ورقة عمل1.pdf"
@@ -718,30 +946,62 @@
             <span aria-hidden="true">📥</span>
             تحميل ورقة العمل PDF
           </a>
+
         </div>
+
       </div>
+
     </section>
 
+
+    <!-- ================================= -->
     <!-- الوحدة الثانية: الحركة الدورانية -->
-    <section class="unit-section" aria-labelledby="unit-2-title">
+    <!-- ================================= -->
+
+    <section
+      class="unit-section"
+      aria-labelledby="unit-2-title"
+    >
+
       <div class="unit-heading">
-        <div class="unit-number" aria-hidden="true">02</div>
-        <div>
-          <h2 id="unit-2-title">الوحدة الثانية: الحركة الدورانية</h2>
-          <p>ورقة عمل الوحدة الثانية وحلولها للمراجعة والتدريب.</p>
+
+        <div class="unit-number" aria-hidden="true">
+          02
         </div>
+
+        <div>
+          <h2 id="unit-2-title">
+            الوحدة الثانية: الحركة الدورانية
+          </h2>
+
+          <p>
+            ورقة عمل الوحدة الثانية وحلولها
+            للمراجعة والتدريب.
+          </p>
+        </div>
+
       </div>
+
 
       <div class="files-grid">
 
         <!-- ورقة عمل الوحدة الثانية -->
+
         <div class="file-card">
-          <div class="file-icon" aria-hidden="true">📝</div>
-          <h3>ورقة عمل الوحدة الثانية – الحركة الدورانية</h3>
+
+          <div class="file-icon" aria-hidden="true">
+            📝
+          </div>
+
+          <h3>
+            ورقة عمل الوحدة الثانية – الحركة الدورانية
+          </h3>
+
           <p>
             تدرّب على أفكار وقوانين الحركة الدورانية،
             وحاول حل الأسئلة بنفسك قبل الرجوع إلى الحلول.
           </p>
+
           <a
             href="pdf/work%20sheet%202%20phy.pdf"
             download="work sheet 2 phy.pdf"
@@ -750,16 +1010,27 @@
             <span aria-hidden="true">📥</span>
             تحميل ورقة العمل PDF
           </a>
+
         </div>
 
+
         <!-- حلول ورقة عمل الوحدة الثانية -->
+
         <div class="file-card">
-          <div class="file-icon" aria-hidden="true">✅</div>
-          <h3>حلول ورقة عمل الوحدة الثانية – الحركة الدورانية</h3>
+
+          <div class="file-icon" aria-hidden="true">
+            ✅
+          </div>
+
+          <h3>
+            حلول ورقة عمل الوحدة الثانية – الحركة الدورانية
+          </h3>
+
           <p>
             راجع إجاباتك بعد المحاولة وتأكد من فهم
             خطوات الحل وأفكار الوحدة.
           </p>
+
           <a
             href="pdf/work%20sheet%202%20phy%20answers.pdf"
             download="work sheet 2 phy answers.pdf"
@@ -768,12 +1039,19 @@
             <span aria-hidden="true">📥</span>
             تحميل حلول ورقة العمل PDF
           </a>
+
         </div>
 
       </div>
+
     </section>
 
   </main>
+
+
+  <!-- ================================= -->
+  <!-- التذييل -->
+  <!-- ================================= -->
 
   <footer>
     © <span id="year"></span>

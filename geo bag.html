@@ -224,6 +224,68 @@
       box-shadow: 0 5px 15px rgba(0, 242, 254, 0.4);
     }
 
+    /* خطة شهر 11 المميزة */
+    .november-plan {
+      grid-column: 1 / -1;
+      background: linear-gradient(
+        125deg,
+        rgba(83, 54, 13, 0.96),
+        rgba(24, 27, 43, 0.98) 68%
+      );
+      border: 2px solid #ffcf64;
+      box-shadow: 0 0 25px rgba(255, 193, 75, 0.2);
+      padding: 32px;
+    }
+
+    .november-plan:hover {
+      border-color: #ffe7a0;
+      box-shadow: 0 15px 38px rgba(255, 193, 75, 0.27);
+    }
+
+    .november-plan .file-icon {
+      background: rgba(255, 207, 100, 0.14);
+    }
+
+    .november-plan h3 {
+      color: #ffe2a0;
+      font-size: clamp(22px, 4vw, 28px);
+    }
+
+    .november-plan p {
+      color: #f5e9d2;
+      font-size: 16px;
+      line-height: 1.9;
+      max-width: 850px;
+    }
+
+    .november-plan .download-btn {
+      background: linear-gradient(
+        45deg,
+        #eaa72c,
+        #ffe099,
+        #f5bb4e
+      );
+      color: #251601;
+      font-size: 17px;
+      padding: 16px;
+      box-shadow: 0 6px 20px rgba(255, 193, 75, 0.18);
+    }
+
+    .november-plan .download-btn:hover {
+      box-shadow: 0 8px 24px rgba(255, 193, 75, 0.4);
+    }
+
+    .november-badge {
+      align-self: flex-start;
+      color: #211500;
+      background: linear-gradient(45deg, #ffd56d, #fff0bc);
+      font-size: 13px;
+      font-weight: 800;
+      border-radius: 30px;
+      padding: 6px 15px;
+      margin-bottom: 18px;
+    }
+
     /* تمييز الملفات الجديدة */
     .new-file {
       border: 1px solid rgba(0,242,254,0.5);
@@ -284,6 +346,14 @@
       .file-card {
         padding: 21px;
       }
+
+      .november-plan {
+        padding: 24px;
+      }
+
+      .november-plan p {
+        font-size: 14px;
+      }
     }
   </style>
 </head>
@@ -314,9 +384,7 @@
   </div>
 
 
-  <!-- ================================= -->
   <!-- القسم الأول: ملفات التأسيس -->
-  <!-- ================================= -->
 
   <div class="section-title">
     ملفات التأسيس
@@ -346,15 +414,46 @@
   </div>
 
 
-  <!-- ================================= -->
   <!-- القسم الثاني: الخطط الدراسية -->
-  <!-- ================================= -->
 
   <div class="section-title">
     الخطط الدراسية
   </div>
 
   <div class="files-grid">
+
+    <!-- خطة شهر 11 للطلاب الجدد والمتأخرين -->
+    <div class="file-card november-plan">
+
+      <div class="november-badge">
+        ⭐ خطة شهر 11
+      </div>
+
+      <div class="file-icon">🗓️</div>
+
+      <h3>
+        خطة شهر 11 | للطلاب الجدد والمتأخرين
+      </h3>
+
+      <p>
+        لسه جديد بعلوم الأرض أو متراكم عليك حصص؟
+        هاي الخطة إلك!
+
+        خطة واضحة لشهر تشرين الثاني (11)
+        تساعدك تبدأ من مستواك،
+        ترتب دراستك وتلحق الحصص مع
+        الأستاذ خالد مقدادي خطوة بخطوة.
+      </p>
+
+      <a
+        href="pdf/%D8%AE%D8%B7%D8%A9%20%D8%B9%D9%84%D9%88%D9%85%20%D8%A7%D9%84%D8%A3%D8%B1%D8%B6%20.pdf"
+        download
+        class="download-btn">
+        📥 تحميل خطة شهر 11 – علوم الأرض
+      </a>
+
+    </div>
+
 
     <!-- الخطة الأصلية -->
     <div class="file-card">
@@ -402,7 +501,7 @@
     </div>
 
 
-    <!-- جديد: خطة الطلاب الجدد 10/10 -->
+    <!-- خطة الطلاب الجدد 10/10 -->
     <div class="file-card new-file">
 
       <div class="new-badge">جديد ✨</div>
@@ -432,9 +531,7 @@
   </div>
 
 
-  <!-- ================================= -->
   <!-- القسم الثالث: دليل المعلم -->
-  <!-- ================================= -->
 
   <div class="section-title">
     دليل المعلم والإجابات الوزارية
@@ -442,7 +539,6 @@
 
   <div class="files-grid">
 
-    <!-- جديد: دليل المعلم -->
     <div class="file-card new-file">
 
       <div class="new-badge">جديد ✨</div>
@@ -474,9 +570,7 @@
   </div>
 
 
-  <!-- ================================= -->
   <!-- القسم الرابع: خرائط الوحدة الأولى -->
-  <!-- ================================= -->
 
   <div class="section-title">
     الوحدة الأولى: الوقود الأحفوري (خرائط ذهنية)
@@ -547,9 +641,7 @@
   </div>
 
 
-  <!-- ================================= -->
   <!-- القسم الخامس: خرائط الوحدة الثانية -->
-  <!-- ================================= -->
 
   <div class="section-title">
     الوحدة الثانية: الاستكشاف الجيولوجي (خرائط ذهنية)
@@ -557,7 +649,7 @@
 
   <div class="files-grid">
 
-    <!-- جديد: خريطة الدرس الأول -->
+    <!-- خريطة الدرس الأول -->
     <div class="file-card new-file">
 
       <div class="new-badge">جديد ✨</div>
@@ -586,48 +678,62 @@
 
     </div>
 
+
     <!-- خريطة الدرس الثاني -->
     <div class="file-card new-file">
+
       <div class="new-badge">جديد ✨</div>
       <div class="file-icon">🌍</div>
-      <h3>الخريطة الذهنية – الدرس الثاني</h3>
+
+      <h3>
+        الخريطة الذهنية – الدرس الثاني
+      </h3>
+
       <p>
         خريطة ذهنية منظمة لأفكار الدرس الثاني
         من وحدة الاستكشاف الجيولوجي،
         تساعدك على ربط المفاهيم ومراجعتها بسهولة.
       </p>
+
       <a
         href="pdf/unit%202%20-%20lesson%202.pdf"
         download
         class="download-btn">
         📥 تحميل الخريطة الذهنية
       </a>
+
     </div>
+
 
     <!-- خريطة الدرس الثالث -->
     <div class="file-card new-file">
+
       <div class="new-badge">جديد ✨</div>
       <div class="file-icon">🌍</div>
-      <h3>الخريطة الذهنية – الدرس الثالث</h3>
+
+      <h3>
+        الخريطة الذهنية – الدرس الثالث
+      </h3>
+
       <p>
         خريطة ذهنية منظمة لأفكار الدرس الثالث
         من وحدة الاستكشاف الجيولوجي،
         لتسهيل الدراسة والمراجعة قبل الامتحان.
       </p>
+
       <a
         href="pdf/unit%202%20-%20lesson%203.pdf"
         download
         class="download-btn">
         📥 تحميل الخريطة الذهنية
       </a>
+
     </div>
 
   </div>
 
 
-  <!-- ================================= -->
   <!-- القسم السادس: أوراق عمل الوحدة الأولى -->
-  <!-- ================================= -->
 
   <div class="section-title">
     أوراق عمل الوحدة الأولى: الوقود الأحفوري والبيئة
@@ -686,9 +792,7 @@
   </div>
 
 
-  <!-- ================================= -->
   <!-- القسم السابع: أوراق عمل الوحدة الثانية -->
-  <!-- ================================= -->
 
   <div class="section-title">
     أوراق عمل الوحدة الثانية: الاستكشاف الجيولوجي
@@ -721,6 +825,7 @@
 
     </div>
 
+
     <!-- حلول ورقة عمل الوحدة الثانية -->
     <div class="file-card new-file">
 
@@ -749,9 +854,7 @@
   </div>
 
 
-  <!-- ================================= -->
   <!-- التذييل -->
-  <!-- ================================= -->
 
   <footer>
     © <span id="year"></span>
