@@ -2,8 +2,8 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>بنك امتحانات علوم الأرض | الأستاذ خالد مقدادي</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
       --primary: #ff6b6b;
       --secondary: #fca048;
       --bg-dark: #0a0505;
-      --card-bg: rgba(30, 15, 10, 0.6);
+      --card-bg: rgba(30,15,10,0.6);
       --text: #fdfdfd;
     }
 
@@ -41,11 +41,12 @@
       height: 100vh;
       background: radial-gradient(
         circle at 50% 100%,
-        rgba(255, 107, 107, 0.15),
+        rgba(255,107,107,0.15),
         transparent 60%
       );
       z-index: -2;
       pointer-events: none;
+      overflow: hidden;
     }
 
     .spark {
@@ -85,9 +86,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(10, 5, 5, 0.8);
+      background: rgba(10,5,5,0.8);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255, 107, 107, 0.2);
+      border-bottom: 1px solid rgba(255,107,107,0.2);
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -95,21 +96,21 @@
 
     .brand {
       font-weight: 800;
-      font-size: clamp(18px, 4vw, 22px);
+      font-size: clamp(18px,4vw,22px);
       color: var(--secondary);
-      text-shadow: 0 0 10px rgba(252, 160, 72, 0.5);
+      text-shadow: 0 0 10px rgba(252,160,72,0.5);
     }
 
     .back-btn {
       padding: 8px 16px;
       border-radius: 8px;
       font-weight: 600;
-      font-size: clamp(12px, 3vw, 14px);
-      background: rgba(255, 255, 255, 0.1);
+      font-size: clamp(12px,3vw,14px);
+      background: rgba(255,255,255,0.1);
       color: #fff;
       text-decoration: none;
       transition: 0.3s;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255,255,255,0.2);
     }
 
     .back-btn:hover {
@@ -124,18 +125,29 @@
     }
 
     .page-header h1 {
-      font-size: clamp(24px, 6vw, 36px);
+      font-size: clamp(24px,6vw,36px);
       color: #fff;
-      text-shadow: 0 0 15px rgba(255, 107, 107, 0.6);
+      text-shadow: 0 0 15px rgba(255,107,107,0.6);
       margin-bottom: 10px;
     }
 
     .page-header p {
       color: #ccc;
-      font-size: clamp(14px, 4vw, 18px);
+      font-size: clamp(14px,4vw,18px);
       max-width: 600px;
       margin: 0 auto;
       line-height: 1.6;
+    }
+
+    .cohort-label {
+      display: inline-block;
+      background: rgba(255,107,107,0.2);
+      color: var(--primary);
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 15px;
     }
 
     /* عناوين الوحدات */
@@ -149,15 +161,15 @@
     .unit-heading span {
       display: inline-block;
       padding: 6px 20px;
-      border: 1px solid rgba(252, 160, 72, 0.45);
+      border: 1px solid rgba(252,160,72,0.45);
       border-radius: 30px;
-      background: rgba(252, 160, 72, 0.13);
+      background: rgba(252,160,72,0.13);
       color: var(--secondary);
       font-weight: 800;
     }
 
     .unit-heading h2 {
-      font-size: clamp(23px, 5vw, 32px);
+      font-size: clamp(23px,5vw,32px);
       margin-top: 12px;
     }
 
@@ -179,7 +191,7 @@
       transform: translateX(50%);
       width: 4px;
       height: 100%;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255,255,255,0.1);
       border-radius: 4px;
     }
 
@@ -265,13 +277,13 @@
 
     @keyframes pulseDot {
       0% {
-        box-shadow: 0 0 0 0 rgba(252, 160, 72, 0.7);
+        box-shadow: 0 0 0 0 rgba(252,160,72,0.7);
       }
       70% {
-        box-shadow: 0 0 0 15px rgba(252, 160, 72, 0);
+        box-shadow: 0 0 0 15px rgba(252,160,72,0);
       }
       100% {
-        box-shadow: 0 0 0 0 rgba(252, 160, 72, 0);
+        box-shadow: 0 0 0 0 rgba(252,160,72,0);
       }
     }
 
@@ -279,7 +291,7 @@
 
     .card {
       background: var(--card-bg);
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255,255,255,0.05);
       border-radius: 16px;
       padding: 25px;
       backdrop-filter: blur(10px);
@@ -287,17 +299,17 @@
     }
 
     .timeline-item.active .card {
-      border-color: rgba(255, 107, 107, 0.4);
-      box-shadow: 0 10px 30px rgba(255, 107, 107, 0.15);
+      border-color: rgba(255,107,107,0.4);
+      box-shadow: 0 10px 30px rgba(255,107,107,0.15);
     }
 
     .timeline-item.active .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(255, 107, 107, 0.3);
+      box-shadow: 0 15px 40px rgba(255,107,107,0.3);
     }
 
     .card h3 {
-      font-size: clamp(18px, 5vw, 22px);
+      font-size: clamp(18px,5vw,22px);
       margin-bottom: 15px;
       color: #fff;
     }
@@ -308,7 +320,7 @@
 
     .card p {
       color: #ddd;
-      font-size: clamp(13px, 3vw, 15px);
+      font-size: clamp(13px,3vw,15px);
       line-height: 1.6;
     }
 
@@ -348,18 +360,18 @@
         var(--secondary)
       );
       color: #000;
-      box-shadow: 0 4px 15px rgba(252, 160, 72, 0.4);
+      box-shadow: 0 4px 15px rgba(252,160,72,0.4);
     }
 
     .btn-online:hover {
       transform: scale(1.05);
-      box-shadow: 0 6px 20px rgba(252, 160, 72, 0.6);
+      box-shadow: 0 6px 20px rgba(252,160,72,0.6);
     }
 
     .btn-pdf {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255,255,255,0.1);
       color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255,255,255,0.2);
     }
 
     .btn-pdf:hover {
@@ -369,9 +381,9 @@
     }
 
     .btn-answers {
-      background: rgba(252, 160, 72, 0.16);
+      background: rgba(252,160,72,0.16);
       color: var(--secondary);
-      border: 1px solid rgba(252, 160, 72, 0.45);
+      border: 1px solid rgba(252,160,72,0.45);
     }
 
     .btn-answers:hover {
@@ -380,10 +392,27 @@
       transform: scale(1.05);
     }
 
+    /* تمييز امتحانات الوحدات */
+
+    .unit-exam .card {
+      background: linear-gradient(
+        135deg,
+        rgba(90,35,20,0.72),
+        rgba(30,15,10,0.85)
+      );
+      border: 1px solid rgba(252,160,72,0.5);
+    }
+
+    .unit-exam .card h3 {
+      color: #ffd291 !important;
+    }
+
+    /* التذييل */
+
     footer {
       text-align: center;
       padding: 20px;
-      color: rgba(255, 255, 255, 0.4);
+      color: rgba(255,255,255,0.4);
       font-size: 14px;
       margin-top: auto;
     }
@@ -418,6 +447,10 @@
       .btn {
         width: 100%;
       }
+
+      .card {
+        padding: 20px;
+      }
     }
   </style>
 </head>
@@ -434,16 +467,7 @@
   </header>
 
   <div class="page-header">
-    <span style="
-      display: inline-block;
-      background: rgba(255, 107, 107, 0.2);
-      color: var(--primary);
-      padding: 5px 15px;
-      border-radius: 20px;
-      font-size: 14px;
-      font-weight: bold;
-      margin-bottom: 15px;
-    ">
+    <span class="cohort-label">
       علوم الأرض — توجيهي 2009
     </span>
 
@@ -476,7 +500,8 @@
 
         <p>
           امتحان شامل لأفكار الدرس الأول.
-          يمكنك تقديمه إلكترونياً أو تحميله كملف PDF لطباعته.
+          يمكنك تقديمه إلكترونياً أو تحميله
+          كملف PDF لطباعته.
         </p>
 
         <div class="actions">
@@ -517,7 +542,8 @@
 
         <p>
           امتحان شامل لأفكار الدرس الثاني.
-          يمكنك تقديمه إلكترونياً أو تحميله كملف PDF لطباعته.
+          يمكنك تقديمه إلكترونياً أو تحميله
+          كملف PDF لطباعته.
         </p>
 
         <div class="actions">
@@ -558,7 +584,8 @@
 
         <p>
           امتحان شامل لأفكار الدرس الثالث.
-          يمكنك تقديمه إلكترونياً أو تحميله كملف PDF لطباعته.
+          يمكنك تقديمه إلكترونياً أو تحميل
+          نسخة PDF من الأسئلة والإجابات.
         </p>
 
         <div class="actions">
@@ -591,7 +618,7 @@
 
 
     <!-- امتحان الوحدة الأولى كاملًا -->
-    <div class="timeline-item active">
+    <div class="timeline-item active unit-exam">
       <div class="timeline-dot"></div>
 
       <div class="card">
@@ -650,12 +677,12 @@
       <div class="timeline-dot"></div>
 
       <div class="card">
-
         <h3>الدرس الأول: الاستكشاف الجيولوجي</h3>
 
         <p>
           امتحان الدرس الأول من الوحدة الثانية.
-          قدّمه إلكترونيًا أو حمّل نسخة PDF وملف الإجابات.
+          قدّمه إلكترونيًا أو حمّل نسخة PDF
+          وملف الإجابات.
         </p>
 
         <div class="actions">
@@ -692,13 +719,13 @@
       <div class="timeline-dot"></div>
 
       <div class="card">
-
         <h3>الدرس الثاني: الاستكشاف الجيولوجي</h3>
 
         <p>
-          امتحان الدرس الثاني من وحدة الاستكشاف الجيولوجي.
-          اختبر فهمك للدرس من خلال الامتحان الإلكتروني،
-          أو حمّل الأسئلة والإجابات بصيغة PDF.
+          امتحان الدرس الثاني من وحدة الاستكشاف
+          الجيولوجي. اختبر فهمك للدرس من خلال
+          الامتحان الإلكتروني، أو حمّل الأسئلة
+          والإجابات بصيغة PDF.
         </p>
 
         <div class="actions">
@@ -735,13 +762,13 @@
       <div class="timeline-dot"></div>
 
       <div class="card">
-
         <h3>الدرس الثالث: الاستكشاف الجيولوجي</h3>
 
         <p>
-          امتحان الدرس الثالث من وحدة الاستكشاف الجيولوجي.
-          حمّل ملف الأسئلة وحاول حل الامتحان بنفسك،
-          ثم راجع إجاباتك من ملف الحلول.
+          امتحان الدرس الثالث من وحدة الاستكشاف
+          الجيولوجي. حمّل ملف الأسئلة وحاول حل
+          الامتحان بنفسك، ثم راجع إجاباتك
+          من ملف الحلول.
         </p>
 
         <div class="actions">
@@ -777,27 +804,50 @@
     <!-- جديد: امتحان الوحدة الثانية كاملًا -->
     <!-- ================================= -->
 
-    <div class="timeline-item active">
+    <div class="timeline-item active unit-exam">
       <div class="timeline-dot"></div>
 
       <div class="card">
 
-        <h3>🏆 امتحان الوحدة الثانية: الاستكشاف الجيولوجي</h3>
+        <h3>
+          🏆 امتحان الوحدة الثانية: الاستكشاف الجيولوجي
+        </h3>
 
         <p>
           خلصت دروس وحدة الاستكشاف الجيولوجي؟
           اختبر فهمك لجميع أفكار الوحدة من خلال
-          الامتحان الإلكتروني الشامل، وتأكد من جاهزيتك.
+          الامتحان الشامل.
+
+          يمكنك تقديم الامتحان إلكترونيًا،
+          أو تحميل نسخة PDF وحلها بنفسك،
+          ثم مراجعة إجاباتك من ملف الحلول.
         </p>
 
         <div class="actions">
 
+          <!-- الامتحان الإلكتروني -->
           <a
             href="https://www.joacademy.com/ar/online-exams/6224"
             target="_blank"
             rel="noopener noreferrer"
             class="btn btn-online">
-            🌐 ابدأ امتحان الوحدة إلكترونيًا
+            🌐 امتحان الوحدة إلكترونيًا
+          </a>
+
+          <!-- تحميل ملف أسئلة الوحدة الثانية -->
+          <a
+            href="pdf/_%20%20%D8%A7%D9%85%D8%AA%D8%AD%D8%A7%D9%86%20-%20%D8%A7%D9%84%D9%88%D8%AD%D8%AF%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9.pdf"
+            download
+            class="btn btn-pdf">
+            📥 تحميل امتحان الوحدة PDF
+          </a>
+
+          <!-- تحميل ملف حلول الوحدة الثانية -->
+          <a
+            href="pdf/_%20%20%D8%A7%D9%85%D8%AA%D8%AD%D8%A7%D9%86%20-%20%D8%A7%D9%84%D9%88%D8%AD%D8%AF%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9%20-%20Copy.pdf"
+            download
+            class="btn btn-answers">
+            ✅ تحميل حلول امتحان الوحدة
           </a>
 
         </div>
@@ -808,8 +858,7 @@
 
 
   <!-- ================================= -->
-  <!-- جديد: الوحدة الثالثة -->
-  <!-- التراكيب الجيولوجية -->
+  <!-- الوحدة الثالثة: التراكيب الجيولوجية -->
   <!-- ================================= -->
 
   <section class="unit-heading" aria-label="الوحدة الثالثة">
@@ -819,30 +868,57 @@
 
   <div class="timeline">
 
-    <!-- امتحان الدرس الأول: تشوه الصخور -->
+    <!-- ================================= -->
+    <!-- جديد: امتحان الدرس الأول -->
+    <!-- تشوه الصخور -->
+    <!-- ================================= -->
+
     <div class="timeline-item active">
       <div class="timeline-dot"></div>
 
       <div class="card">
 
-        <h3>الدرس الأول: تشوه الصخور</h3>
+        <h3>
+          الدرس الأول: تشوه الصخور
+        </h3>
 
         <p>
-          امتحان إلكتروني للدرس الأول
+          امتحان شامل للدرس الأول
           «تشوه الصخور» من وحدة التراكيب الجيولوجية.
 
           اختبر معلوماتك بعد إنهاء الدرس،
-          وتأكد من فهمك للأفكار الأساسية.
+          وحاول حل الأسئلة قبل الاطلاع
+          على نموذج الإجابات.
+
+          يمكنك تقديم الامتحان إلكترونيًا
+          أو تحميل نسخة PDF مع الحلول.
         </p>
 
         <div class="actions">
 
+          <!-- الامتحان الإلكتروني -->
           <a
             href="https://www.joacademy.com/ar/online-exams/6319"
             target="_blank"
             rel="noopener noreferrer"
             class="btn btn-online">
             🌐 ابدأ الامتحان الإلكتروني
+          </a>
+
+          <!-- تحميل امتحان الدرس الأول -->
+          <a
+            href="pdf/%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1%20%D8%A7%D9%84%D8%AF%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84-%20%D8%A7%D9%84%D9%88%D8%AD%D8%AF%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9.pdf"
+            download
+            class="btn btn-pdf">
+            📥 تحميل الامتحان PDF
+          </a>
+
+          <!-- تحميل الحلول -->
+          <a
+            href="pdf/%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1%20%D8%A7%D9%84%D8%AF%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84-%20%D8%A7%D9%84%D9%88%D8%AD%D8%AF%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9%20-%20Copy.pdf"
+            download
+            class="btn btn-answers">
+            ✅ تحميل إجابات الامتحان
           </a>
 
         </div>
@@ -872,16 +948,24 @@
       document.querySelector('.sparks-bg');
 
     for (let i = 0; i < 30; i++) {
-      let spark = document.createElement('div');
+      const spark = document.createElement('div');
 
       spark.className = 'spark';
-      spark.style.left = Math.random() * 100 + 'vw';
-      spark.style.animationDelay = Math.random() * 5 + 's';
+
+      spark.style.left =
+        Math.random() * 100 + 'vw';
+
+      spark.style.animationDelay =
+        Math.random() * 5 + 's';
+
       spark.style.animationDuration =
         (3 + Math.random() * 4) + 's';
+
       spark.style.width =
         (2 + Math.random() * 4) + 'px';
-      spark.style.height = spark.style.width;
+
+      spark.style.height =
+        spark.style.width;
 
       sparksContainer.appendChild(spark);
     }
