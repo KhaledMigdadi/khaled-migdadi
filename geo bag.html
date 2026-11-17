@@ -1,9 +1,9 @@
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>بنك الملفات | علوم الأرض</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
       --primary: #00f2fe;
       --secondary: #4facfe;
       --bg-dark: #070b15;
-      --card-bg: rgba(11, 27, 59, 0.6);
+      --card-bg: rgba(11,27,59,.6);
       --text: #fdfdfd;
     }
 
@@ -35,20 +35,10 @@
 
     .bg-pattern {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
+      inset: 0;
       background:
-        linear-gradient(
-          rgba(79, 172, 254, 0.05) 1px,
-          transparent 1px
-        ),
-        linear-gradient(
-          90deg,
-          rgba(79, 172, 254, 0.05) 1px,
-          transparent 1px
-        );
+        linear-gradient(rgba(79,172,254,.05) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(79,172,254,.05) 1px,transparent 1px);
       background-size: 30px 30px;
       z-index: -2;
     }
@@ -59,11 +49,7 @@
       left: 30%;
       width: 50vw;
       height: 50vh;
-      background: radial-gradient(
-        circle,
-        rgba(0, 242, 254, 0.15) 0%,
-        transparent 60%
-      );
+      background: radial-gradient(circle,rgba(0,242,254,.15),transparent 60%);
       z-index: -1;
       pointer-events: none;
     }
@@ -73,9 +59,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(7, 11, 21, 0.8);
+      background: rgba(7,11,21,.8);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(0, 242, 254, 0.2);
+      border-bottom: 1px solid rgba(0,242,254,.2);
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -83,21 +69,21 @@
 
     .brand {
       font-weight: 800;
-      font-size: clamp(18px, 4vw, 22px);
+      font-size: clamp(18px,4vw,22px);
       color: var(--primary);
-      text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+      text-shadow: 0 0 10px rgba(0,242,254,.5);
     }
 
     .back-btn {
       padding: 8px 16px;
       border-radius: 8px;
       font-weight: 600;
-      font-size: clamp(12px, 3vw, 14px);
-      background: rgba(255,255,255,0.1);
-      color: #fff;
+      font-size: 14px;
+      background: rgba(255,255,255,.1);
+      color: white;
       text-decoration: none;
-      transition: 0.3s;
-      border: 1px solid rgba(255,255,255,0.2);
+      transition: .3s;
+      border: 1px solid rgba(255,255,255,.2);
     }
 
     .back-btn:hover {
@@ -112,8 +98,8 @@
     }
 
     .page-header h1 {
-      font-size: clamp(24px, 6vw, 36px);
-      color: #fff;
+      font-size: clamp(24px,6vw,36px);
+      color: white;
       margin-bottom: 10px;
     }
 
@@ -123,28 +109,25 @@
 
     .page-header p {
       color: #ccc;
-      font-size: clamp(14px, 4vw, 18px);
+      font-size: clamp(14px,4vw,18px);
       max-width: 600px;
-      margin: 0 auto;
+      margin: auto;
       line-height: 1.6;
     }
 
     .section-title {
       font-size: 22px;
       font-weight: 800;
-      color: #fff;
+      color: white;
       margin: 40px 5% 20px;
       padding-right: 15px;
       border-right: 4px solid var(--primary);
-      text-shadow: 0 0 10px rgba(0,242,254,0.3);
+      text-shadow: 0 0 10px rgba(0,242,254,.3);
     }
 
     .files-grid {
       display: grid;
-      grid-template-columns: repeat(
-        auto-fit,
-        minmax(280px, 1fr)
-      );
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
       gap: 20px;
       padding: 0 5% 30px;
       max-width: 1200px;
@@ -154,11 +137,11 @@
 
     .file-card {
       background: var(--card-bg);
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,.1);
       border-radius: 16px;
       padding: 25px;
       backdrop-filter: blur(10px);
-      transition: all 0.4s ease;
+      transition: all .4s ease;
       display: flex;
       flex-direction: column;
       position: relative;
@@ -167,16 +150,15 @@
 
     .file-card:hover {
       transform: translateY(-8px);
-      box-shadow:
-        0 15px 30px rgba(0,0,0,0.4),
-        inset 0 0 20px rgba(0,242,254,0.1);
-      border-color: rgba(0, 242, 254, 0.4);
+      box-shadow: 0 15px 30px rgba(0,0,0,.4),
+                  inset 0 0 20px rgba(0,242,254,.1);
+      border-color: rgba(0,242,254,.4);
     }
 
     .file-icon {
       font-size: 40px;
       margin-bottom: 15px;
-      background: rgba(0,242,254,0.1);
+      background: rgba(0,242,254,.1);
       width: 70px;
       height: 70px;
       display: flex;
@@ -188,7 +170,7 @@
     .file-card h3 {
       font-size: 20px;
       margin-bottom: 10px;
-      color: #fff;
+      color: white;
     }
 
     .file-card p {
@@ -208,47 +190,41 @@
       border-radius: 10px;
       font-weight: bold;
       font-size: 15px;
-      background: linear-gradient(
-        45deg,
-        var(--secondary),
-        var(--primary)
-      );
+      background: linear-gradient(45deg,var(--secondary),var(--primary));
       color: #000;
       text-decoration: none;
-      transition: 0.3s;
+      transition: .3s;
       width: 100%;
+      text-align: center;
     }
 
     .download-btn:hover {
       transform: scale(1.02);
-      box-shadow: 0 5px 15px rgba(0, 242, 254, 0.4);
+      box-shadow: 0 5px 15px rgba(0,242,254,.4);
     }
 
-    /* خطة شهر 11 المميزة */
     .november-plan {
       grid-column: 1 / -1;
-      background: linear-gradient(
-        125deg,
-        rgba(83, 54, 13, 0.96),
-        rgba(24, 27, 43, 0.98) 68%
-      );
+      background: linear-gradient(125deg,
+                  rgba(83,54,13,.96),
+                  rgba(24,27,43,.98) 68%);
       border: 2px solid #ffcf64;
-      box-shadow: 0 0 25px rgba(255, 193, 75, 0.2);
+      box-shadow: 0 0 25px rgba(255,193,75,.2);
       padding: 32px;
     }
 
     .november-plan:hover {
       border-color: #ffe7a0;
-      box-shadow: 0 15px 38px rgba(255, 193, 75, 0.27);
+      box-shadow: 0 15px 38px rgba(255,193,75,.27);
     }
 
     .november-plan .file-icon {
-      background: rgba(255, 207, 100, 0.14);
+      background: rgba(255,207,100,.14);
     }
 
     .november-plan h3 {
       color: #ffe2a0;
-      font-size: clamp(22px, 4vw, 28px);
+      font-size: clamp(22px,4vw,28px);
     }
 
     .november-plan p {
@@ -259,26 +235,16 @@
     }
 
     .november-plan .download-btn {
-      background: linear-gradient(
-        45deg,
-        #eaa72c,
-        #ffe099,
-        #f5bb4e
-      );
+      background: linear-gradient(45deg,#eaa72c,#ffe099,#f5bb4e);
       color: #251601;
       font-size: 17px;
       padding: 16px;
-      box-shadow: 0 6px 20px rgba(255, 193, 75, 0.18);
-    }
-
-    .november-plan .download-btn:hover {
-      box-shadow: 0 8px 24px rgba(255, 193, 75, 0.4);
     }
 
     .november-badge {
       align-self: flex-start;
       color: #211500;
-      background: linear-gradient(45deg, #ffd56d, #fff0bc);
+      background: linear-gradient(45deg,#ffd56d,#fff0bc);
       font-size: 13px;
       font-weight: 800;
       border-radius: 30px;
@@ -286,708 +252,533 @@
       margin-bottom: 18px;
     }
 
-    /* تمييز الملفات الجديدة */
     .new-file {
-      border: 1px solid rgba(0,242,254,0.5);
-      box-shadow: 0 0 20px rgba(0,242,254,0.08);
+      border: 1px solid rgba(0,242,254,.5);
+      box-shadow: 0 0 20px rgba(0,242,254,.08);
     }
 
     .new-badge {
       position: absolute;
       top: 15px;
       left: 15px;
-      background: linear-gradient(
-        45deg,
-        var(--secondary),
-        var(--primary)
-      );
+      background: linear-gradient(45deg,var(--secondary),var(--primary));
       color: #00121c;
       font-size: 12px;
       font-weight: 800;
       padding: 4px 12px;
       border-radius: 20px;
-      box-shadow: 0 0 12px rgba(0,242,254,0.25);
     }
 
     footer {
       text-align: center;
       padding: 20px;
-      color: rgba(255,255,255,0.4);
+      color: rgba(255,255,255,.4);
       font-size: 14px;
       margin-top: auto;
     }
 
-    @media (max-width: 600px) {
-      header {
-        padding: 12px 4%;
-        gap: 10px;
-      }
-
-      .back-btn {
-        padding: 8px 11px;
-        white-space: nowrap;
-      }
-
-      .page-header {
-        padding: 30px 16px 10px;
-      }
-
-      .section-title {
-        font-size: 19px;
-        margin-top: 32px;
-      }
-
+    @media(max-width:600px) {
+      header { padding: 12px 4%; gap: 10px; }
+      .back-btn { padding: 8px 11px; white-space: nowrap; }
+      .page-header { padding: 30px 16px 10px; }
+      .section-title { font-size: 19px; margin-top: 32px; }
       .files-grid {
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: minmax(0,1fr);
         padding-right: 14px;
         padding-left: 14px;
       }
-
-      .file-card {
-        padding: 21px;
-      }
-
-      .november-plan {
-        padding: 24px;
-      }
-
-      .november-plan p {
-        font-size: 14px;
-      }
+      .file-card { padding: 21px; }
+      .november-plan { padding: 24px; }
+      .november-plan p { font-size: 14px; }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="bg-pattern"></div>
-  <div class="glow"></div>
+<div class="bg-pattern"></div>
+<div class="glow"></div>
 
-  <header>
-    <div class="brand">بنك الملفات</div>
-    <a href="GEO.html" class="back-btn">
-      العودة للمادة ↩
+<header>
+  <div class="brand">بنك الملفات</div>
+  <a href="GEO.html" class="back-btn">العودة للمادة ↩</a>
+</header>
+
+<div class="page-header">
+  <h1>دوسيات وملفات <span>علوم الأرض</span></h1>
+  <p>
+    حمّل الخرائط الذهنية والخطط الدراسية وملفات التأسيس
+    وأوراق العمل لتسهيل فهم المادة ومراجعتها.
+  </p>
+</div>
+
+
+<!-- ======================================= -->
+<!-- ملفات التأسيس -->
+<!-- ======================================= -->
+
+<div class="section-title">ملفات التأسيس</div>
+
+<div class="files-grid">
+
+  <div class="file-card">
+    <div class="file-icon">🚀</div>
+    <h3>الدورة التحضيرية</h3>
+    <p>
+      ملف تأسيس 2009 الشامل، يحتوي على أهم الأساسيات
+      التي ستحتاجها قبل البدء بالمادة لضمان تفوقك.
+    </p>
+    <a href="pdf/geo-foundation.pdf" download class="download-btn">
+      📥 تحميل الملف
     </a>
-  </header>
+  </div>
 
-  <div class="page-header">
-    <h1>
-      دوسيات وملفات
-      <span>علوم الأرض</span>
-    </h1>
+</div>
+
+
+<!-- ======================================= -->
+<!-- الخطط الدراسية -->
+<!-- ======================================= -->
+
+<div class="section-title">الخطط الدراسية</div>
+
+<div class="files-grid">
+
+  <div class="file-card november-plan">
+    <div class="november-badge">⭐ خطة شهر 11</div>
+    <div class="file-icon">🗓️</div>
+    <h3>خطة شهر 11 | للطلاب الجدد والمتأخرين</h3>
+    <p>
+      لسه جديد بعلوم الأرض أو متراكم عليك حصص؟
+      هاي الخطة إلك!
+      خطة واضحة لشهر تشرين الثاني تساعدك تبدأ من مستواك،
+      ترتب دراستك وتلحق الحصص مع الأستاذ خالد مقدادي
+      خطوة بخطوة.
+    </p>
+    <a href="pdf/خطة علوم الأرض .pdf" download class="download-btn">
+      📥 تحميل خطة شهر 11 – علوم الأرض
+    </a>
+  </div>
+
+  <div class="file-card">
+    <div class="file-icon">📘</div>
+    <h3>خطة مادة علوم الأرض – الفصل الأول</h3>
+    <p>
+      خطة منظمة للفصل الدراسي الأول تساعدك
+      على متابعة الحصص وإنجاز المادة أولًا بأول.
+    </p>
+    <a href="pdf/خطة مادة علوم الأرض ف1.pdf" download class="download-btn">
+      📥 تحميل الخطة
+    </a>
+  </div>
+
+  <div class="file-card">
+    <div class="file-icon">🩺</div>
+    <h3>خطة دراسية لطلاب الحقل الصحي</h3>
+    <p>
+      خطة دراسية مخصصة لطلاب الحقل الصحي
+      تساعدك على تنظيم دراسة المواد وتوزيعها.
+    </p>
+    <a href="pdf/خطة دراسية لطلاب الحقل الصحي.pdf" download class="download-btn">
+      📥 تحميل الخطة
+    </a>
+  </div>
+
+  <div class="file-card new-file">
+    <div class="new-badge">جديد ✨</div>
+    <div class="file-icon">📅</div>
+    <h3>خطة الطلاب الجدد – تبدأ من 10/10</h3>
+    <p>
+      متأخر بالمادة ومش عارف من وين تبدأ؟
+      جدول دراسي منظم يساعدك على إنهاء الحصص المتراكمة
+      ومتابعة الحصص الجديدة خطوة بخطوة.
+    </p>
+    <a href="pdf/plan10.pdf" download class="download-btn">
+      📥 تحميل خطة 10/10
+    </a>
+  </div>
+
+</div>
+
+
+<!-- ======================================= -->
+<!-- دليل المعلم -->
+<!-- ======================================= -->
+
+<div class="section-title">دليل المعلم والإجابات الوزارية</div>
+
+<div class="files-grid">
+
+  <div class="file-card new-file">
+    <div class="new-badge">جديد ✨</div>
+    <div class="file-icon">📚</div>
+    <h3>دليل المعلم – إجابات جميع أسئلة الكتاب</h3>
+    <p>
+      دليل المعلم الرسمي الصادر عن وزارة التربية والتعليم،
+      يحتوي على إجابات جميع أسئلة الكتاب المدرسي.
+    </p>
+    <a href="pdf/دليل المعلم.pdf" download class="download-btn">
+      📥 تحميل دليل المعلم
+    </a>
+  </div>
+
+  <div class="file-card new-file">
+    <div class="new-badge">جديد ✨</div>
+    <div class="file-icon">📝</div>
+    <h3>ورقة عمل دليل المعلم – الوحدة الأولى</h3>
+    <p>ورقة عمل الوحدة الأولى من دليل المعلم.</p>
+    <a href="pdf/uint%201%20-%20sheet%20teachers%20guide.pdf"
+       download class="download-btn">
+      📥 تحميل ورقة العمل
+    </a>
+  </div>
+
+  <div class="file-card new-file">
+    <div class="new-badge">جديد ✨</div>
+    <div class="file-icon">📝</div>
+    <h3>ورقة عمل دليل المعلم – الوحدة الثانية</h3>
+    <p>ورقة عمل الوحدة الثانية من دليل المعلم.</p>
+    <a href="pdf/uint%202%20-%20sheet%20teachers%20guide.pdf"
+       download class="download-btn">
+      📥 تحميل ورقة العمل
+    </a>
+  </div>
+
+  <div class="file-card new-file">
+    <div class="new-badge">جديد ✨</div>
+    <div class="file-icon">📝</div>
+    <h3>ورقة عمل دليل المعلم – الوحدة الثالثة</h3>
+    <p>ورقة عمل الوحدة الثالثة من دليل المعلم.</p>
+    <a href="pdf/uint3%20-%20sheet%20teachers%20guide.pdf"
+       download class="download-btn">
+      📥 تحميل ورقة العمل
+    </a>
+  </div>
+
+  <div class="file-card new-file">
+    <div class="new-badge">جديد ✨</div>
+    <div class="file-icon">📝</div>
+    <h3>ورقة عمل دليل المعلم – الوحدة الرابعة</h3>
+    <p>ورقة عمل الوحدة الرابعة من دليل المعلم.</p>
+    <a href="pdf/uint%204-%20sheet%20teachers%20guide.pdf"
+       download class="download-btn">
+      📥 تحميل ورقة العمل
+    </a>
+  </div>
+
+</div>
+
+
+<!-- ======================================= -->
+<!-- خرائط الوحدة الأولى -->
+<!-- ======================================= -->
+
+<div class="section-title">
+  الوحدة الأولى: الوقود الأحفوري (خرائط ذهنية)
+</div>
+
+<div class="files-grid">
+
+  <div class="file-card">
+    <div class="file-icon">🗺️</div>
+    <h3>خريطة الدرس الأول</h3>
+    <p>
+      خريطة ذهنية مبسطة وشاملة لأفكار الدرس الأول
+      لتسهيل المراجعة وتثبيت الحفظ.
+    </p>
+    <a href="pdf/mindmap1.pdf" download class="download-btn">
+      📥 تحميل الخريطة
+    </a>
+  </div>
+
+  <div class="file-card">
+    <div class="file-icon">🗺️</div>
+    <h3>خريطة الدرس الثاني</h3>
+    <p>خريطة ذهنية مخصصة لأفكار الدرس الثاني.</p>
+    <a href="pdf/lesson%202%20-mind%20maps.pdf"
+       download class="download-btn">
+      📥 تحميل الخريطة
+    </a>
+  </div>
+
+  <div class="file-card">
+    <div class="file-icon">🗺️</div>
+    <h3>خريطة الدرس الثالث</h3>
+    <p>خريطة ذهنية مخصصة لأفكار الدرس الثالث.</p>
+    <a href="pdf/lesson%203%20mindmap.pdf"
+       download class="download-btn">
+      📥 تحميل الخريطة
+    </a>
+  </div>
+
+</div>
+
+
+<!-- ======================================= -->
+<!-- خرائط الوحدة الثانية -->
+<!-- ======================================= -->
+
+<div class="section-title">
+  الوحدة الثانية: الاستكشاف الجيولوجي (خرائط ذهنية)
+</div>
+
+<div class="files-grid">
+
+  <div class="file-card new-file">
+    <div class="new-badge">جديد ✨</div>
+    <div class="file-icon">🌍</div>
+    <h3>الخريطة الذهنية – الدرس الأول</h3>
+    <p>
+      خريطة ذهنية شاملة للدرس الأول من
+      وحدة الاستكشاف الجيولوجي.
+    </p>
+    <a href="pdf/unit%202%20-%20lesson%201.pdf"
+       download class="download-btn">
+      📥 تحميل الخريطة الذهنية
+    </a>
+  </div>
+
+  <div class="file-card new-file">
+    <div class="new-badge">جديد ✨</div>
+    <div class="file-icon">🌍</div>
+    <h3>الخريطة الذهنية – الدرس الثاني</h3>
+    <p>
+      خريطة ذهنية منظمة لأفكار الدرس الثاني
+      لتسهيل المراجعة.
+    </p>
+    <a href="pdf/unit%202%20-%20lesson%202.pdf"
+       download class="download-btn">
+      📥 تحميل الخريطة الذهنية
+    </a>
+  </div>
+
+  <div class="file-card new-file">
+    <div class="new-badge">جديد ✨</div>
+    <div class="file-icon">🌍</div>
+    <h3>الخريطة الذهنية – الدرس الثالث</h3>
+    <p>
+      خريطة ذهنية منظمة لأفكار الدرس الثالث
+      لتسهيل الدراسة والمراجعة قبل الامتحان.
+    </p>
+    <a href="pdf/unit%202%20-%20lesson%203.pdf"
+       download class="download-btn">
+      📥 تحميل الخريطة الذهنية
+    </a>
+  </div>
+
+</div>
+
+
+<!-- ======================================= -->
+<!-- خرائط الوحدة الثالثة - الملفات الجديدة -->
+<!-- ======================================= -->
+
+<div class="section-title">
+  الوحدة الثالثة: التراكيب الجيولوجية (خرائط ذهنية)
+</div>
+
+<div class="files-grid">
+
+  <!-- الدرس الأول: تشوه الصخور - نسخة مصححة -->
+  <div class="file-card new-file">
+    <div class="new-badge">جديد ✨</div>
+    <div class="file-icon">🗺️</div>
+    <h3>الخريطة الذهنية – الدرس الأول: تشوه الصخور</h3>
+    <p>
+      النسخة المحدّثة والمصححة من الخريطة الذهنية
+      لدرس تشوه الصخور.
+      تساعدك على تنظيم الأفكار وربط المفاهيم
+      وتسهيل المراجعة قبل الامتحان.
+    </p>
+    <a href="pdf/unit3-lesson1-mindmap-v2.pdf"
+       download class="download-btn">
+      📥 تحميل الخريطة الذهنية
+    </a>
+  </div>
+
+  <!-- الدرس الثاني: الصدوع -->
+  <div class="file-card new-file">
+    <div class="new-badge">جديد ✨</div>
+    <div class="file-icon">🗺️</div>
+    <h3>الخريطة الذهنية – الدرس الثاني: الصدوع</h3>
+    <p>
+      خريطة ذهنية شاملة لأفكار درس الصدوع،
+      تساعدك على فهم المفاهيم والتمييز بينها
+      وتنظيم المعلومات بطريقة سهلة وسريعة.
+    </p>
+    <a href="pdf/unit3-lesson2-mindmap.pdf"
+       download class="download-btn">
+      📥 تحميل الخريطة الذهنية
+    </a>
+  </div>
+
+  <!-- الدرس الثالث: الطيات -->
+  <div class="file-card new-file">
+    <div class="new-badge">جديد ✨</div>
+    <div class="file-icon">🗺️</div>
+    <h3>الخريطة الذهنية – الدرس الثالث: الطيات</h3>
+    <p>
+      خريطة ذهنية تلخص أفكار درس الطيات،
+      وتساعدك على ربط المعلومات وتثبيتها
+      وتسهيل الحفظ والمراجعة.
+    </p>
+    <a href="pdf/unit3-lesson3-mindmap.pdf"
+       download class="download-btn">
+      📥 تحميل الخريطة الذهنية
+    </a>
+  </div>
+
+</div>
+
+
+<!-- ======================================= -->
+<!-- أوراق عمل الوحدة الأولى -->
+<!-- ======================================= -->
+
+<div class="section-title">
+  أوراق عمل الوحدة الأولى: الوقود الأحفوري والبيئة
+</div>
+
+<div class="files-grid">
+
+  <div class="file-card">
+    <div class="file-icon">📝</div>
+    <h3>ورقة عمل الوحدة الأولى</h3>
+    <p>
+      تدرّب على أفكار وحدة الوقود الأحفوري والبيئة،
+      وحاول حل الأسئلة قبل الاطلاع على الإجابات.
+    </p>
+    <a href="pdf/sheet%201%20geo.pdf"
+       download class="download-btn">
+      📥 تحميل ورقة العمل
+    </a>
+  </div>
+
+  <div class="file-card">
+    <div class="file-icon">✅</div>
+    <h3>حل ورقة عمل الوحدة الأولى</h3>
+    <p>
+      راجع إجابات ورقة العمل وتأكد
+      من فهمك لأفكار الوحدة بعد الحل.
+    </p>
+    <a href="pdf/sheet%201%20geo%20answers.pdf"
+       download class="download-btn">
+      📥 تحميل الحل
+    </a>
+  </div>
+
+</div>
+
+
+<!-- ======================================= -->
+<!-- أوراق عمل الوحدة الثانية -->
+<!-- ======================================= -->
+
+<div class="section-title">
+  أوراق عمل الوحدة الثانية: الاستكشاف الجيولوجي
+</div>
+
+<div class="files-grid">
+
+  <div class="file-card new-file">
+    <div class="new-badge">جديد ✨</div>
+    <div class="file-icon">📝</div>
+    <h3>ورقة عمل الوحدة الثانية – الاستكشاف الجيولوجي</h3>
+    <p>
+      تدرّب على أفكار وحدة الاستكشاف الجيولوجي،
+      وحاول حل الأسئلة بنفسك قبل الاطلاع على الإجابات.
+    </p>
+    <a href="pdf/worksheet%202%20earth.pdf"
+       download class="download-btn">
+      📥 تحميل ورقة العمل
+    </a>
+  </div>
+
+  <div class="file-card new-file">
+    <div class="new-badge">جديد ✨</div>
+    <div class="file-icon">✅</div>
+    <h3>حلول ورقة عمل الوحدة الثانية – الاستكشاف الجيولوجي</h3>
+    <p>
+      راجع إجابات ورقة عمل الوحدة الثانية بعد المحاولة،
+      وتأكد من فهمك للأفكار الأساسية.
+    </p>
+    <a href="pdf/worksheet%202%20earth%20answers.pdf"
+       download class="download-btn">
+      📥 تحميل الحلول
+    </a>
+  </div>
+
+</div>
+
+
+<!-- ======================================= -->
+<!-- أوراق عمل الوحدة الثالثة - الملفات الجديدة -->
+<!-- ======================================= -->
+
+<div class="section-title">
+  أوراق عمل الوحدة الثالثة: التراكيب الجيولوجية
+</div>
+
+<div class="files-grid">
+
+  <!-- ورقة العمل -->
+  <div class="file-card new-file">
+    <div class="new-badge">جديد ✨</div>
+    <div class="file-icon">📝</div>
+
+    <h3>ورقة عمل الوحدة الثالثة – التراكيب الجيولوجية</h3>
 
     <p>
-      حمّل الخرائط الذهنية والخطط الدراسية
-      وملفات التأسيس وأوراق العمل لتسهيل فهم
-      المادة ومراجعتها.
+      ورقة عمل شاملة لأفكار الوحدة الثالثة،
+      تشمل تشوه الصخور والصدوع والطيات.
+
+      تدرّب على الأسئلة واختبر فهمك للمعلومات
+      قبل الانتقال إلى نموذج الإجابات.
     </p>
+
+    <a href="pdf/worksheet-3-earth.pdf"
+       download class="download-btn">
+      📥 تحميل ورقة العمل
+    </a>
   </div>
 
+  <!-- إجابات ورقة العمل -->
+  <div class="file-card new-file">
+    <div class="new-badge">جديد ✨</div>
+    <div class="file-icon">✅</div>
 
-  <!-- القسم الأول: ملفات التأسيس -->
+    <h3>إجابات ورقة عمل الوحدة الثالثة – التراكيب الجيولوجية</h3>
 
-  <div class="section-title">
-    ملفات التأسيس
+    <p>
+      ملف الإجابات الخاص بورقة عمل الوحدة الثالثة.
+
+      بعد ما تخلص حل الأسئلة،
+      راجع إجاباتك وتعرّف على أخطائك
+      حتى تتأكد من إتقان أفكار الوحدة.
+    </p>
+
+    <a href="pdf/worksheet-3-earth-answers.pdf"
+       download class="download-btn">
+      📥 تحميل الإجابات
+    </a>
   </div>
 
-  <div class="files-grid">
+</div>
 
-    <div class="file-card">
-      <div class="file-icon">🚀</div>
 
-      <h3>الدورة التحضيرية</h3>
+<!-- ======================================= -->
+<!-- التذييل -->
+<!-- ======================================= -->
 
-      <p>
-        ملف "تأسيس 2009" الشامل.
-        يحتوي على أهم الأساسيات التي ستحتاجها
-        قبل البدء بالمادة لضمان تفوقك.
-      </p>
+<footer>
+  © <span id="year"></span>
+  جميع الحقوق محفوظة — الأستاذ خالد مقدادي
+</footer>
 
-      <a
-        href="pdf/geo-foundation.pdf"
-        download
-        class="download-btn">
-        📥 تحميل الملف
-      </a>
-    </div>
-
-  </div>
-
-
-  <!-- القسم الثاني: الخطط الدراسية -->
-
-  <div class="section-title">
-    الخطط الدراسية
-  </div>
-
-  <div class="files-grid">
-
-    <!-- خطة شهر 11 للطلاب الجدد والمتأخرين -->
-    <div class="file-card november-plan">
-
-      <div class="november-badge">
-        ⭐ خطة شهر 11
-      </div>
-
-      <div class="file-icon">🗓️</div>
-
-      <h3>
-        خطة شهر 11 | للطلاب الجدد والمتأخرين
-      </h3>
-
-      <p>
-        لسه جديد بعلوم الأرض أو متراكم عليك حصص؟
-        هاي الخطة إلك!
-
-        خطة واضحة لشهر تشرين الثاني (11)
-        تساعدك تبدأ من مستواك،
-        ترتب دراستك وتلحق الحصص مع
-        الأستاذ خالد مقدادي خطوة بخطوة.
-      </p>
-
-      <a
-        href="pdf/%D8%AE%D8%B7%D8%A9%20%D8%B9%D9%84%D9%88%D9%85%20%D8%A7%D9%84%D8%A3%D8%B1%D8%B6%20.pdf"
-        download
-        class="download-btn">
-        📥 تحميل خطة شهر 11 – علوم الأرض
-      </a>
-
-    </div>
-
-
-    <!-- الخطة الأصلية -->
-    <div class="file-card">
-      <div class="file-icon">📘</div>
-
-      <h3>
-        خطة مادة علوم الأرض – الفصل الأول
-      </h3>
-
-      <p>
-        خطة منظمة لمادة علوم الأرض للفصل
-        الدراسي الأول تساعدك على متابعة
-        الحصص وإنجاز المادة أولًا بأول.
-      </p>
-
-      <a
-        href="pdf/خطة مادة علوم الأرض ف1.pdf"
-        download
-        class="download-btn">
-        📥 تحميل الخطة
-      </a>
-    </div>
-
-
-    <!-- خطة الحقل الصحي -->
-    <div class="file-card">
-      <div class="file-icon">🩺</div>
-
-      <h3>
-        خطة دراسية لطلاب الحقل الصحي
-      </h3>
-
-      <p>
-        خطة دراسية مخصصة لطلاب الحقل الصحي
-        تساعدك على تنظيم دراسة المواد
-        وتوزيعها بطريقة واضحة.
-      </p>
-
-      <a
-        href="pdf/خطة دراسية لطلاب الحقل الصحي.pdf"
-        download
-        class="download-btn">
-        📥 تحميل الخطة
-      </a>
-    </div>
-
-
-    <!-- خطة الطلاب الجدد 10/10 -->
-    <div class="file-card new-file">
-
-      <div class="new-badge">جديد ✨</div>
-      <div class="file-icon">📅</div>
-
-      <h3>
-        خطة الطلاب الجدد – تبدأ من 10/10
-      </h3>
-
-      <p>
-        متأخر بالمادة ومش عارف من وين تبدأ؟
-        هاي الخطة معمولة خصيصًا للطلاب الجدد!
-        جدول دراسي منظم يبدأ بتاريخ 10/10
-        يساعدك على إنهاء الحصص المتراكمة
-        ومتابعة الحصص الجديدة خطوة بخطوة.
-      </p>
-
-      <a
-        href="pdf/plan10.pdf"
-        download
-        class="download-btn">
-        📥 تحميل خطة 10/10
-      </a>
-
-    </div>
-
-  </div>
-
-
-  <!-- القسم الثالث: دليل المعلم -->
-
-  <div class="section-title">
-    دليل المعلم والإجابات الوزارية
-  </div>
-
-  <div class="files-grid">
-
-    <div class="file-card new-file">
-
-      <div class="new-badge">جديد ✨</div>
-      <div class="file-icon">📚</div>
-
-      <h3>
-        دليل المعلم – إجابات جميع أسئلة الكتاب
-      </h3>
-
-      <p>
-        دليل المعلم الرسمي الصادر عن وزارة
-        التربية والتعليم، والذي يحتوي على
-        إجابات جميع أسئلة الكتاب المدرسي.
-
-        أحدث نسخة من دليل المعلم الواردة
-        من الوزارة، لمساعدتك على مراجعة
-        إجاباتك والتأكد من صحة الحلول.
-      </p>
-
-      <a
-        href="pdf/دليل المعلم.pdf"
-        download
-        class="download-btn">
-        📥 تحميل دليل المعلم
-      </a>
-
-    </div>
-
-    <!-- ورقة عمل دليل المعلم: الوحدة 1 -->
-    <div class="file-card new-file">
-      <div class="new-badge">جديد ✨</div>
-      <div class="file-icon">📝</div>
-      <h3>ورقة عمل دليل المعلم – الوحدة الأولى</h3>
-      <p>
-        ورقة العمل الخاصة بالوحدة الأولى من دليل المعلم،
-        للمراجعة والتدريب على أسئلة الوحدة.
-      </p>
-      <a
-        href="pdf/uint%201%20-%20sheet%20teachers%20guide.pdf"
-        download
-        class="download-btn">
-        📥 تحميل ورقة العمل
-      </a>
-    </div>
-
-    <!-- ورقة عمل دليل المعلم: الوحدة 2 -->
-    <div class="file-card new-file">
-      <div class="new-badge">جديد ✨</div>
-      <div class="file-icon">📝</div>
-      <h3>ورقة عمل دليل المعلم – الوحدة الثانية</h3>
-      <p>
-        ورقة العمل الخاصة بالوحدة الثانية من دليل المعلم،
-        للمراجعة والتدريب على أسئلة الوحدة.
-      </p>
-      <a
-        href="pdf/uint%202%20-%20sheet%20teachers%20guide.pdf"
-        download
-        class="download-btn">
-        📥 تحميل ورقة العمل
-      </a>
-    </div>
-
-    <!-- ورقة عمل دليل المعلم: الوحدة 3 -->
-    <div class="file-card new-file">
-      <div class="new-badge">جديد ✨</div>
-      <div class="file-icon">📝</div>
-      <h3>ورقة عمل دليل المعلم – الوحدة الثالثة</h3>
-      <p>
-        ورقة العمل الخاصة بالوحدة الثالثة من دليل المعلم،
-        للمراجعة والتدريب على أسئلة الوحدة.
-      </p>
-      <a
-        href="pdf/uint3%20-%20sheet%20teachers%20guide.pdf"
-        download
-        class="download-btn">
-        📥 تحميل ورقة العمل
-      </a>
-    </div>
-
-    <!-- ورقة عمل دليل المعلم: الوحدة 4 -->
-    <div class="file-card new-file">
-      <div class="new-badge">جديد ✨</div>
-      <div class="file-icon">📝</div>
-      <h3>ورقة عمل دليل المعلم – الوحدة الرابعة</h3>
-      <p>
-        ورقة العمل الخاصة بالوحدة الرابعة من دليل المعلم،
-        للمراجعة والتدريب على أسئلة الوحدة.
-      </p>
-      <a
-        href="pdf/uint%204-%20sheet%20teachers%20guide.pdf"
-        download
-        class="download-btn">
-        📥 تحميل ورقة العمل
-      </a>
-    </div>
-
-    <!-- تعديلات إجابات الكتاب
-    <div class="file-card new-file">
-      <div class="new-badge">جديد ✨</div>
-      <div class="file-icon">✏️</div>
-      <h3>تعديلات إجابات الكتاب</h3>
-      <p>
-        ملف التعديلات على إجابات أسئلة الكتاب .
-      </p>
-      <a
-        href="pdf/%D8%AA%D8%B9%D8%AF%D9%8A%D9%84%D8%A7%D8%AA%20%D8%A7%D8%AC%D8%A7%D8%A8%D8%A7%D8%AA%20%D8%A7%D9%84%D9%83%D8%AA%D8%A7%D8%A8..pdf"
-        download
-        class="download-btn">
-        📥 تحميل التعديلات
-      </a>
-    </div>
-    -->
-
-  </div>
-
-
-  <!-- القسم الرابع: خرائط الوحدة الأولى -->
-
-  <div class="section-title">
-    الوحدة الأولى: الوقود الأحفوري (خرائط ذهنية)
-  </div>
-
-  <div class="files-grid">
-
-    <!-- الدرس الأول -->
-    <div class="file-card">
-      <div class="file-icon">🗺️</div>
-
-      <h3>خريطة الدرس الأول</h3>
-
-      <p>
-        خريطة ذهنية مبسطة وشاملة لأفكار
-        الدرس الأول (الوقود الأحفوري)
-        لتسهيل المراجعة وتثبيت الحفظ.
-      </p>
-
-      <a
-        href="pdf/mindmap1.pdf"
-        download
-        class="download-btn">
-        📥 تحميل الخريطة
-      </a>
-    </div>
-
-
-    <!-- الدرس الثاني -->
-    <div class="file-card">
-      <div class="file-icon">🗺️</div>
-
-      <h3>خريطة الدرس الثاني</h3>
-
-      <p>
-        خريطة ذهنية مخصصة لأفكار
-        الدرس الثاني.
-      </p>
-
-      <a
-        href="pdf/lesson%202%20-mind%20maps.pdf"
-        download
-        class="download-btn">
-        📥 تحميل الخريطة
-      </a>
-    </div>
-
-
-    <!-- الدرس الثالث -->
-    <div class="file-card">
-      <div class="file-icon">🗺️</div>
-
-      <h3>خريطة الدرس الثالث</h3>
-
-      <p>
-        خريطة ذهنية مخصصة لأفكار
-        الدرس الثالث.
-      </p>
-
-      <a
-        href="pdf/lesson%203%20mindmap.pdf"
-        download
-        class="download-btn">
-        📥 تحميل الخريطة
-      </a>
-    </div>
-
-  </div>
-
-
-  <!-- القسم الخامس: خرائط الوحدة الثانية -->
-
-  <div class="section-title">
-    الوحدة الثانية: الاستكشاف الجيولوجي (خرائط ذهنية)
-  </div>
-
-  <div class="files-grid">
-
-    <!-- خريطة الدرس الأول -->
-    <div class="file-card new-file">
-
-      <div class="new-badge">جديد ✨</div>
-      <div class="file-icon">🌍</div>
-
-      <h3>
-        الخريطة الذهنية – الدرس الأول
-      </h3>
-
-      <p>
-        خريطة ذهنية شاملة لأفكار الدرس
-        الأول من الوحدة الثانية
-        (الاستكشاف الجيولوجي).
-
-        تساعدك على ربط المفاهيم وتنظيم
-        المعلومات ومراجعة الدرس بطريقة
-        سهلة وسريعة قبل الامتحان.
-      </p>
-
-      <a
-        href="pdf/unit%202%20-%20lesson%201.pdf"
-        download
-        class="download-btn">
-        📥 تحميل الخريطة الذهنية
-      </a>
-
-    </div>
-
-
-    <!-- خريطة الدرس الثاني -->
-    <div class="file-card new-file">
-
-      <div class="new-badge">جديد ✨</div>
-      <div class="file-icon">🌍</div>
-
-      <h3>
-        الخريطة الذهنية – الدرس الثاني
-      </h3>
-
-      <p>
-        خريطة ذهنية منظمة لأفكار الدرس الثاني
-        من وحدة الاستكشاف الجيولوجي،
-        تساعدك على ربط المفاهيم ومراجعتها بسهولة.
-      </p>
-
-      <a
-        href="pdf/unit%202%20-%20lesson%202.pdf"
-        download
-        class="download-btn">
-        📥 تحميل الخريطة الذهنية
-      </a>
-
-    </div>
-
-
-    <!-- خريطة الدرس الثالث -->
-    <div class="file-card new-file">
-
-      <div class="new-badge">جديد ✨</div>
-      <div class="file-icon">🌍</div>
-
-      <h3>
-        الخريطة الذهنية – الدرس الثالث
-      </h3>
-
-      <p>
-        خريطة ذهنية منظمة لأفكار الدرس الثالث
-        من وحدة الاستكشاف الجيولوجي،
-        لتسهيل الدراسة والمراجعة قبل الامتحان.
-      </p>
-
-      <a
-        href="pdf/unit%202%20-%20lesson%203.pdf"
-        download
-        class="download-btn">
-        📥 تحميل الخريطة الذهنية
-      </a>
-
-    </div>
-
-  </div>
-
-
-  <!-- ======================================= -->
-  <!-- القسم الجديد: خرائط الوحدة الثالثة -->
-  <!-- ======================================= -->
-
-  <div class="section-title">
-    الوحدة الثالثة: التراكيب الجيولوجية (خرائط ذهنية)
-  </div>
-
-  <div class="files-grid">
-
-    <!-- خريطة الدرس الأول: تشوه الصخور -->
-    <div class="file-card new-file">
-
-      <div class="new-badge">جديد ✨</div>
-      <div class="file-icon">🗺️</div>
-
-      <h3>
-        الخريطة الذهنية – الدرس الأول: تشوه الصخور
-      </h3>
-
-      <p>
-        خريطة ذهنية للدرس الأول (تشوه الصخور)
-        من الوحدة الثالثة: التراكيب الجيولوجية،
-        لتنظيم الأفكار وتسهيل المراجعة قبل الامتحان.
-      </p>
-
-      <a
-        href="pdf/unit3%20-%20lesson%201.pdf"
-        download
-        class="download-btn">
-        📥 تحميل الخريطة الذهنية
-      </a>
-
-    </div>
-
-  </div>
-
-
-  <!-- القسم السادس: أوراق عمل الوحدة الأولى -->
-
-  <div class="section-title">
-    أوراق عمل الوحدة الأولى: الوقود الأحفوري والبيئة
-  </div>
-
-  <div class="files-grid">
-
-    <!-- ورقة العمل -->
-    <div class="file-card">
-
-      <div class="file-icon">📝</div>
-
-      <h3>
-        ورقة عمل الوحدة الأولى
-      </h3>
-
-      <p>
-        تدرّب على أفكار وحدة الوقود
-        الأحفوري والبيئة، وحاول حل
-        الأسئلة قبل الاطلاع على الإجابات.
-      </p>
-
-      <a
-        href="pdf/sheet%201%20geo.pdf"
-        download
-        class="download-btn">
-        📥 تحميل ورقة العمل
-      </a>
-
-    </div>
-
-
-    <!-- إجابات ورقة العمل -->
-    <div class="file-card">
-
-      <div class="file-icon">✅</div>
-
-      <h3>
-        حل ورقة عمل الوحدة الأولى
-      </h3>
-
-      <p>
-        راجع إجابات ورقة العمل وتأكد
-        من فهمك لأفكار الوحدة بعد الحل.
-      </p>
-
-      <a
-        href="pdf/sheet%201%20geo%20answers.pdf"
-        download
-        class="download-btn">
-        📥 تحميل الحل
-      </a>
-
-    </div>
-
-  </div>
-
-
-  <!-- القسم السابع: أوراق عمل الوحدة الثانية -->
-
-  <div class="section-title">
-    أوراق عمل الوحدة الثانية: الاستكشاف الجيولوجي
-  </div>
-
-  <div class="files-grid">
-
-    <!-- ورقة عمل الوحدة الثانية -->
-    <div class="file-card new-file">
-
-      <div class="new-badge">جديد ✨</div>
-      <div class="file-icon">📝</div>
-
-      <h3>
-        ورقة عمل الوحدة الثانية – الاستكشاف الجيولوجي
-      </h3>
-
-      <p>
-        تدرّب على أفكار وحدة الاستكشاف الجيولوجي،
-        وحاول حل الأسئلة بنفسك قبل الاطلاع
-        على الإجابات.
-      </p>
-
-      <a
-        href="pdf/worksheet%202%20earth.pdf"
-        download
-        class="download-btn">
-        📥 تحميل ورقة العمل
-      </a>
-
-    </div>
-
-
-    <!-- حلول ورقة عمل الوحدة الثانية -->
-    <div class="file-card new-file">
-
-      <div class="new-badge">جديد ✨</div>
-      <div class="file-icon">✅</div>
-
-      <h3>
-        حلول ورقة عمل الوحدة الثانية – الاستكشاف الجيولوجي
-      </h3>
-
-      <p>
-        راجع إجابات ورقة عمل الوحدة الثانية
-        بعد المحاولة، وتأكد من فهمك
-        للأفكار الأساسية.
-      </p>
-
-      <a
-        href="pdf/worksheet%202%20earth%20answers.pdf"
-        download
-        class="download-btn">
-        📥 تحميل الحلول
-      </a>
-
-    </div>
-
-  </div>
-
-
-  <!-- التذييل -->
-
-  <footer>
-    © <span id="year"></span>
-    جميع الحقوق محفوظة — الأستاذ خالد مقدادي
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent =
-      new Date().getFullYear();
-  </script>
+<script>
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+</script>
 
 </body>
 </html>
