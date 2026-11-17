@@ -1,8 +1,8 @@
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>بنك امتحانات علوم الأرض | الأستاذ خالد مقدادي</title>
 
@@ -35,10 +35,9 @@
 
     .sparks-bg {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
+      inset: 0;
+      width: 100%;
+      height: 100%;
       background: radial-gradient(
         circle at 50% 100%,
         rgba(255,107,107,0.15),
@@ -105,7 +104,7 @@
       padding: 8px 16px;
       border-radius: 8px;
       font-weight: 600;
-      font-size: clamp(12px,3vw,14px);
+      font-size: 14px;
       background: rgba(255,255,255,0.1);
       color: #fff;
       text-decoration: none;
@@ -173,7 +172,7 @@
       margin-top: 12px;
     }
 
-    /* الخط الزمني للامتحانات */
+    /* الخط الزمني */
 
     .timeline {
       position: relative;
@@ -209,22 +208,30 @@
       text-align: right;
     }
 
-    .timeline-item:nth-child(odd) .timeline-dot {
-      position: absolute;
-      top: 40px;
-      left: -12px;
-      right: auto;
-    }
-
     .timeline-item:nth-child(even) {
       right: 50%;
       left: auto;
       text-align: left;
     }
 
-    .timeline-item:nth-child(even) .timeline-dot {
+    .timeline-dot {
       position: absolute;
       top: 40px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--bg-dark);
+      border: 4px solid #555;
+      z-index: 10;
+      transition: 0.3s;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-dot {
+      left: -12px;
+      right: auto;
+    }
+
+    .timeline-item:nth-child(even) .timeline-dot {
       right: -12px;
       left: auto;
     }
@@ -254,16 +261,6 @@
         transform: translateY(0);
         opacity: 1;
       }
-    }
-
-    .timeline-dot {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: var(--bg-dark);
-      border: 4px solid #555;
-      z-index: 10;
-      transition: 0.3s;
     }
 
     .timeline-item.active .timeline-dot {
@@ -311,10 +308,6 @@
     .card h3 {
       font-size: clamp(18px,5vw,22px);
       margin-bottom: 15px;
-      color: #fff;
-    }
-
-    .timeline-item.active .card h3 {
       color: var(--secondary);
     }
 
@@ -365,7 +358,7 @@
 
     .btn-online:hover {
       transform: scale(1.05);
-      box-shadow: 0 6px 20px rgba(252,160,72,0.6);
+      box-shadow: 0 6px 20px rgba(255,107,107,0.4);
     }
 
     .btn-pdf {
@@ -392,7 +385,7 @@
       transform: scale(1.05);
     }
 
-    /* تمييز امتحانات الوحدات */
+    /* تمييز الامتحانات الشاملة */
 
     .unit-exam .card {
       background: linear-gradient(
@@ -407,8 +400,6 @@
       color: #ffd291 !important;
     }
 
-    /* التذييل */
-
     footer {
       text-align: center;
       padding: 20px;
@@ -417,7 +408,7 @@
       margin-top: auto;
     }
 
-    /* تصميم الموبايل */
+    /* الموبايل */
 
     @media (max-width: 768px) {
       .timeline::before {
@@ -479,12 +470,11 @@
     </p>
   </div>
 
-
   <!-- ================================= -->
   <!-- الوحدة الأولى: الوقود الأحفوري -->
   <!-- ================================= -->
 
-  <section class="unit-heading" aria-label="الوحدة الأولى">
+  <section class="unit-heading">
     <span>الوحدة الأولى</span>
     <h2>الوقود الأحفوري</h2>
   </section>
@@ -492,6 +482,7 @@
   <div class="timeline">
 
     <!-- امتحان الدرس الأول -->
+
     <div class="timeline-item active">
       <div class="timeline-dot"></div>
 
@@ -500,40 +491,32 @@
 
         <p>
           امتحان شامل لأفكار الدرس الأول.
-          يمكنك تقديمه إلكترونياً أو تحميله
+          يمكنك تقديمه إلكترونيًا أو تحميله
           كملف PDF لطباعته.
         </p>
 
         <div class="actions">
-
-          <a
-            href="https://www.joacademy.com/ar/online-exams/5570"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-online">
+          <a href="https://www.joacademy.com/ar/online-exams/5570"
+             target="_blank" rel="noopener noreferrer"
+             class="btn btn-online">
             🌐 امتحان إلكتروني
           </a>
 
-          <a
-            href="pdf/exam%201%20.pdf"
-            download
-            class="btn btn-pdf">
+          <a href="pdf/exam%201%20.pdf"
+             download class="btn btn-pdf">
             📥 تحميل PDF
           </a>
 
-          <a
-            href="pdf/answersF.pdf"
-            download
-            class="btn btn-answers">
+          <a href="pdf/answersF.pdf"
+             download class="btn btn-answers">
             ✅ تحميل إجابات الامتحان
           </a>
-
         </div>
       </div>
     </div>
 
-
     <!-- امتحان الدرس الثاني -->
+
     <div class="timeline-item active">
       <div class="timeline-dot"></div>
 
@@ -542,40 +525,32 @@
 
         <p>
           امتحان شامل لأفكار الدرس الثاني.
-          يمكنك تقديمه إلكترونياً أو تحميله
+          يمكنك تقديمه إلكترونيًا أو تحميله
           كملف PDF لطباعته.
         </p>
 
         <div class="actions">
-
-          <a
-            href="https://www.joacademy.com/ar/online-exams/5600"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-online">
+          <a href="https://www.joacademy.com/ar/online-exams/5600"
+             target="_blank" rel="noopener noreferrer"
+             class="btn btn-online">
             🌐 امتحان إلكتروني
           </a>
 
-          <a
-            href="pdf/exam%202.pdf"
-            download
-            class="btn btn-pdf">
+          <a href="pdf/exam%202.pdf"
+             download class="btn btn-pdf">
             📥 تحميل PDF
           </a>
 
-          <a
-            href="pdf/answer%20exam2.pdf"
-            download
-            class="btn btn-answers">
+          <a href="pdf/answer%20exam2.pdf"
+             download class="btn btn-answers">
             ✅ تحميل إجابات الامتحان
           </a>
-
         </div>
       </div>
     </div>
 
-
     <!-- امتحان الدرس الثالث -->
+
     <div class="timeline-item active">
       <div class="timeline-dot"></div>
 
@@ -584,40 +559,32 @@
 
         <p>
           امتحان شامل لأفكار الدرس الثالث.
-          يمكنك تقديمه إلكترونياً أو تحميل
+          يمكنك تقديمه إلكترونيًا أو تحميل
           نسخة PDF من الأسئلة والإجابات.
         </p>
 
         <div class="actions">
-
-          <a
-            href="https://www.joacademy.com/ar/online-exams/5711"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-online">
+          <a href="https://www.joacademy.com/ar/online-exams/5711"
+             target="_blank" rel="noopener noreferrer"
+             class="btn btn-online">
             🌐 امتحان إلكتروني
           </a>
 
-          <a
-            href="pdf/exam3.pdf"
-            download
-            class="btn btn-pdf">
+          <a href="pdf/exam3.pdf"
+             download class="btn btn-pdf">
             📥 تحميل PDF
           </a>
 
-          <a
-            href="pdf/answers%20three.pdf"
-            download
-            class="btn btn-answers">
+          <a href="pdf/answers%20three.pdf"
+             download class="btn btn-answers">
             ✅ تحميل إجابات الامتحان
           </a>
-
         </div>
       </div>
     </div>
 
+    <!-- امتحان الوحدة الأولى -->
 
-    <!-- امتحان الوحدة الأولى كاملًا -->
     <div class="timeline-item active unit-exam">
       <div class="timeline-dot"></div>
 
@@ -626,46 +593,37 @@
 
         <p>
           امتحان شامل للوحدة الأولى.
-          يمكنك تقديمه إلكترونياً أو تحميل
+          يمكنك تقديمه إلكترونيًا أو تحميل
           الامتحان والإجابات بصيغة PDF.
         </p>
 
         <div class="actions">
-
-          <a
-            href="https://www.joacademy.com/ar/online-exams/5753"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-online">
+          <a href="https://www.joacademy.com/ar/online-exams/5753"
+             target="_blank" rel="noopener noreferrer"
+             class="btn btn-online">
             🌐 امتحان إلكتروني
           </a>
 
-          <a
-            href="pdf/امتحان الوحدة الوقود الاحفوري.pdf"
-            download
-            class="btn btn-pdf">
+          <a href="pdf/امتحان الوحدة الوقود الاحفوري.pdf"
+             download class="btn btn-pdf">
             📥 تحميل PDF
           </a>
 
-          <a
-            href="pdf/حل امتحان الوقود الأحفوري.pdf"
-            download
-            class="btn btn-answers">
+          <a href="pdf/حل امتحان الوقود الأحفوري.pdf"
+             download class="btn btn-answers">
             ✅ تحميل إجابات الامتحان
           </a>
-
         </div>
       </div>
     </div>
 
   </div>
 
-
   <!-- ================================= -->
   <!-- الوحدة الثانية: الاستكشاف الجيولوجي -->
   <!-- ================================= -->
 
-  <section class="unit-heading" aria-label="الوحدة الثانية">
+  <section class="unit-heading">
     <span>الوحدة الثانية</span>
     <h2>الاستكشاف الجيولوجي</h2>
   </section>
@@ -673,6 +631,7 @@
   <div class="timeline">
 
     <!-- امتحان الدرس الأول -->
+
     <div class="timeline-item active">
       <div class="timeline-dot"></div>
 
@@ -686,35 +645,27 @@
         </p>
 
         <div class="actions">
-
-          <a
-            href="https://www.joacademy.com/ar/online-exams/5955"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-online">
+          <a href="https://www.joacademy.com/ar/online-exams/5955"
+             target="_blank" rel="noopener noreferrer"
+             class="btn btn-online">
             🌐 امتحان إلكتروني
           </a>
 
-          <a
-            href="pdf/exam2-1.pdf"
-            download
-            class="btn btn-pdf">
+          <a href="pdf/exam2-1.pdf"
+             download class="btn btn-pdf">
             📥 تحميل PDF
           </a>
 
-          <a
-            href="pdf/exam2-1%20answers.pdf"
-            download
-            class="btn btn-answers">
+          <a href="pdf/exam2-1%20answers.pdf"
+             download class="btn btn-answers">
             ✅ تحميل إجابات الامتحان
           </a>
-
         </div>
       </div>
     </div>
 
-
     <!-- امتحان الدرس الثاني -->
+
     <div class="timeline-item active">
       <div class="timeline-dot"></div>
 
@@ -724,40 +675,32 @@
         <p>
           امتحان الدرس الثاني من وحدة الاستكشاف
           الجيولوجي. اختبر فهمك للدرس من خلال
-          الامتحان الإلكتروني، أو حمّل الأسئلة
+          الامتحان الإلكتروني أو حمّل الأسئلة
           والإجابات بصيغة PDF.
         </p>
 
         <div class="actions">
-
-          <a
-            href="https://www.joacademy.com/ar/online-exams/6105"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-online">
+          <a href="https://www.joacademy.com/ar/online-exams/6105"
+             target="_blank" rel="noopener noreferrer"
+             class="btn btn-online">
             🌐 امتحان إلكتروني
           </a>
 
-          <a
-            href="pdf/unite2%202.pdf"
-            download
-            class="btn btn-pdf">
+          <a href="pdf/unite2%202.pdf"
+             download class="btn btn-pdf">
             📥 تحميل PDF
           </a>
 
-          <a
-            href="pdf/unite2%202%20answers.pdf"
-            download
-            class="btn btn-answers">
+          <a href="pdf/unite2%202%20answers.pdf"
+             download class="btn btn-answers">
             ✅ تحميل إجابات الامتحان
           </a>
-
         </div>
       </div>
     </div>
 
-
     <!-- امتحان الدرس الثالث -->
+
     <div class="timeline-item active">
       <div class="timeline-dot"></div>
 
@@ -772,43 +715,31 @@
         </p>
 
         <div class="actions">
-
-          <a
-            href="https://www.joacademy.com/ar/online-exams/6122"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-online">
+          <a href="https://www.joacademy.com/ar/online-exams/6122"
+             target="_blank" rel="noopener noreferrer"
+             class="btn btn-online">
             🌐 الامتحان الإلكتروني
           </a>
 
-          <a
-            href="pdf/exam%203%20geo.pdf"
-            download
-            class="btn btn-pdf">
+          <a href="pdf/exam%203%20geo.pdf"
+             download class="btn btn-pdf">
             📥 تحميل PDF
           </a>
 
-          <a
-            href="pdf/exam%203%20geo%20answers.pdf"
-            download
-            class="btn btn-answers">
+          <a href="pdf/exam%203%20geo%20answers.pdf"
+             download class="btn btn-answers">
             ✅ تحميل إجابات الامتحان
           </a>
-
         </div>
       </div>
     </div>
 
-
-    <!-- ================================= -->
-    <!-- جديد: امتحان الوحدة الثانية كاملًا -->
-    <!-- ================================= -->
+    <!-- امتحان الوحدة الثانية كاملًا -->
 
     <div class="timeline-item active unit-exam">
       <div class="timeline-dot"></div>
 
       <div class="card">
-
         <h3>
           🏆 امتحان الوحدة الثانية: الاستكشاف الجيولوجي
         </h3>
@@ -824,67 +755,49 @@
         </p>
 
         <div class="actions">
-
-          <!-- الامتحان الإلكتروني -->
-          <a
-            href="https://www.joacademy.com/ar/online-exams/6224"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-online">
+          <a href="https://www.joacademy.com/ar/online-exams/6224"
+             target="_blank" rel="noopener noreferrer"
+             class="btn btn-online">
             🌐 امتحان الوحدة إلكترونيًا
           </a>
 
-          <!-- تحميل ملف أسئلة الوحدة الثانية -->
-          <a
-            href="pdf/_%20%20%D8%A7%D9%85%D8%AA%D8%AD%D8%A7%D9%86%20-%20%D8%A7%D9%84%D9%88%D8%AD%D8%AF%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9.pdf"
-            download
-            class="btn btn-pdf">
+          <a href="pdf/unite%202%20exam.pdf"
+             download class="btn btn-pdf">
             📥 تحميل امتحان الوحدة PDF
           </a>
 
-          <!-- تحميل ملف حلول الوحدة الثانية -->
-          <a
-            href="pdf/_%20%20%D8%A7%D9%85%D8%AA%D8%AD%D8%A7%D9%86%20-%20%D8%A7%D9%84%D9%88%D8%AD%D8%AF%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%8A%D8%A9%20-%20Copy.pdf"
-            download
-            class="btn btn-answers">
+          <a href="pdf/unite2%202%20answers.pdf"
+             download class="btn btn-answers">
             ✅ تحميل حلول امتحان الوحدة
           </a>
-
         </div>
       </div>
     </div>
 
   </div>
 
-
   <!-- ================================= -->
   <!-- الوحدة الثالثة: التراكيب الجيولوجية -->
   <!-- ================================= -->
 
-  <section class="unit-heading" aria-label="الوحدة الثالثة">
+  <section class="unit-heading">
     <span>الوحدة الثالثة</span>
     <h2>التراكيب الجيولوجية</h2>
   </section>
 
   <div class="timeline">
 
-    <!-- ================================= -->
-    <!-- جديد: امتحان الدرس الأول -->
-    <!-- تشوه الصخور -->
-    <!-- ================================= -->
+    <!-- امتحان الدرس الأول: تشوه الصخور -->
 
     <div class="timeline-item active">
       <div class="timeline-dot"></div>
 
       <div class="card">
-
-        <h3>
-          الدرس الأول: تشوه الصخور
-        </h3>
+        <h3>الدرس الأول: تشوه الصخور</h3>
 
         <p>
-          امتحان شامل للدرس الأول
-          «تشوه الصخور» من وحدة التراكيب الجيولوجية.
+          امتحان شامل للدرس الأول «تشوه الصخور»
+          من وحدة التراكيب الجيولوجية.
 
           اختبر معلوماتك بعد إنهاء الدرس،
           وحاول حل الأسئلة قبل الاطلاع
@@ -895,38 +808,155 @@
         </p>
 
         <div class="actions">
-
-          <!-- الامتحان الإلكتروني -->
-          <a
-            href="https://www.joacademy.com/ar/online-exams/6319"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-online">
+          <a href="https://www.joacademy.com/ar/online-exams/6319"
+             target="_blank" rel="noopener noreferrer"
+             class="btn btn-online">
             🌐 ابدأ الامتحان الإلكتروني
           </a>
 
-          <!-- تحميل امتحان الدرس الأول -->
-          <a
-            href="pdf/%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1%20%D8%A7%D9%84%D8%AF%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84-%20%D8%A7%D9%84%D9%88%D8%AD%D8%AF%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9.pdf"
-            download
-            class="btn btn-pdf">
+          <a href="pdf/%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1%20%D8%A7%D9%84%D8%AF%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84-%20%D8%A7%D9%84%D9%88%D8%AD%D8%AF%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9.pdf"
+             download class="btn btn-pdf">
             📥 تحميل الامتحان PDF
           </a>
 
-          <!-- تحميل الحلول -->
-          <a
-            href="pdf/%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1%20%D8%A7%D9%84%D8%AF%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84-%20%D8%A7%D9%84%D9%88%D8%AD%D8%AF%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9%20-%20Copy.pdf"
-            download
-            class="btn btn-answers">
+          <a href="pdf/%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1%20%D8%A7%D9%84%D8%AF%D8%B1%D8%B3%20%D8%A7%D9%84%D8%A7%D9%88%D9%84-%20%D8%A7%D9%84%D9%88%D8%AD%D8%AF%D8%A9%20%D8%A7%D9%84%D8%AB%D8%A7%D9%84%D8%AB%D8%A9%20-%20Copy.pdf"
+             download class="btn btn-answers">
             ✅ تحميل إجابات الامتحان
           </a>
+        </div>
+      </div>
+    </div>
 
+    <!-- ================================= -->
+    <!-- جديد: امتحان الدرس الثاني: الصدوع -->
+    <!-- ================================= -->
+
+    <div class="timeline-item active">
+      <div class="timeline-dot"></div>
+
+      <div class="card">
+        <h3>الدرس الثاني: الصدوع</h3>
+
+        <p>
+          امتحان شامل لأفكار درس الصدوع
+          من وحدة التراكيب الجيولوجية.
+
+          اختبر مدى فهمك لأنواع الصدوع
+          وكيفية حدوثها وتفسير التراكيب الجيولوجية.
+
+          يمكنك تقديم الامتحان إلكترونيًا،
+          أو تحميل ملف الأسئلة PDF،
+          ثم مراجعة إجاباتك من ملف الحلول.
+        </p>
+
+        <div class="actions">
+          <a href="https://www.joacademy.com/ar/online-exams/7477"
+             target="_blank" rel="noopener noreferrer"
+             class="btn btn-online">
+            🌐 ابدأ الامتحان الإلكتروني
+          </a>
+
+          <a href="pdf/unit3_lesson2_faults_exam.pdf"
+             download class="btn btn-pdf">
+            📥 تحميل الامتحان PDF
+          </a>
+
+          <a href="pdf/unit3_lesson2_faults_answers.pdf"
+             download class="btn btn-answers">
+            ✅ تحميل إجابات الامتحان
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================= -->
+    <!-- جديد: امتحان الدرس الثالث: الطيات -->
+    <!-- ================================= -->
+
+    <div class="timeline-item active">
+      <div class="timeline-dot"></div>
+
+      <div class="card">
+        <h3>الدرس الثالث: الطيات</h3>
+
+        <p>
+          امتحان شامل لأفكار درس الطيات
+          من وحدة التراكيب الجيولوجية.
+
+          اختبر فهمك لأنواع الطيات
+          وخصائصها وكيفية تشكلها.
+
+          يمكنك حل الامتحان إلكترونيًا
+          أو تحميل الأسئلة بصيغة PDF
+          ومراجعة إجاباتك بعد الانتهاء.
+        </p>
+
+        <div class="actions">
+          <a href="https://www.joacademy.com/ar/online-exams/7629"
+             target="_blank" rel="noopener noreferrer"
+             class="btn btn-online">
+            🌐 ابدأ الامتحان الإلكتروني
+          </a>
+
+          <a href="pdf/unit3_lesson3_folds_exam.pdf"
+             download class="btn btn-pdf">
+            📥 تحميل الامتحان PDF
+          </a>
+
+          <a href="pdf/unit3_lesson3_folds_answers.pdf"
+             download class="btn btn-answers">
+            ✅ تحميل إجابات الامتحان
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================= -->
+    <!-- جديد: الامتحان الشامل للوحدة الثالثة -->
+    <!-- ================================= -->
+
+    <div class="timeline-item active unit-exam">
+      <div class="timeline-dot"></div>
+
+      <div class="card">
+        <h3>
+          🏆 امتحان الوحدة الثالثة: التراكيب الجيولوجية
+        </h3>
+
+        <p>
+          خلصت جميع دروس الوحدة الثالثة؟
+
+          اختبر فهمك لجميع أفكار وحدة
+          التراكيب الجيولوجية، والتي تشمل:
+
+          تشوه الصخور، والصدوع، والطيات.
+
+          يمكنك تقديم الامتحان الشامل إلكترونيًا،
+          أو تحميل نسخة PDF وحلها بنفسك،
+          ثم مراجعة إجاباتك من ملف الحلول.
+        </p>
+
+        <div class="actions">
+          <a href="https://www.joacademy.com/ar/online-exams/8108"
+             target="_blank" rel="noopener noreferrer"
+             class="btn btn-online">
+            🌐 امتحان الوحدة إلكترونيًا
+          </a>
+
+          <a href="pdf/unit3_geological_structures_exam.pdf"
+             download class="btn btn-pdf">
+            📥 تحميل امتحان الوحدة PDF
+          </a>
+
+          <a href="pdf/unit3_geological_structures_answers.pdf"
+             download class="btn btn-answers">
+            ✅ تحميل حلول امتحان الوحدة
+          </a>
         </div>
       </div>
     </div>
 
   </div>
-
 
   <!-- ================================= -->
   <!-- التذييل -->
@@ -936,7 +966,6 @@
     © <span id="year"></span>
     جميع الحقوق محفوظة — الأستاذ خالد مقدادي
   </footer>
-
 
   <script>
     // تحديث السنة تلقائيًا
